@@ -1,31 +1,32 @@
 /* ──────────────────────────────────────────────────────────────
    Super Luxury Car Rental — Design System (Single Source of Truth: :root)
-   QUIET LUXURY / minimalist ultra-premium: deep black, vast negative space,
-   editorial Cormorant Garamond display + Inter UI, gold used only as a whisper
-   (prices + a single hairline). Self-hosted fonts, font-display:optional (CLS≈0).
+   LIGHT editorial luxury, derived from the logo (gold emblem + charcoal
+   wordmark on white). Warm-white canvas, charcoal ink, antique-gold accent.
+   Cars first. Cormorant Garamond display + Inter UI. Self-hosted fonts.
+   Token note: names kept from the dark build but VALUES are inverted for light —
+   `ink` = light page ground, `ivory` = dark text/hairlines.
    ────────────────────────────────────────────────────────────── */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ---- Fonts (self-hosted, font-display:optional) ---- */
 @font-face { font-family: 'Inter Variable'; font-style: normal; font-weight: 100 900; font-display: optional; src: url('/fonts/inter.woff2') format('woff2'); }
 @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: optional; src: url('/fonts/cormorant-400.woff2') format('woff2'); }
 @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: optional; src: url('/fonts/cormorant-500.woff2') format('woff2'); }
 @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: optional; src: url('/fonts/cormorant-600.woff2') format('woff2'); }
 
 :root {
-  --rgb-ink: 8 8 10;            /* #08080A deepest cinematic ground */
-  --rgb-coal: 13 13 15;         /* #0D0D0F */
-  --rgb-graphite: 18 18 20;     /* #121214 raised surface */
-  --rgb-steel: 38 38 42;        /* #26262A rare border */
-  --rgb-ivory: 242 240 233;     /* #F2F0E9 primary text */
-  --rgb-mist: 157 153 143;      /* #9D998F secondary */
-  --rgb-faint: 103 100 92;      /* #67645C tertiary / labels */
-  --rgb-line: 242 240 233;      /* hairline base (low alpha) */
-  --rgb-gold: 196 164 99;       /* #C4A463 champagne — whisper accent */
-  --rgb-gold-lite: 224 203 149; /* #E0CB95 */
-  --rgb-gold-deep: 142 124 73;  /* #8E7C49 */
+  --rgb-ink: 250 248 243;       /* #FAF8F3 warm-white page ground (bg-ink) */
+  --rgb-coal: 243 239 231;      /* #F3EFE7 bone — alternating section */
+  --rgb-graphite: 255 255 255;  /* #FFFFFF card / panel */
+  --rgb-steel: 230 225 214;     /* #E6E1D6 light raised / fill */
+  --rgb-ivory: 26 25 23;        /* #1A1917 PRIMARY DARK text + hairlines */
+  --rgb-mist: 108 104 96;       /* #6C6860 muted text */
+  --rgb-faint: 150 144 133;     /* #969085 faint label */
+  --rgb-line: 26 25 23;         /* hairline base = ink */
+  --rgb-gold: 154 123 52;       /* #9A7B34 antique-gold accent (logo family) */
+  --rgb-gold-lite: 184 154 87;  /* #B89A57 */
+  --rgb-gold-deep: 110 86 33;   /* #6E5621 readable gold text on white */
   --nav-h: 84px;
 }
 
@@ -41,79 +42,74 @@
     color: rgb(var(--rgb-ivory));
     font-family: 'Inter Variable', Inter, system-ui, sans-serif;
     font-feature-settings: 'cv02','cv03','cv04','ss01';
-    font-size: 1rem; line-height: 1.65;
+    font-size: 1rem; line-height: 1.6;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
-  /* Editorial serif display */
   h1, h2, h3, .font-display {
     font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     font-weight: 500; letter-spacing: -0.01em; line-height: 1.04;
   }
-  h4 { font-family: 'Inter Variable', Inter, sans-serif; font-weight: 500; letter-spacing: -0.01em; }
+  h4 { font-family: 'Inter Variable', Inter, sans-serif; font-weight: 600; letter-spacing: -0.01em; }
   ::selection { background: rgb(var(--rgb-gold) / 0.22); color: rgb(var(--rgb-ivory)); }
-  :focus-visible { outline: 1px solid rgb(var(--rgb-gold) / 0.7); outline-offset: 4px; }
+  :focus-visible { outline: 1px solid rgb(var(--rgb-gold) / 0.8); outline-offset: 4px; }
   img { content-visibility: auto; }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: rgb(var(--rgb-ink)); }
-  ::-webkit-scrollbar-thumb { background: rgb(var(--rgb-steel)); border-radius: 999px; border: 3px solid rgb(var(--rgb-ink)); }
-  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--rgb-gold-deep)); }
+  ::-webkit-scrollbar-track { background: rgb(var(--rgb-coal)); }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--rgb-steel)); border-radius: 999px; border: 3px solid rgb(var(--rgb-coal)); }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--rgb-gold) / 0.6); }
 }
 
 @layer components {
-  /* Generous, disciplined containers — space is the luxury */
   .lux-container { @apply mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-12; }
   .lux-wide { @apply mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-14; }
   .lux-narrow { @apply mx-auto w-full max-w-3xl px-6 sm:px-10; }
 
-  /* Eyebrow — quiet, just letter-spaced caps. No gold, no chip. */
-  .eyebrow { @apply inline-block text-[0.7rem] font-medium uppercase tracking-[0.32em] text-faint; }
-  .eyebrow-gold { @apply text-gold/90; }
+  .eyebrow { @apply inline-block text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-gold-deep; }
 
-  /* Headlines helpers */
   .display-1 { @apply font-display text-[clamp(2.8rem,7vw,6.5rem)] font-normal leading-[1.0]; }
   .display-2 { @apply font-display text-[clamp(2.2rem,4.5vw,4rem)] font-medium leading-[1.05]; }
   .display-3 { @apply font-display text-[clamp(1.6rem,3vw,2.6rem)] font-medium leading-[1.1]; }
 
-  /* Buttons — slim, understated. Gold is reserved for the single key action. */
+  /* Buttons */
   .btn { @apply inline-flex items-center justify-center gap-2 text-[0.82rem] font-medium leading-none transition-all duration-500 ease-luxe; }
-  .btn-primary { @apply btn rounded-full border border-ivory/25 px-7 py-3.5 text-ivory/90 hover:border-gold/70 hover:text-gold; }
-  .btn-gold { @apply btn rounded-full bg-gold px-7 py-3.5 text-ink hover:bg-gold-lite; }
-  .btn-ghost { @apply btn px-2 py-1 text-ivory/70 hover:text-gold; }
+  .btn-primary { @apply btn rounded-full border border-ivory/25 px-7 py-3.5 text-ivory hover:border-ivory hover:bg-ivory hover:text-[rgb(250,248,243)]; }
+  .btn-gold { @apply btn rounded-full bg-gold px-7 py-3.5 text-white; }
+  .btn-gold:hover { background: rgb(var(--rgb-gold-deep)); }
+  .btn-dark { @apply btn rounded-full bg-ivory px-7 py-3.5 text-[rgb(250,248,243)] hover:bg-gold-deep; }
+  .btn-ghost { @apply btn px-2 py-1 text-mist hover:text-gold-deep; }
   .btn-block { @apply w-full; }
 
-  /* Minimal inline CTA: text + arrow */
-  .link-arrow { @apply inline-flex items-center gap-2 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-ivory/80 transition-colors hover:text-gold; }
+  .link-arrow { @apply inline-flex items-center gap-2 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-ivory transition-colors hover:text-gold-deep; }
   .link-arrow svg { transition: transform .5s cubic-bezier(.22,1,.36,1); }
   .link-arrow:hover svg { transform: translateX(4px); }
 
-  /* Surfaces — hairline, no heavy shadows */
-  .card { @apply rounded-xl border border-ivory/8 bg-graphite; }
+  /* Surfaces */
+  .card { @apply rounded-xl border border-ivory/10 bg-graphite; }
   .hairline { @apply border-ivory/10; }
   .rule { @apply h-px w-full bg-ivory/10; }
-  .rule-gold { height: 1px; background: linear-gradient(90deg, rgb(var(--rgb-gold) / 0.5), transparent); }
+  .rule-gold { height: 1px; background: linear-gradient(90deg, rgb(var(--rgb-gold) / 0.6), transparent); }
 
-  /* Quiet chips (filters only) */
   .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-ivory/12 px-3.5 py-1.5 text-[0.72rem] font-medium uppercase tracking-[0.12em] text-mist transition-colors; }
+  .chip-gold { @apply chip; }
 
-  /* Glass nav */
-  .glass { background: rgb(var(--rgb-ink) / 0.6); backdrop-filter: blur(20px) saturate(1.2); -webkit-backdrop-filter: blur(20px) saturate(1.2); }
+  /* Light glass nav */
+  .glass { background: rgb(var(--rgb-ink) / 0.72); backdrop-filter: blur(18px) saturate(1.1); -webkit-backdrop-filter: blur(18px) saturate(1.1); }
 
-  /* Scroll reveal — slow, subtle. Visible if JS off (gated on html.js). */
-  .js [data-reveal] { opacity: 0; transform: translateY(16px); will-change: opacity, transform; }
+  /* Category pills (the minimal top selector) */
+  .cat-pill { @apply shrink-0 whitespace-nowrap rounded-full border border-ivory/12 px-4 py-2 text-[0.75rem] font-medium uppercase tracking-[0.1em] text-mist transition-all duration-300; }
+  .cat-pill:hover { @apply border-ivory/30 text-ivory; }
+  .cat-pill.is-on { @apply border-ivory bg-ivory text-[rgb(250,248,243)]; }
+
+  /* Scroll reveal — gated on html.js (visible without JS) */
+  .js [data-reveal] { opacity: 0; transform: translateY(18px); will-change: opacity, transform; }
   @media (prefers-reduced-motion: reduce) { .js [data-reveal] { opacity: 1 !important; transform: none !important; } }
 
   .price-aed { font-variant-numeric: tabular-nums; letter-spacing: 0; }
   [data-wish].is-saved { color: rgb(var(--rgb-gold)); }
   [data-wish].is-saved svg { fill: currentColor; }
 
-  /* Hero: clean image, restrained cinematic grade (no neon glow) */
-  .vignette { box-shadow: inset 0 0 240px 60px rgb(0 0 0 / 0.55); }
-  /* Very faint dark wash for placeholder/section backdrops */
-  .hero-glow {
-    background:
-      radial-gradient(110% 80% at 50% 110%, rgb(var(--rgb-gold) / 0.06), transparent 60%),
-      linear-gradient(180deg, #0a0a0c 0%, #070708 100%);
-  }
-  .chip-gold { @apply chip; }
+  /* Parallax media: scale a touch so the translate never reveals an edge */
+  .parallax { will-change: transform; }
+  .parallax img, img.parallax { transform: scale(1.18); }
 }

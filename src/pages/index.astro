@@ -2,192 +2,120 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import FleetCard from '../components/FleetCard.astro';
-import { getFleet, catCounts, fmtAED } from '../lib/fleet';
-import { categories, services, whyChooseUs, brands, contact, about, site } from '../data/site';
-import { ArrowRight, ArrowUpRight, Plane, UserRound, Crown, CalendarRange, Headset, MapPin, Gem, BadgeCheck, ShieldCheck, Phone, MessageCircle, Mail } from '@lucide/astro';
+import { getFleet, catCounts } from '../lib/fleet';
+import { categories, contact } from '../data/site';
+import { MapPin, Phone, MessageCircle, Truck, Headset, BadgeCheck, UserRound } from '@lucide/astro';
 
-const icons: Record<string, any> = { Plane, UserRound, Crown, CalendarRange, Headset, MapPin, Gem, BadgeCheck, ShieldCheck };
 const fleet = await getFleet();
 const counts = catCounts(fleet);
-const featured = fleet.slice(0, 6);
-const catImage = (slug: string) => fleet.find((c) => c.categories.includes(slug))?.images[0];
-const arrow = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const showcase = fleet.find((c) => c.id === '129')?.images[1] ?? fleet[0].images[0]; // green Urus
+const perks = [
+  { icon: Truck, t: 'Free delivery', d: 'Anywhere in Dubai' },
+  { icon: Headset, t: '24/7 support', d: 'Always reachable' },
+  { icon: BadgeCheck, t: 'Transparent pricing', d: 'No hidden charges' },
+  { icon: UserRound, t: 'Chauffeur', d: 'On request' },
+];
 ---
-<Layout navVariant="transparent">
+<Layout navVariant="solid">
   <Hero />
 
-  <!-- Statement -->
-  <section class="lux-container py-28 lg:py-40">
-    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
-      <p class="eyebrow lg:col-span-3 lg:pt-4" data-reveal>The house</p>
-      <div class="lg:col-span-9">
-        <p class="max-w-3xl font-display text-[clamp(1.7rem,3.4vw,2.9rem)] font-normal leading-[1.22] text-ivory/90" data-reveal>
-          {about.intro}
-        </p>
-        <div class="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4" data-reveal data-delay="80">
-          <a href="/about" class="link-arrow">Our story <Fragment set:html={arrow} /></a>
-          <a href="/fleet" class="link-arrow">The collection <Fragment set:html={arrow} /></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Brands — quiet static band -->
-  <section class="border-y border-ivory/8 py-12">
-    <div class="lux-wide flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-center">
-      {brands.map((b) => (
-        <span class="font-display text-xl text-ivory/35 transition-colors hover:text-ivory/70">{b}</span>
-      ))}
-    </div>
-  </section>
-
-  <!-- Categories -->
-  <section class="lux-container py-28 lg:py-36">
-    <div class="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+  <!-- FLEET — cars first -->
+  <section id="fleet" class="scroll-mt-[var(--nav-h)] pt-16 lg:pt-24">
+    <div class="lux-wide mb-8 flex items-end justify-between">
       <div>
-        <p class="eyebrow mb-5" data-reveal>By category</p>
-        <h2 class="display-2 text-ivory" data-reveal>Choose your<br />character.</h2>
+        <p class="eyebrow mb-3" data-reveal>The fleet</p>
+        <h2 class="display-2" data-reveal>Pick your car.</h2>
       </div>
-      <a href="/fleet" class="link-arrow" data-reveal>All {fleet.length} cars <Fragment set:html={arrow} /></a>
+      <a href="/fleet" class="link-arrow hidden sm:inline-flex" data-reveal>All {fleet.length} cars
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
-    <div class="grid grid-cols-1 gap-px overflow-hidden border border-ivory/8 bg-ivory/8 sm:grid-cols-2 lg:grid-cols-3">
-      {categories.map((c, i) => {
-        const img = catImage(c.slug);
-        return (
-          <a href={`/fleet?category=${c.slug}`} class="group relative aspect-[5/4] overflow-hidden bg-ink" data-reveal data-delay={(i % 3) * 70}>
-            {img && <img src={img} alt={c.label} width="560" height="448" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-40 transition-all duration-[1.2s] ease-luxe group-hover:scale-[1.04] group-hover:opacity-60" />}
-            <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
-            <div class="relative flex h-full flex-col justify-end p-7">
-              <div class="flex items-end justify-between">
-                <h3 class="font-display text-[2rem] leading-none text-ivory">{c.label}</h3>
-                <span class="pb-1 text-[0.72rem] tracking-[0.15em] text-faint">{counts.get(c.slug) ?? 0}</span>
-              </div>
-              <p class="mt-2 max-w-[16rem] text-[0.82rem] leading-relaxed text-mist opacity-0 transition-opacity duration-500 group-hover:opacity-100">{c.blurb}</p>
-            </div>
-          </a>
-        );
-      })}
-    </div>
-  </section>
-
-  <!-- Featured -->
-  <section class="border-t border-ivory/8 py-28 lg:py-36">
-    <div class="lux-container">
-      <div class="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p class="eyebrow mb-5" data-reveal>The flagships</p>
-          <h2 class="display-2 text-ivory" data-reveal>In the fleet now.</h2>
-        </div>
-        <a href="/fleet" class="link-arrow" data-reveal>Browse all <Fragment set:html={arrow} /></a>
-      </div>
-      <div class="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-        {featured.map((car, i) => <div data-reveal data-delay={(i % 3) * 70}><FleetCard car={car} /></div>)}
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="lux-container py-28 lg:py-36">
-    <div class="grid gap-14 lg:grid-cols-12 lg:gap-16">
-      <div class="lg:col-span-4">
-        <p class="eyebrow mb-5" data-reveal>What we do</p>
-        <h2 class="display-2 text-ivory" data-reveal>Beyond<br />the keys.</h2>
-        <p class="mt-7 max-w-sm text-mist" data-reveal data-delay="60">From the airport gate to a chauffeur for the evening — the service around the car is what makes it effortless.</p>
-        <a href="/services" class="link-arrow mt-9" data-reveal data-delay="100">All services <Fragment set:html={arrow} /></a>
-      </div>
-      <div class="lg:col-span-8">
-        <div class="grid gap-px overflow-hidden border border-ivory/8 bg-ivory/8 sm:grid-cols-2">
-          {services.map((s, i) => {
-            const Icon = icons[s.icon] ?? Crown;
-            return (
-              <div class="bg-ink p-8" data-reveal data-delay={(i % 2) * 60}>
-                <Icon class="h-6 w-6 text-gold/80" stroke-width={1.4} />
-                <h3 class="mt-5 font-display text-[1.5rem] leading-tight text-ivory">{s.title}</h3>
-                <p class="mt-2.5 text-[0.9rem] leading-relaxed text-mist">{s.short}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why -->
-  <section class="border-y border-ivory/8 bg-coal py-28 lg:py-36">
-    <div class="lux-container">
-      <div class="mb-16 max-w-2xl">
-        <p class="eyebrow mb-5" data-reveal>Why Super Luxury</p>
-        <h2 class="display-2 text-ivory" data-reveal>A standard<br />you can feel.</h2>
-      </div>
-      <div class="grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-        {whyChooseUs.map((w, i) => (
-          <div class="border-t border-ivory/12 pt-6" data-reveal data-delay={(i % 3) * 60}>
-            <p class="font-display text-[1.6rem] text-ivory">{w.title}</p>
-            <p class="mt-2.5 text-[0.9rem] leading-relaxed text-mist">{w.body}</p>
-          </div>
+    <!-- minimal category options -->
+    <div class="sticky top-[var(--nav-h)] z-30 -mx-px border-y border-ivory/10 bg-ink/85 backdrop-blur-xl">
+      <div class="lux-wide flex items-center gap-2 overflow-x-auto py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <button data-cat-pill data-cat="" class="cat-pill is-on">All</button>
+        {categories.map((c) => (
+          <button data-cat-pill data-cat={c.slug} class="cat-pill">{c.label}</button>
         ))}
-        <div class="border-t border-gold/40 pt-6" data-reveal>
-          <p class="font-display text-[1.6rem] text-gold">From {fmtAED(site.fromPriceAed)}</p>
-          <p class="mt-2.5 text-[0.9rem] leading-relaxed text-mist">a day — {fleet.length} cars ready to drive, delivered across Dubai.</p>
-        </div>
+        <span class="ml-auto shrink-0 pl-4 text-[0.72rem] tracking-[0.12em] text-faint"><span data-count>{fleet.length}</span> cars</span>
+      </div>
+    </div>
+
+    <div class="lux-wide py-12">
+      <div data-grid class="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
+        {fleet.map((car, i) => <FleetCard car={car} eager={i < 8} />)}
+      </div>
+      <div class="mt-14 flex justify-center">
+        <a href="/fleet" class="btn-primary">View all {fleet.length} cars</a>
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="lux-container py-28 lg:py-36">
-    <div class="mb-16 max-w-2xl">
-      <p class="eyebrow mb-5" data-reveal>Renting with us</p>
-      <h2 class="display-2 text-ivory" data-reveal>Three steps<br />to the road.</h2>
+  <!-- Parallax showcase -->
+  <section class="relative my-8 h-[70vh] overflow-hidden">
+    <div data-parallax="0.18" class="absolute inset-0">
+      <img src={showcase} alt="Lamborghini Urus in Dubai" class="parallax h-full w-full object-cover" loading="lazy" decoding="async" />
     </div>
-    <div class="grid gap-12 sm:grid-cols-3">
-      {[
-        { n: '01', t: 'Choose your car', d: 'Filter the fleet by category, brand or budget and save your favourites.' },
-        { n: '02', t: 'Send your request', d: 'Book online, on WhatsApp or by phone — we confirm availability and the daily rate.' },
-        { n: '03', t: 'We deliver it', d: 'Free pickup and drop-off anywhere in Dubai, at the time that suits you.' },
-      ].map((s, i) => (
-        <div data-reveal data-delay={i * 70}>
-          <p class="font-display text-[2.4rem] text-gold/70">{s.n}</p>
-          <h3 class="mt-4 font-display text-[1.5rem] text-ivory">{s.t}</h3>
-          <p class="mt-3 text-[0.9rem] leading-relaxed text-mist">{s.d}</p>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/30"></div>
+    <div class="lux-wide absolute inset-0 z-10 flex flex-col items-start justify-center text-white">
+      <p class="mb-4 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/75" data-reveal>Delivered to you</p>
+      <h2 class="max-w-2xl font-display text-[clamp(2rem,4.5vw,3.6rem)] font-normal leading-[1.05]" data-reveal data-delay="60">Your car, wherever you are in Dubai.</h2>
+      <a href="/book" class="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-ink transition hover:bg-gold hover:text-white" data-reveal data-delay="120">Book now</a>
+    </div>
+  </section>
+
+  <!-- Perks (short) -->
+  <section class="lux-wide py-16 lg:py-24">
+    <div class="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ivory/10 bg-ivory/10 lg:grid-cols-4">
+      {perks.map((p, i) => (
+        <div class="bg-graphite p-7 text-center" data-reveal data-delay={(i % 4) * 60}>
+          <p.icon class="mx-auto h-6 w-6 text-gold" stroke-width={1.4} />
+          <p class="mt-4 font-display text-[1.5rem] leading-tight text-ivory">{p.t}</p>
+          <p class="mt-1 text-[0.82rem] text-mist">{p.d}</p>
         </div>
       ))}
     </div>
-    <p class="mt-14 text-sm text-faint" data-reveal>Drivers must be 21+ with a valid licence · 250 km/day included · <a href="/terms" class="text-gold/80 underline-offset-4 hover:underline">full terms</a></p>
   </section>
 
-  <!-- Contact -->
-  <section class="border-t border-ivory/8 py-28 lg:py-36">
-    <div class="lux-container grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
-      <div>
-        <p class="eyebrow mb-5" data-reveal>Visit / call</p>
-        <h2 class="display-2 text-ivory" data-reveal>Al Barsha,<br />Dubai.</h2>
-        <p class="mt-7 max-w-md text-mist" data-reveal data-delay="60">Prefer your car delivered? Tell us where you are in Dubai — pickup and drop-off are on us.</p>
-        <div class="mt-9 space-y-3 text-[0.95rem]" data-reveal data-delay="100">
-          <p class="flex items-start gap-3 text-ivory/85"><MapPin class="mt-0.5 h-4 w-4 shrink-0 text-gold" stroke-width={1.5} />{contact.address}</p>
-          <p class="flex items-center gap-3 text-ivory/85"><Phone class="h-4 w-4 text-gold" stroke-width={1.5} /><a href={contact.phonePrimaryHref} class="hover:text-gold">{contact.phonePrimary}</a><span class="text-faint">·</span><a href={contact.phoneSecondaryHref} class="hover:text-gold">{contact.phoneSecondary}</a></p>
-          <p class="flex items-center gap-3 text-ivory/85"><Mail class="h-4 w-4 text-gold" stroke-width={1.5} /><a href={contact.emailHref} class="hover:text-gold">{contact.email}</a></p>
-        </div>
-        <div class="mt-9 flex flex-wrap items-center gap-x-10 gap-y-4" data-reveal data-delay="140">
-          <a href={contact.whatsapp} target="_blank" rel="noopener" class="link-arrow">WhatsApp us <Fragment set:html={arrow} /></a>
-          <a href="/contact" class="link-arrow">Contact &amp; map <Fragment set:html={arrow} /></a>
-        </div>
+  <!-- Contact (short) -->
+  <section class="lux-wide grid gap-12 pb-24 lg:grid-cols-2 lg:items-center lg:gap-16">
+    <div>
+      <p class="eyebrow mb-4" data-reveal>Al Barsha · Dubai</p>
+      <h2 class="display-2" data-reveal>Ready to drive?</h2>
+      <div class="mt-7 space-y-3 text-[0.95rem]" data-reveal data-delay="60">
+        <p class="flex items-center gap-3 text-ivory/85"><MapPin class="h-4 w-4 text-gold" stroke-width={1.5} />{contact.address}</p>
+        <p class="flex items-center gap-3 text-ivory/85"><Phone class="h-4 w-4 text-gold" stroke-width={1.5} /><a href={contact.phonePrimaryHref} class="hover:text-gold-deep">{contact.phonePrimary}</a></p>
       </div>
-      <div class="overflow-hidden border border-ivory/10" data-reveal data-delay="80">
-        <iframe title="Map — Al Barsha, Dubai" src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`} class="h-[360px] w-full grayscale contrast-110 lg:h-[440px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="mt-8 flex flex-wrap items-center gap-3" data-reveal data-delay="100">
+        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold"><MessageCircle class="h-4 w-4" /> WhatsApp</a>
+        <a href="/contact" class="btn-primary">Contact &amp; map</a>
       </div>
     </div>
-  </section>
-
-  <!-- Closing -->
-  <section class="border-t border-ivory/8 py-32 lg:py-44">
-    <div class="lux-container text-center">
-      <h2 class="display-1 text-ivory" data-reveal>Your Dubai,<br />your car.</h2>
-      <div class="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4" data-reveal data-delay="80">
-        <a href="/fleet" class="btn-primary">Explore the fleet</a>
-        <a href="/book" class="link-arrow">Book now <Fragment set:html={arrow} /></a>
-      </div>
+    <div class="overflow-hidden rounded-2xl border border-ivory/10" data-reveal data-delay="80">
+      <iframe title="Map — Al Barsha, Dubai" src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`} class="h-[340px] w-full lg:h-[400px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 </Layout>
+
+<script>
+  // category-only filter for the homepage grid
+  const grid = document.querySelector('[data-grid]') as HTMLElement | null;
+  if (grid) {
+    const cards = Array.from(grid.querySelectorAll('[data-card]')) as HTMLElement[];
+    const pills = Array.from(document.querySelectorAll('[data-cat-pill]')) as HTMLElement[];
+    const countEl = document.querySelector('[data-count]') as HTMLElement;
+    function apply(cat: string) {
+      let n = 0;
+      cards.forEach((c) => {
+        const ok = !cat || (c.dataset.cats || '').split(',').includes(cat);
+        c.style.display = ok ? '' : 'none';
+        if (ok) n++;
+      });
+      if (countEl) countEl.textContent = String(n);
+    }
+    pills.forEach((p) => p.addEventListener('click', () => {
+      pills.forEach((x) => x.classList.toggle('is-on', x === p));
+      apply(p.dataset.cat || '');
+    }));
+  }
+</script>
