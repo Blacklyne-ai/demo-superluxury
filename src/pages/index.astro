@@ -45,17 +45,19 @@ const perks = [
       <div data-grid class="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
         {fleet.map((car, i) => <FleetCard car={car} eager={i < 8} />)}
       </div>
-      <div class="mt-14 flex justify-center">
-        <a href="/fleet" class="btn-primary">View all {fleet.length} cars</a>
+      <div class="mt-14 flex flex-col items-center gap-5">
+        <button data-showmore class="btn-primary">Show more cars</button>
+        <a href="/fleet" class="text-[0.78rem] uppercase tracking-[0.14em] text-faint transition-colors hover:text-gold-deep">Browse all {fleet.length} with filters →</a>
       </div>
     </div>
   </section>
 
   <!-- Parallax showcase -->
   <section class="relative my-8 h-[70vh] overflow-hidden">
-    <div data-parallax="0.18" class="absolute inset-0">
-      <img src={showcase} alt="Lamborghini Urus in Dubai" class="parallax h-full w-full object-cover" loading="lazy" decoding="async" />
-    </div>
+    <img src="/film/showcase-poster.webp" alt="Lamborghini Urus with the Dubai skyline" class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+    <video data-showcase-video class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700" poster="/film/showcase-poster.webp" muted loop playsinline preload="none" aria-hidden="true">
+      <source src="/film/showcase-dubai.mp4" type="video/mp4" />
+    </video>
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/30"></div>
     <div class="lux-wide absolute inset-0 z-10 flex flex-col items-start justify-center text-white">
       <p class="mb-4 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/75" data-reveal>Delivered to you</p>
@@ -101,21 +103,44 @@ const perks = [
   // category-only filter for the homepage grid
   const grid = document.querySelector('[data-grid]') as HTMLElement | null;
   if (grid) {
+    const PAGE = 12;
     const cards = Array.from(grid.querySelectorAll('[data-card]')) as HTMLElement[];
     const pills = Array.from(document.querySelectorAll('[data-cat-pill]')) as HTMLElement[];
     const countEl = document.querySelector('[data-count]') as HTMLElement;
-    function apply(cat: string) {
-      let n = 0;
+    const moreBtn = document.querySelector('[data-showmore]') as HTMLElement | null;
+    let cat = '';
+    let limit = PAGE;
+    function apply() {
+      let total = 0, shown = 0;
       cards.forEach((c) => {
-        const ok = !cat || (c.dataset.cats || '').split(',').includes(cat);
-        c.style.display = ok ? '' : 'none';
-        if (ok) n++;
+        const match = !cat || (c.dataset.cats || '').split(',').includes(cat);
+        if (match) { total++; const vis = shown < limit; c.style.display = vis ? '' : 'none'; if (vis) shown++; }
+        else c.style.display = 'none';
       });
-      if (countEl) countEl.textContent = String(n);
+      if (countEl) countEl.textContent = String(total);
+      if (moreBtn) moreBtn.style.display = shown < total ? '' : 'none';
     }
     pills.forEach((p) => p.addEventListener('click', () => {
       pills.forEach((x) => x.classList.toggle('is-on', x === p));
-      apply(p.dataset.cat || '');
+      cat = p.dataset.cat || ''; limit = PAGE; apply();
     }));
+    moreBtn?.addEventListener('click', () => { limit += PAGE; apply(); });
+    apply();
+  }
+
+  // showcase video — lazy play when scrolled into view (skip for reduced-motion)
+  const sv = document.querySelector('[data-showcase-video]') as HTMLVideoElement | null;
+  if (sv && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        sv.preload = 'auto';
+        sv.addEventListener('canplay', () => { sv.style.opacity = '1'; sv.play().catch(() => {}); }, { once: true });
+        sv.load();
+        io.disconnect();
+      });
+    }, { rootMargin: '200px' });
+    io.observe(sv);
   }
 </script>
+

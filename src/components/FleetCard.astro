@@ -1,5 +1,5 @@
 ---
-import { Heart } from '@lucide/astro';
+import { Heart, ChevronLeft, ChevronRight } from '@lucide/astro';
 import { fmtAED } from '../lib/fleet';
 import { categoryMap } from '../data/site';
 import type { Car } from '../lib/fleet';
@@ -7,7 +7,8 @@ import type { Car } from '../lib/fleet';
 interface Props { car: Car; eager?: boolean }
 const { car, eager = false } = Astro.props;
 const href = `/fleet/${car.sourceSlug}-${car.id}`;
-const cover = car.images[0];
+const imgs = car.images.slice(0, 8);
+const cover = imgs[0];
 const cat = categoryMap[car.category];
 const specLine = [car.specs.seats && `${car.specs.seats} seats`, car.specs.transmission].filter(Boolean).join('  ·  ');
 ---
@@ -21,24 +22,39 @@ const specLine = [car.specs.seats && `${car.specs.seats} seats`, car.specs.trans
   data-price={car.priceDaily}
   data-seats={car.specs.seats ?? ''}
 >
-  <a href={href} class="block">
-    <div class="relative aspect-[4/3] overflow-hidden bg-coal">
+  <div class="group/img relative aspect-[4/3] overflow-hidden rounded-lg bg-coal" data-gallery data-idx="0" data-images={JSON.stringify(imgs)}>
+    <a href={href} class="block h-full w-full">
       {cover ? (
-        <img src={cover} alt={car.name} width="640" height="480"
+        <img data-cardimg src={cover} alt={car.name} width="640" height="480"
           loading={eager ? 'eager' : 'lazy'} decoding="async"
-          class="h-full w-full object-cover transition-transform duration-[1.4s] ease-luxe group-hover:scale-[1.05]" />
+          class="h-full w-full object-cover transition-transform duration-700 ease-luxe group-hover:scale-[1.04]" />
       ) : (
         <div class="grid h-full w-full place-items-center text-faint">No image</div>
       )}
-    </div>
-  </a>
+    </a>
 
-  <!-- Wishlist (quiet, top-right) -->
-  <button data-wish data-id={`${car.sourceSlug}-${car.id}`} aria-label={`Save ${car.name}`} aria-pressed="false"
-    class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full text-white/85 backdrop-blur-sm transition-colors hover:text-gold-lite"
-    style="background:rgb(0 0 0 / 0.32)">
-    <Heart class="h-[17px] w-[17px]" />
-  </button>
+    {imgs.length > 1 && (
+      <>
+        <button data-img-prev aria-label="Previous photo"
+          class="absolute left-2.5 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-ink opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-white group-hover/img:opacity-100 max-md:opacity-90"
+          style="background:rgb(255 255 255 / 0.78)"><ChevronLeft class="h-4 w-4" /></button>
+        <button data-img-next aria-label="Next photo"
+          class="absolute right-2.5 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-ink opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-white group-hover/img:opacity-100 max-md:opacity-90"
+          style="background:rgb(255 255 255 / 0.78)"><ChevronRight class="h-4 w-4" /></button>
+        <div data-img-dots class="pointer-events-none absolute bottom-2.5 left-1/2 flex -translate-x-1/2 gap-1.5">
+          {imgs.map((_, i) => (
+            <span class:list={['h-1.5 w-1.5 rounded-full transition-colors', i === 0 ? 'bg-white' : 'bg-white/45']}></span>
+          ))}
+        </div>
+      </>
+    )}
+
+    <button data-wish data-id={`${car.sourceSlug}-${car.id}`} aria-label={`Save ${car.name}`} aria-pressed="false"
+      class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full text-white/85 backdrop-blur-sm transition-colors hover:text-gold-lite"
+      style="background:rgb(0 0 0 / 0.32)">
+      <Heart class="h-[17px] w-[17px]" />
+    </button>
+  </div>
 
   <div class="pt-5">
     <p class="text-[0.66rem] uppercase tracking-[0.2em] text-faint">{car.brand} · {cat?.label ?? car.category}</p>
@@ -49,3 +65,30 @@ const specLine = [car.specs.seats && `${car.specs.seats} seats`, car.specs.trans
     </div>
   </div>
 </article>
+
+<script>
+  // Inline image carousel for fleet cards (delegated, runs once globally)
+  if (!(window as any).__cardGallery) {
+    (window as any).__cardGallery = true;
+    const step = (btn: HTMLElement, dir: number) => {
+      const g = btn.closest('[data-gallery]') as HTMLElement | null;
+      if (!g) return;
+      let imgs: string[] = [];
+      try { imgs = JSON.parse(g.dataset.images || '[]'); } catch {}
+      if (imgs.length < 2) return;
+      let idx = (Number(g.dataset.idx || 0) + dir + imgs.length) % imgs.length;
+      g.dataset.idx = String(idx);
+      const img = g.querySelector('[data-cardimg]') as HTMLImageElement | null;
+      if (img) img.src = imgs[idx];
+      const dots = g.querySelectorAll('[data-img-dots] span');
+      dots.forEach((d, i) => { (d as HTMLElement).className = `h-1.5 w-1.5 rounded-full transition-colors ${i === idx ? 'bg-white' : 'bg-white/45'}`; });
+    };
+    document.addEventListener('click', (e) => {
+      const prev = (e.target as HTMLElement).closest('[data-img-prev]') as HTMLElement | null;
+      const next = (e.target as HTMLElement).closest('[data-img-next]') as HTMLElement | null;
+      if (!prev && !next) return;
+      e.preventDefault(); e.stopPropagation();
+      step((prev || next)!, prev ? -1 : 1);
+    });
+  }
+</script>
