@@ -20,7 +20,7 @@ const assurances = [
 
   <section class="lux-container grid gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
     <!-- form -->
-    <form data-bookform class="rounded-3xl border border-ivory/10 bg-graphite p-7 shadow-[0_24px_60px_-32px_rgba(0,0,0,0.25)] lg:p-10" data-reveal>
+    <form data-bookform class="rounded-3xl border border-ivory/10 bg-graphite p-7 shadow-[0_24px_60px_-32px_rgba(0,0,0,0.25)] lg:p-10" data-slide="left">
       <div class="grid gap-5 sm:grid-cols-2">
         <label class="block"><span class="mb-2 block text-sm text-mist">Your name</span><input name="name" required class="field" placeholder="Full name" /></label>
         <label class="block"><span class="mb-2 block text-sm text-mist">Phone / WhatsApp</span><input name="phone" required class="field" placeholder="+971 …" /></label>
@@ -44,7 +44,7 @@ const assurances = [
     <!-- assurances -->
     <aside class="space-y-5">
       {assurances.map((a, i) => (
-        <div class="flex gap-5 rounded-2xl border border-ivory/10 bg-coal p-7" data-reveal data-delay={i * 60}>
+        <div class="flex gap-5 rounded-2xl border border-ivory/10 bg-coal p-7" data-slide="right">
           <div class="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-gold/25 bg-gold/10 text-gold-deep"><a.icon class="h-5 w-5" stroke-width={1.5} /></div>
           <div><h3 class="font-display text-[1.3rem] leading-tight text-ivory">{a.t}</h3><p class="mt-1.5 text-sm leading-relaxed text-mist">{a.d}</p></div>
         </div>

@@ -16,7 +16,7 @@ const visionImg = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] ?? fle
   <!-- Intro + stats -->
   <section class="lux-container py-20 lg:py-32">
     <div class="grid gap-14 lg:grid-cols-12 lg:gap-20">
-      <p class="lg:col-span-7 font-display text-[clamp(1.6rem,3vw,2.5rem)] font-normal leading-[1.3] text-ivory" data-reveal>{about.intro}</p>
+      <p class="lg:col-span-7 font-display text-[clamp(1.6rem,3vw,2.5rem)] font-normal leading-[1.3] text-ivory" data-slide="left">{about.intro}</p>
       <div class="lg:col-span-5 lg:pt-3">
         <div class="grid grid-cols-3 gap-6 border-t border-ivory/10 pt-8" data-reveal data-delay="80">
           <div><p class="font-display text-[2.6rem] leading-none text-gold-deep">{fleet.length}</p><p class="mt-2 text-[0.82rem] uppercase tracking-[0.14em] text-faint">cars</p></div>
@@ -30,7 +30,7 @@ const visionImg = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] ?? fle
   </section>
 
   <!-- Vision band -->
-  <ParallaxBand image={visionImg} alt="Rolls-Royce" height="h-[72vh] min-h-[480px]" align="center"
+  <ParallaxBand image={visionImg} alt="Rolls-Royce" height="h-[72vh] min-h-[480px]" align="center" drift="x"
     eyebrow="Our company vision" title={about.vision} />
 
   <!-- Values -->

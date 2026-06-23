@@ -36,14 +36,12 @@ const shots: Record<string, string> = {
       const Icon = icons[s.icon] ?? Crown;
       const flip = i % 2 === 1;
       return (
-        <section class="grid items-stretch lg:grid-cols-2">
-          <div class:list={['relative min-h-[340px] overflow-hidden lg:min-h-[520px]', flip ? 'lg:order-2' : '']}>
-            <div data-parallax="0.12" class="absolute inset-0">
-              <img src={shots[s.slug]} alt={s.title} class="parallax h-full w-full object-cover" loading="lazy" decoding="async" />
-            </div>
+        <section class="grid items-stretch overflow-hidden lg:grid-cols-2">
+          <div data-slide={flip ? 'right' : 'left'} class:list={['relative min-h-[340px] overflow-hidden lg:min-h-[520px]', flip ? 'lg:order-2' : '']}>
+            <img src={shots[s.slug]} alt={s.title} data-parallax="0.14" class="fx-img absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
-          <div class:list={['flex flex-col justify-center bg-coal px-7 py-14 lg:px-16 lg:py-20', flip ? 'lg:order-1' : '']} data-reveal>
+          <div data-slide={flip ? 'left' : 'right'} class:list={['flex flex-col justify-center bg-coal px-7 py-14 lg:px-16 lg:py-20', flip ? 'lg:order-1' : '']}>
             <div class="flex items-center gap-4">
               <span class="grid h-12 w-12 place-items-center rounded-2xl border border-gold/30 bg-gold/10 text-gold-deep"><Icon class="h-6 w-6" stroke-width={1.4} /></span>
               <span class="font-display text-2xl text-gold-deep/60">0{i + 1}</span>

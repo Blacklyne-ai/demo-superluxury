@@ -101,44 +101,68 @@ const ldJson = {
 
     <script>
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const fxEls = Array.from(document.querySelectorAll('[data-reveal],[data-slide]')) as HTMLElement[];
+      const showAllFx = () => fxEls.forEach((el) => { el.style.opacity = '1'; el.style.transform = 'none'; });
 
-      // ── Lenis smooth scroll + parallax (skipped for reduced-motion) ──
-      const parallaxEls = Array.from(document.querySelectorAll('[data-parallax]')) as HTMLElement[];
-      function updateParallax() {
-        const vh = window.innerHeight;
-        for (const el of parallaxEls) {
-          const r = el.getBoundingClientRect();
-          if (r.bottom < -300 || r.top > vh + 300) continue;
-          const speed = parseFloat(el.dataset.parallax || '0.15');
-          const offset = ((r.top + r.height / 2) - vh / 2) * speed * -1;
-          el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
-        }
-      }
-      if (!reduce) {
-        import('lenis').then(({ default: Lenis }) => {
-          const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-          function raf(t: number) { lenis.raf(t); updateParallax(); requestAnimationFrame(raf); }
-          requestAnimationFrame(raf);
-        }).catch(() => { window.addEventListener('scroll', updateParallax, { passive: true }); updateParallax(); });
-      }
-
-      // ── Scroll reveal (gentle, once). Safe default: visible if JS/observer absent. ──
-      const reveals = Array.from(document.querySelectorAll('[data-reveal]')) as HTMLElement[];
+      // ── Reveals & side-slides via IntersectionObserver (reliable, also for in-view) ──
       if (reduce || !('IntersectionObserver' in window)) {
-        reveals.forEach((el) => { el.style.opacity = '1'; el.style.transform = 'none'; });
+        showAllFx();
       } else {
         const io = new IntersectionObserver((entries) => {
           entries.forEach((e) => {
             if (!e.isIntersecting) return;
             const el = e.target as HTMLElement;
             const d = Number(el.dataset.delay || 0);
-            el.style.transition = `opacity 1.2s cubic-bezier(.22,1,.36,1) ${d}ms, transform 1.2s cubic-bezier(.22,1,.36,1) ${d}ms`;
+            el.style.transition = `opacity 1.1s cubic-bezier(.22,1,.36,1) ${d}ms, transform 1.25s cubic-bezier(.22,1,.36,1) ${d}ms`;
             el.style.opacity = '1';
             el.style.transform = 'none';
             io.unobserve(el);
           });
-        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-        reveals.forEach((el) => io.observe(el));
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+        fxEls.forEach((el) => io.observe(el));
+        // Failsafe: if the observer never fires (e.g. background tab), reveal anything still hidden.
+        setTimeout(() => fxEls.forEach((el) => {
+          if (parseFloat(getComputedStyle(el).opacity) < 0.1) {
+            el.style.transition = 'opacity 1s ease, transform 1s ease';
+            el.style.opacity = '1'; el.style.transform = 'none';
+          }
+        }), 1600);
+      }
+
+      // ── Lenis smooth scroll + GSAP scrub parallax (images drift / glide / zoom) ──
+      if (!reduce) {
+        Promise.all([import('gsap'), import('gsap/ScrollTrigger'), import('lenis')]).then(([g, s, l]: any[]) => {
+          const gsap = g.default ?? g.gsap;
+          const ScrollTrigger = s.ScrollTrigger ?? s.default;
+          const Lenis = l.default;
+          gsap.registerPlugin(ScrollTrigger);
+
+          const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+          lenis.on('scroll', ScrollTrigger.update);
+          gsap.ticker.add((t: number) => lenis.raf(t * 1000));
+          gsap.ticker.lagSmoothing(0);
+
+          // Vertical parallax + gentle zoom
+          gsap.utils.toArray('[data-parallax]').forEach((el: any) => {
+            const sect = el.closest('section') || el.parentElement || el;
+            gsap.fromTo(el, { yPercent: -9, scale: 1.34 }, {
+              yPercent: 9, scale: 1.16, ease: 'none',
+              scrollTrigger: { trigger: sect, start: 'top bottom', end: 'bottom top', scrub: 1 },
+            });
+          });
+          // True horizontal drift (image glides left -> right with scroll)
+          gsap.utils.toArray('[data-px]').forEach((el: any) => {
+            const amt = parseFloat(el.dataset.px) || 9;
+            const sect = el.closest('section') || el.parentElement || el;
+            gsap.fromTo(el, { xPercent: -amt, scale: 1.34 }, {
+              xPercent: amt, ease: 'none',
+              scrollTrigger: { trigger: sect, start: 'top bottom', end: 'bottom top', scrub: 1 },
+            });
+          });
+
+          ScrollTrigger.refresh();
+          window.addEventListener('load', () => ScrollTrigger.refresh());
+        }).catch(() => {});
       }
 
       // ── Wishlist (localStorage, global) ──

@@ -14,7 +14,7 @@ const tiles = [
 ---
 <Layout title="Contact - Super Luxury Car Rental, Al Barsha Dubai">
   <!-- Parallax header -->
-  <ParallaxBand image={header} alt="Bentley in Dubai" height="h-[68vh] min-h-[460px]"
+  <ParallaxBand image={header} alt="Bentley in Dubai" height="h-[68vh] min-h-[460px]" drift="x"
     eyebrow="Get in touch" title="Let’s get you driving."
     text="Tell us the car, the dates and where you are in Dubai - we deliver across the city." />
 
@@ -39,7 +39,7 @@ const tiles = [
   <!-- Address + map -->
   <section class="bg-coal py-20 lg:py-28">
     <div class="lux-container grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-      <div data-reveal>
+      <div data-slide="left">
         <p class="eyebrow mb-4">Al Barsha · Dubai</p>
         <h2 class="display-2 text-ivory">Visit the showroom.</h2>
         <ul class="mt-9 space-y-6 text-ivory/85">
@@ -57,7 +57,7 @@ const tiles = [
           <a href={contact.facebook} target="_blank" rel="noopener" class="text-mist hover:text-gold-deep">Facebook</a>
         </div>
       </div>
-      <div class="overflow-hidden rounded-2xl border border-ivory/10 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.3)]" data-reveal data-delay="80">
+      <div class="overflow-hidden rounded-2xl border border-ivory/10 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.3)]" data-slide="right">
         <iframe title="Map - Al Barsha, Dubai" src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`} class="h-[380px] w-full lg:h-[460px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>

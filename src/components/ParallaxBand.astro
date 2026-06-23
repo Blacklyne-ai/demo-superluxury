@@ -1,9 +1,10 @@
 ---
 // Full-bleed parallax car band with optional overlaid copy. Reused across subpages.
+// drift: 'y' = vertical parallax + zoom (default), 'x' = horizontal glide (left -> right).
 interface Props {
   image: string;
   alt?: string;
-  height?: string;        // tailwind height class
+  height?: string;
   eyebrow?: string;
   title?: string;
   text?: string;
@@ -11,22 +12,24 @@ interface Props {
   ctaLabel?: string;
   align?: 'left' | 'center';
   speed?: number;
+  drift?: 'x' | 'y';
 }
-const { image, alt = '', height = 'h-[60vh] min-h-[420px]', eyebrow, title, text, ctaHref, ctaLabel, align = 'left', speed = 0.18 } = Astro.props;
+const { image, alt = '', height = 'h-[60vh] min-h-[420px]', eyebrow, title, text, ctaHref, ctaLabel, align = 'left', speed = 0.18, drift = 'y' } = Astro.props;
 const hasCopy = eyebrow || title || text || ctaLabel;
+const fxAttr = drift === 'x' ? { 'data-px': 10 } : { 'data-parallax': speed };
 ---
 <section class:list={['relative overflow-hidden', height]}>
-  <div data-parallax={speed} class="absolute inset-0">
-    <img src={image} alt={alt} class="parallax h-full w-full object-cover" loading="lazy" decoding="async" />
+  <div class="absolute inset-0 overflow-hidden">
+    <img src={image} alt={alt} {...fxAttr} class="fx-img absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
   </div>
   <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/35"></div>
   {hasCopy && (
     <div class:list={['lux-wide absolute inset-0 z-10 flex flex-col justify-center text-white', align === 'center' ? 'items-center text-center' : 'items-start']}>
       {eyebrow && <p class="mb-4 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/75" data-reveal>{eyebrow}</p>}
-      {title && <h2 class="max-w-3xl font-display text-[clamp(2rem,4.5vw,3.8rem)] font-normal leading-[1.04]" data-reveal data-delay="60">{title}</h2>}
-      {text && <p class="mt-5 max-w-xl text-[1.02rem] leading-relaxed text-white/80" data-reveal data-delay="120">{text}</p>}
+      {title && <h2 class="max-w-3xl font-display text-[clamp(2rem,4.5vw,3.8rem)] font-normal leading-[1.04]" data-reveal data-delay="80">{title}</h2>}
+      {text && <p class="mt-5 max-w-xl text-[1.02rem] leading-relaxed text-white/80" data-reveal data-delay="160">{text}</p>}
       {ctaLabel && ctaHref && (
-        <a href={ctaHref} class="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-ivory transition hover:bg-gold hover:text-white" data-reveal data-delay="180">{ctaLabel}
+        <a href={ctaHref} class="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-ivory transition hover:bg-gold hover:text-white" data-reveal data-delay="240">{ctaLabel}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       )}
     </div>
