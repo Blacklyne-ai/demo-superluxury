@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { contact, site } from '../data/site';
+import { MessageCircle, Phone, Mail, MapPin, Clock, ArrowUpRight } from '@lucide/astro';
+const tiles = [
+  { icon: MessageCircle, label: 'WhatsApp', value: contact.whatsappNumber, href: contact.whatsapp, note: 'Fastest reply — chat with us now', ext: true },
+  { icon: Phone, label: 'Call us', value: contact.phonePrimary, href: contact.phonePrimaryHref, note: contact.phoneSecondary },
+  { icon: Mail, label: 'Email', value: contact.email, href: contact.emailHref, note: 'For longer enquiries' },
+];
+---
+<Layout title="Contact — Super Luxury Car Rental, Al Barsha Dubai" navVariant="solid">
+  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+4rem)]">
+    <div class="lux-container pb-14">
+      <p class="eyebrow mb-4" data-reveal>Get in touch</p>
+      <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl lg:text-6xl" data-reveal>Let’s get you driving.</h1>
+      <p class="mt-5 max-w-xl text-mist" data-reveal data-delay="60">Tell us the car, the dates and where you are in Dubai. We deliver across the city — pickup and drop-off on us.</p>
+    </div>
+  </section>
+
+  <!-- Tiles -->
+  <section class="lux-container py-14 lg:py-16">
+    <div class="grid gap-5 sm:grid-cols-3">
+      {tiles.map((t, i) => (
+        <a href={t.href} target={t.ext ? '_blank' : undefined} rel={t.ext ? 'noopener' : undefined}
+          class="group rounded-2xl border border-ivory/10 bg-graphite p-7 transition-colors duration-500 hover:border-gold/40" data-reveal data-delay={i * 60}>
+          <div class="flex items-center justify-between">
+            <div class="grid h-12 w-12 place-items-center rounded-xl border border-gold/25 bg-gold/10 text-gold"><t.icon class="h-6 w-6" /></div>
+            <ArrowUpRight class="h-5 w-5 text-faint transition-colors group-hover:text-gold" />
+          </div>
+          <p class="mt-5 text-xs uppercase tracking-wide2 text-faint">{t.label}</p>
+          <p class="mt-1 font-display text-lg font-semibold text-ivory">{t.value}</p>
+          <p class="mt-1 text-sm text-mist">{t.note}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Address + map -->
+  <section class="lux-container grid gap-10 pb-20 lg:grid-cols-2 lg:items-stretch lg:gap-12">
+    <div data-reveal>
+      <h2 class="font-display text-2xl font-semibold tracking-tight2 text-ivory sm:text-3xl">Visit the showroom</h2>
+      <ul class="mt-6 space-y-5 text-ivory/85">
+        <li class="flex items-start gap-3"><MapPin class="mt-0.5 h-5 w-5 shrink-0 text-gold" /><span>{contact.address}<br /><span class="text-mist">{site.country}</span></span></li>
+        <li class="flex items-start gap-3"><Clock class="mt-0.5 h-5 w-5 shrink-0 text-gold" /><span>Open 24/7 — call or message any time<br /><span class="text-mist">support around the clock</span></span></li>
+        <li class="flex items-start gap-3"><Phone class="mt-0.5 h-5 w-5 shrink-0 text-gold" /><span><a href={contact.phonePrimaryHref} class="hover:text-gold">{contact.phonePrimary}</a> · <a href={contact.phoneSecondaryHref} class="hover:text-gold">{contact.phoneSecondary}</a></span></li>
+      </ul>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold px-6 py-3"><MessageCircle class="h-4 w-4" /> WhatsApp</a>
+        <a href="/book" class="btn-outline px-6 py-3">Book a car</a>
+      </div>
+      <div class="mt-8 flex items-center gap-3">
+        <a href={contact.instagram} target="_blank" rel="noopener" class="text-sm text-mist hover:text-gold">Instagram</a>
+        <span class="text-faint">·</span>
+        <a href={contact.facebook} target="_blank" rel="noopener" class="text-sm text-mist hover:text-gold">Facebook</a>
+      </div>
+    </div>
+    <div class="min-h-[360px] overflow-hidden rounded-2xl border border-ivory/10" data-reveal data-delay="80">
+      <iframe title="Map — Al Barsha, Dubai" src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`} class="h-full min-h-[360px] w-full grayscale-[0.3] contrast-110" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</Layout>

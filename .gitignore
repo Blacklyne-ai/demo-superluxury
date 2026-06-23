@@ -1,0 +1,19 @@
+# build / deps
+node_modules/
+dist/
+.astro/
+# os / editor
+.DS_Store
+*.log
+npm-debug.log*
+# env
+.env
+.env.*
+# scrape & QA artefacts (nie committen — Push-Protection / Rohdaten)
+docs/
+_raw_*.html
+*_scrape*.json
+.tmp/
+# große Quell-Videos (nur abgeleitete Frames/Poster werden committed)
+public/film/source*.mp4
+public/film/*-source.mp4

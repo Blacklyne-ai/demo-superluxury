@@ -1,0 +1,29 @@
+{
+  "id": "19",
+  "sourceSlug": "rent-chevrolet-corvette-in-dubai",
+  "name": "Corvette C8",
+  "brand": "Chevrolet",
+  "category": "sports",
+  "categories": [
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 1050,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Experience the ultimate in luxury car rental in Dubai with our exclusive selection, featuring iconic models like the Corvette. Explore the thrill of the open road as you cruise through Dubai in style with our Corvette rental in Dubai options, designed to elevate your driving experience to new heights. Whether you're seeking the adrenaline rush of pure speed or simply want to make a statement, our luxury car rental in Dubai service has you covered.",
+  "images": [
+    "/images/fleet/19/01.webp",
+    "/images/fleet/19/02.webp",
+    "/images/fleet/19/03.webp",
+    "/images/fleet/19/04.webp"
+  ],
+  "sourceUrl": "/shop/rent-chevrolet-corvette-in-dubai-19"
+}

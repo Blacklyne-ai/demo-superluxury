@@ -1,0 +1,32 @@
+{
+  "id": "34",
+  "sourceSlug": "lamborghini-urus-2023-rental-in-dubai",
+  "name": "Lamborghini Urus",
+  "brand": "Lamborghini",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 2700,
+  "currency": "AED",
+  "specs": {
+    "engine": "650 HP",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Experience the heights of performance and elegance when you rent Lamborghini Dubai with the Lamborghini Urus 2023 in Dubai. For those who want the best in terms of style, comfort, and driving experience, this sleek and powerful SUV is a great option.",
+  "images": [
+    "/images/fleet/34/01.webp",
+    "/images/fleet/34/02.webp",
+    "/images/fleet/34/03.webp",
+    "/images/fleet/34/04.webp",
+    "/images/fleet/34/05.webp",
+    "/images/fleet/34/06.webp",
+    "/images/fleet/34/07.webp"
+  ],
+  "sourceUrl": "/shop/lamborghini-urus-2023-rental-in-dubai-34"
+}

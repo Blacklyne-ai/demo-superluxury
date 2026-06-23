@@ -1,0 +1,33 @@
+{
+  "id": "109",
+  "sourceSlug": "bentley-flying-spur",
+  "name": "Bentley flying Spur",
+  "brand": "Bentley",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sedan"
+  ],
+  "priceDaily": 2300,
+  "currency": "AED",
+  "specs": {
+    "engine": "W12 / V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Bentley Flying Spur is a perfect blend of sophistication, power, and luxury. Designed for those with discerning tastes, this sedan offers an unmatched driving experience with elegant interiors, advanced technology, and a smooth, powerful ride. Renting the Bentley Flying Spur in Dubai ensures a remarkable journey, whether you’re exploring the city or attending an exclusive event.",
+  "images": [
+    "/images/fleet/109/01.webp",
+    "/images/fleet/109/02.webp",
+    "/images/fleet/109/03.webp",
+    "/images/fleet/109/04.webp",
+    "/images/fleet/109/05.webp",
+    "/images/fleet/109/06.webp",
+    "/images/fleet/109/07.webp",
+    "/images/fleet/109/08.webp"
+  ],
+  "sourceUrl": "/shop/bentley-flying-spur-109"
+}

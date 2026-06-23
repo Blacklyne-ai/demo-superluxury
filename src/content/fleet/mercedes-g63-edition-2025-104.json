@@ -1,0 +1,31 @@
+{
+  "id": "104",
+  "sourceSlug": "mercedes-g63-edition-2025",
+  "name": "Mercedes G63 Edition 2025",
+  "brand": "Mercedes-Benz",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 1800,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Step into a world of supreme elegance and unparalleled power with the 2025 Mercedes G63 , available for rent Mercedes G63 Dubai . This iconic Mercedes G63 2025 model perfectly combines rugged strength with cutting-edge technology, ensuring an extraordinary driving experience. Whether you're cruising through Dubai's vibrant streets or embarking on an adventure across the desert, the G63 rental Dubai offers the perfect blend of performance and style. Elevate your journey with the prestige and power that only the Mercedes G63 2025 can provide.",
+  "images": [
+    "/images/fleet/104/01.webp",
+    "/images/fleet/104/02.webp",
+    "/images/fleet/104/03.webp",
+    "/images/fleet/104/04.webp",
+    "/images/fleet/104/05.webp",
+    "/images/fleet/104/06.webp",
+    "/images/fleet/104/07.webp"
+  ],
+  "sourceUrl": "/shop/mercedes-g63-edition-2025-104"
+}

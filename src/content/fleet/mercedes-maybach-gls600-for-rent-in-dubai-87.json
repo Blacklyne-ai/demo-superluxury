@@ -1,0 +1,32 @@
+{
+  "id": "87",
+  "sourceSlug": "mercedes-maybach-gls600-for-rent-in-dubai",
+  "name": "Mercedes Maybach GLS600",
+  "brand": "Mercedes-Benz",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 2000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Mercedes Maybach GLS600, for rent in Dubai, offers incomparable richness and elegance. With its amazing performance, exquisite luxury, and modern technology, this magnificent SUV raises the standards for automotive excellence while providing an outstanding driving experience.",
+  "images": [
+    "/images/fleet/87/01.webp",
+    "/images/fleet/87/02.webp",
+    "/images/fleet/87/03.webp",
+    "/images/fleet/87/04.webp",
+    "/images/fleet/87/05.webp",
+    "/images/fleet/87/06.webp",
+    "/images/fleet/87/07.webp"
+  ],
+  "sourceUrl": "/shop/mercedes-maybach-gls600-for-rent-in-dubai-87"
+}

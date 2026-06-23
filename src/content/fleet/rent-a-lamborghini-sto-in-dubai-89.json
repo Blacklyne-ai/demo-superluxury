@@ -1,0 +1,33 @@
+{
+  "id": "89",
+  "sourceSlug": "rent-a-lamborghini-sto-in-dubai",
+  "name": "Lamborghini Huracan STO 2024",
+  "brand": "Lamborghini",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sports"
+  ],
+  "priceDaily": 3700,
+  "currency": "AED",
+  "specs": {
+    "engine": "V10",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "When you rent Lamborghini Dubai with a Lamborghini STO, you will elevate your driving experience to new heights in Dubai. Embrace luxury, performance, and style with this cutting-edge supercar that promises an unforgettable adventure on the vibrant streets of Dubai.",
+  "images": [
+    "/images/fleet/89/01.webp",
+    "/images/fleet/89/02.webp",
+    "/images/fleet/89/03.webp",
+    "/images/fleet/89/04.webp",
+    "/images/fleet/89/05.webp",
+    "/images/fleet/89/06.webp",
+    "/images/fleet/89/07.webp",
+    "/images/fleet/89/08.webp"
+  ],
+  "sourceUrl": "/shop/rent-a-lamborghini-sto-in-dubai-89"
+}

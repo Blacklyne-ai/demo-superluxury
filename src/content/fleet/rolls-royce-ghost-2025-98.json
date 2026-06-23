@@ -1,0 +1,32 @@
+{
+  "id": "98",
+  "sourceSlug": "rolls-royce-ghost-2025",
+  "name": "Rolls Royce Ghost 2025",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 2900,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Experience the epitome of luxury with Rolls Royce Ghost Hire . This iconic vehicle blends timeless elegance with modern innovation, delivering an unmatched driving experience that exudes sophistication and class. Perfect for those seeking the ultimate in comfort and style.",
+  "images": [
+    "/images/fleet/98/01.webp",
+    "/images/fleet/98/02.webp",
+    "/images/fleet/98/03.webp",
+    "/images/fleet/98/04.webp",
+    "/images/fleet/98/05.webp",
+    "/images/fleet/98/06.webp",
+    "/images/fleet/98/07.webp",
+    "/images/fleet/98/08.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-ghost-2025-98"
+}

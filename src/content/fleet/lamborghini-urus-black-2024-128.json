@@ -1,0 +1,33 @@
+{
+  "id": "128",
+  "sourceSlug": "lamborghini-urus-black-2024",
+  "name": "Lamborghini Urus Black 2024",
+  "brand": "Lamborghini",
+  "category": "suv",
+  "categories": [
+    "sports",
+    "suv"
+  ],
+  "priceDaily": 3000,
+  "currency": "AED",
+  "specs": {
+    "engine": "650 HP",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "If you're looking to rent Lamborghini Dubai , the Lamborghini Urus is your gateway to an unparalleled luxury driving experience. The Urus is a masterpiece of design and engineering, combining the bold aesthetics of a supercar with the practicality of an SUV. Whether you're cruising down Sheikh Zayed Road or exploring the desert, renting the Urus in Dubai ensures you'll do it in style and comfort.",
+  "images": [
+    "/images/fleet/128/01.webp",
+    "/images/fleet/128/02.webp",
+    "/images/fleet/128/03.webp",
+    "/images/fleet/128/04.webp",
+    "/images/fleet/128/05.webp",
+    "/images/fleet/128/06.webp",
+    "/images/fleet/128/07.webp",
+    "/images/fleet/128/08.webp"
+  ],
+  "sourceUrl": "/shop/lamborghini-urus-black-2024-128"
+}

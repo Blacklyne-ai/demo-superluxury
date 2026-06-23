@@ -1,0 +1,139 @@
+---
+import { Heart, Menu, X, ChevronDown, MessageCircle } from '@lucide/astro';
+import { nav, categories, brands, contact, site } from '../data/site';
+
+interface Props { variant?: 'transparent' | 'solid' }
+const { variant = 'transparent' } = Astro.props;
+const path = Astro.url.pathname.replace(/\.html$/, '');
+const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header
+  data-nav
+  data-variant={variant}
+  class:list={[
+    'fixed inset-x-0 top-0 z-50 transition-colors duration-500',
+    variant === 'transparent' ? 'bg-transparent' : 'bg-ink/90 backdrop-blur-xl border-b border-ivory/10',
+  ]}
+>
+  <div class="lux-wide flex h-[var(--nav-h)] items-center justify-between gap-4">
+    <!-- Logo -->
+    <a href="/" class="relative z-10 flex items-center" aria-label={`${site.name} — home`}>
+      <img src="/logo-mark.png" alt={site.name} width="158" height="99" class="h-11 w-auto sm:h-12" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {nav.map((item) =>
+        item.href === '/fleet' ? (
+          <div class="group relative">
+            <a
+              href="/fleet"
+              class:list={['flex items-center gap-1 rounded-pill px-4 py-2 text-sm font-medium transition-colors', isActive(item.href) ? 'text-gold' : 'text-ivory/80 hover:text-ivory']}
+              aria-haspopup="true"
+            >
+              {item.label}
+              <ChevronDown class="h-3.5 w-3.5 opacity-70 transition-transform group-hover:rotate-180" />
+            </a>
+            <!-- Mega dropdown -->
+            <div class="invisible absolute left-1/2 top-full w-[680px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div class="card shadow-lift overflow-hidden p-6">
+                <div class="grid grid-cols-2 gap-6">
+                  <div>
+                    <p class="eyebrow mb-4">By category</p>
+                    <div class="grid grid-cols-2 gap-1">
+                      {categories.map((c) => (
+                        <a href={`/fleet?category=${c.slug}`} class="rounded-lg px-3 py-2 text-sm text-ivory/80 transition-colors hover:bg-ivory/5 hover:text-gold">{c.label}</a>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <p class="eyebrow mb-4">By brand</p>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-1">
+                      {brands.slice(0, 12).map((b) => (
+                        <a href={`/fleet?brand=${encodeURIComponent(b)}`} class="truncate text-sm text-ivory/70 transition-colors hover:text-gold">{b}</a>
+                      ))}
+                    </div>
+                    <a href="/fleet" class="mt-3 inline-block text-sm font-medium text-gold hover:text-gold-lite">All vehicles →</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <a
+            href={item.href}
+            class:list={['rounded-pill px-4 py-2 text-sm font-medium transition-colors', isActive(item.href) ? 'text-gold' : 'text-ivory/80 hover:text-ivory']}
+          >
+            {item.label}
+          </a>
+        )
+      )}
+    </nav>
+
+    <!-- Right actions -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="/fleet/wishlist" class="relative hidden rounded-pill p-2.5 text-ivory/80 transition-colors hover:text-gold sm:inline-flex" aria-label="Saved cars">
+        <Heart class="h-5 w-5" />
+        <span data-wish-count class="absolute -right-0.5 -top-0.5 hidden min-w-[18px] rounded-full bg-gold px-1 text-center text-[11px] font-semibold leading-[18px] text-ink">0</span>
+      </a>
+      <a href="/ar" class="hidden rounded-pill border border-ivory/15 px-3 py-1.5 text-xs font-medium tracking-wide text-ivory/70 transition-colors hover:border-gold/60 hover:text-gold sm:inline-flex" hreflang="ar" lang="ar" title="النسخة العربية (coming soon)">عربي</a>
+      <a href="/book" class="btn-gold hidden px-5 py-2.5 sm:inline-flex">Book now</a>
+      <!-- Mobile toggle -->
+      <button data-menu-open class="rounded-pill p-2 text-ivory lg:hidden" aria-label="Open menu" aria-expanded="false">
+        <Menu class="h-6 w-6" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile overlay menu -->
+<div data-menu class="fixed inset-0 z-[60] hidden">
+  <div data-menu-backdrop class="absolute inset-0 bg-ink/80 backdrop-blur-sm"></div>
+  <div data-menu-panel class="absolute right-0 top-0 flex h-full w-[86%] max-w-sm translate-x-full flex-col bg-coal shadow-lift transition-transform duration-400 ease-luxe">
+    <div class="flex h-[var(--nav-h)] items-center justify-between px-6">
+      <img src="/logo-mark.png" alt={site.name} width="130" height="82" class="h-10 w-auto" />
+      <button data-menu-close class="rounded-pill p-2 text-ivory" aria-label="Close menu"><X class="h-6 w-6" /></button>
+    </div>
+    <nav class="flex flex-col gap-1 overflow-y-auto px-6 pb-6 pt-4" aria-label="Mobile">
+      {nav.map((item) => (
+        <a href={item.href} class:list={['border-b border-ivory/8 py-3.5 font-display text-2xl font-semibold tracking-tight2', isActive(item.href) ? 'text-gold' : 'text-ivory']}>{item.label}</a>
+      ))}
+      <a href="/fleet/wishlist" class="border-b border-ivory/8 py-3.5 font-display text-2xl font-semibold tracking-tight2 text-ivory">Saved <span data-wish-count class="ml-1 hidden text-base text-gold">0</span></a>
+      <div class="mt-5 flex flex-col gap-3">
+        <a href="/book" class="btn-gold py-3.5">Book now</a>
+        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-outline py-3.5"><MessageCircle class="h-4 w-4" /> WhatsApp</a>
+        <a href="/ar" class="btn-ghost justify-center py-2 text-mist" lang="ar">النسخة العربية · Arabic (soon)</a>
+      </div>
+      <p class="mt-6 text-sm text-mist">{contact.phonePrimary}</p>
+    </nav>
+  </div>
+</div>
+
+<script>
+  // Nav: transparent → solid on scroll
+  const navEl = document.querySelector('[data-nav]') as HTMLElement | null;
+  if (navEl && navEl.dataset.variant === 'transparent') {
+    const onScroll = () => {
+      const solid = window.scrollY > 24;
+      navEl.classList.toggle('bg-ink/90', solid);
+      navEl.classList.toggle('backdrop-blur-xl', solid);
+      navEl.classList.toggle('border-b', solid);
+      navEl.classList.toggle('border-ivory/10', solid);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Mobile menu
+  const menu = document.querySelector('[data-menu]') as HTMLElement | null;
+  const panel = document.querySelector('[data-menu-panel]') as HTMLElement | null;
+  const openBtn = document.querySelector('[data-menu-open]') as HTMLElement | null;
+  const closeEls = document.querySelectorAll('[data-menu-close],[data-menu-backdrop]');
+  const open = () => { menu?.classList.remove('hidden'); requestAnimationFrame(() => panel?.classList.remove('translate-x-full')); document.body.style.overflow = 'hidden'; openBtn?.setAttribute('aria-expanded', 'true'); };
+  const close = () => { panel?.classList.add('translate-x-full'); document.body.style.overflow = ''; openBtn?.setAttribute('aria-expanded', 'false'); setTimeout(() => menu?.classList.add('hidden'), 400); };
+  openBtn?.addEventListener('click', open);
+  closeEls.forEach((el) => el.addEventListener('click', close));
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+</script>

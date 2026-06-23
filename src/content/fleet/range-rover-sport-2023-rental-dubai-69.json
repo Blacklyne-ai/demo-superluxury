@@ -1,0 +1,32 @@
+{
+  "id": "69",
+  "sourceSlug": "range-rover-sport-2023-rental-dubai",
+  "name": "Range Rover Sport 2025",
+  "brand": "Range Rover",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family"
+  ],
+  "priceDaily": 1100,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 5,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Discover Dubai's opulence with a Range Rover Sport 2023 rental from luxury car rental Dubai. Experience unparalleled luxury and advanced performance while cruising through the city's vibrant streets. For the best Range Rover rental Dubai experience, reserve your ride today!",
+  "images": [
+    "/images/fleet/69/01.webp",
+    "/images/fleet/69/02.webp",
+    "/images/fleet/69/03.webp",
+    "/images/fleet/69/04.webp",
+    "/images/fleet/69/05.webp",
+    "/images/fleet/69/06.webp",
+    "/images/fleet/69/07.webp"
+  ],
+  "sourceUrl": "/shop/range-rover-sport-2023-rental-dubai-69"
+}

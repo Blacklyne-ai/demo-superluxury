@@ -1,0 +1,31 @@
+{
+  "id": "9",
+  "sourceSlug": "audi-rs-q3-rental-in-dubai",
+  "name": "Audi RS Q3",
+  "brand": "Audi",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family"
+  ],
+  "priceDaily": 800,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Turn Dubai's iconic skyline into your personal backdrop with Audi RS Q3 rentals. Blend city chic with unbridled performance as you navigate through luxury and speed. In a place where every detail matters, why settle for ordinary? Experience the road less traveled – in style",
+  "images": [
+    "/images/fleet/9/01.webp",
+    "/images/fleet/9/02.webp",
+    "/images/fleet/9/03.webp",
+    "/images/fleet/9/04.webp",
+    "/images/fleet/9/05.webp",
+    "/images/fleet/9/06.webp"
+  ],
+  "sourceUrl": "/shop/audi-rs-q3-rental-in-dubai-9"
+}

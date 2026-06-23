@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FleetCard from '../../components/FleetCard.astro';
+import { getFleet, catCounts, activeBrands } from '../../lib/fleet';
+import { categories, brands } from '../../data/site';
+import { Search, SlidersHorizontal, X } from '@lucide/astro';
+
+const fleet = await getFleet();
+const counts = catCounts(fleet);
+const presentBrands = activeBrands(fleet);
+const priceBands = [
+  { v: '', label: 'Any price' },
+  { v: '0-500', label: 'Under AED 500' },
+  { v: '500-1000', label: 'AED 500 – 1,000' },
+  { v: '1000-2000', label: 'AED 1,000 – 2,000' },
+  { v: '2000-4000', label: 'AED 2,000 – 4,000' },
+  { v: '4000-99999', label: 'AED 4,000+' },
+];
+---
+<Layout title="Fleet — Super Luxury Car Rental Dubai" navVariant="solid">
+  <!-- Header -->
+  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+2.5rem)]">
+    <div class="lux-container pb-10">
+      <p class="eyebrow mb-4">The collection</p>
+      <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl lg:text-6xl">The fleet.</h1>
+      <p class="mt-4 max-w-xl text-mist">{fleet.length} handpicked cars, ready to drive in Dubai. Filter by category, brand or budget — daily rates in AED, free delivery across the city.</p>
+    </div>
+  </section>
+
+  <!-- Filter toolbar -->
+  <div class="sticky top-[var(--nav-h)] z-40 border-b border-ivory/8 bg-ink/92 backdrop-blur-xl">
+    <div class="lux-container py-4">
+      <!-- category pills -->
+      <div class="-mx-1 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <button data-cat-pill data-cat="" class="cat-pill is-on">All <span class="opacity-60">{fleet.length}</span></button>
+        {categories.map((c) => (
+          <button data-cat-pill data-cat={c.slug} class="cat-pill">{c.label} <span class="opacity-60">{counts.get(c.slug) ?? 0}</span></button>
+        ))}
+      </div>
+      <!-- controls -->
+      <div class="mt-3 flex flex-wrap items-center gap-3">
+        <label class="relative flex-1 min-w-[200px]">
+          <Search class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-faint" />
+          <input data-search type="search" placeholder="Search a model or brand…" class="w-full rounded-pill border border-ivory/12 bg-graphite py-2.5 pl-10 pr-4 text-sm text-ivory placeholder:text-faint focus:border-gold/50 focus:outline-none" />
+        </label>
+        <select data-brand-filter class="rounded-pill border border-ivory/12 bg-graphite px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none">
+          <option value="">All brands</option>
+          {presentBrands.map((b) => <option value={b}>{b}</option>)}
+        </select>
+        <select data-price-filter class="rounded-pill border border-ivory/12 bg-graphite px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none">
+          {priceBands.map((p) => <option value={p.v}>{p.label}</option>)}
+        </select>
+        <select data-sort class="rounded-pill border border-ivory/12 bg-graphite px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none">
+          <option value="price-desc">Price: high to low</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="name-asc">Name: A–Z</option>
+        </select>
+        <button data-reset class="hidden items-center gap-1.5 rounded-pill border border-ivory/12 px-4 py-2.5 text-sm text-mist hover:text-gold"><X class="h-3.5 w-3.5" /> Reset</button>
+        <span class="ml-auto text-sm text-mist"><span data-count>{fleet.length}</span> cars</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <section class="lux-container py-12 lg:py-16">
+    <div data-grid class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {fleet.map((car, i) => <FleetCard car={car} eager={i < 8} />)}
+    </div>
+    <div data-empty class="hidden py-24 text-center">
+      <SlidersHorizontal class="mx-auto h-10 w-10 text-faint" />
+      <p class="mt-4 text-lg text-ivory">No cars match these filters.</p>
+      <button data-reset class="btn-outline mt-5 px-6 py-3">Clear filters</button>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .cat-pill { @apply shrink-0 whitespace-nowrap rounded-pill border border-ivory/12 px-4 py-2 text-sm font-medium text-mist transition-colors; }
+  .cat-pill.is-on { @apply border-gold/60 bg-gold/10 text-gold; }
+  .cat-pill:hover { @apply text-ivory; }
+</style>
+
+<script>
+  const grid = document.querySelector('[data-grid]') as HTMLElement;
+  const cards = Array.from(document.querySelectorAll('[data-card]')) as HTMLElement[];
+  const pills = Array.from(document.querySelectorAll('[data-cat-pill]')) as HTMLElement[];
+  const search = document.querySelector('[data-search]') as HTMLInputElement;
+  const brandSel = document.querySelector('[data-brand-filter]') as HTMLSelectElement;
+  const priceSel = document.querySelector('[data-price-filter]') as HTMLSelectElement;
+  const sortSel = document.querySelector('[data-sort]') as HTMLSelectElement;
+  const countEl = document.querySelector('[data-count]') as HTMLElement;
+  const emptyEl = document.querySelector('[data-empty]') as HTMLElement;
+  const resetEls = Array.from(document.querySelectorAll('[data-reset]')) as HTMLElement[];
+
+  const state = { cat: '', brand: '', price: '', q: '', sort: 'price-desc' };
+
+  // initial state from URL (?category= / ?brand=)
+  const params = new URLSearchParams(location.search);
+  if (params.get('category')) state.cat = params.get('category')!;
+  if (params.get('brand')) state.brand = params.get('brand')!;
+
+  function syncControls() {
+    pills.forEach((p) => p.classList.toggle('is-on', (p.dataset.cat || '') === state.cat));
+    brandSel.value = state.brand;
+    priceSel.value = state.price;
+    sortSel.value = state.sort;
+    search.value = state.q;
+    const active = state.cat || state.brand || state.price || state.q;
+    resetEls.forEach((r) => r.classList.toggle('hidden', !active));
+  }
+
+  function apply() {
+    let shown = 0;
+    const [pmin, pmax] = state.price ? state.price.split('-').map(Number) : [0, Infinity];
+    cards.forEach((c) => {
+      const cats = (c.dataset.cats || '').split(',');
+      const price = Number(c.dataset.price || 0);
+      const ok =
+        (!state.cat || cats.includes(state.cat)) &&
+        (!state.brand || c.dataset.brand === state.brand) &&
+        (!state.price || (price >= pmin && price <= pmax)) &&
+        (!state.q || (c.dataset.name || '').includes(state.q.toLowerCase()) || (c.dataset.brand || '').toLowerCase().includes(state.q.toLowerCase()));
+      c.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    countEl.textContent = String(shown);
+    emptyEl.classList.toggle('hidden', shown > 0);
+    grid.classList.toggle('hidden', shown === 0);
+
+    // sort visible
+    const visible = cards.filter((c) => c.style.display !== 'none');
+    visible.sort((a, b) => {
+      if (state.sort === 'name-asc') return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+      const pa = Number(a.dataset.price), pb = Number(b.dataset.price);
+      return state.sort === 'price-asc' ? pa - pb : pb - pa;
+    });
+    visible.forEach((c) => grid.appendChild(c));
+
+    // reflect filters in URL (shareable)
+    const u = new URLSearchParams();
+    if (state.cat) u.set('category', state.cat);
+    if (state.brand) u.set('brand', state.brand);
+    history.replaceState(null, '', u.toString() ? `?${u}` : location.pathname);
+    syncControls();
+  }
+
+  pills.forEach((p) => p.addEventListener('click', () => { state.cat = p.dataset.cat || ''; apply(); }));
+  brandSel.addEventListener('change', () => { state.brand = brandSel.value; apply(); });
+  priceSel.addEventListener('change', () => { state.price = priceSel.value; apply(); });
+  sortSel.addEventListener('change', () => { state.sort = sortSel.value; apply(); });
+  let t: any; search.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { state.q = search.value; apply(); }, 140); });
+  resetEls.forEach((r) => r.addEventListener('click', () => { state.cat = ''; state.brand = ''; state.price = ''; state.q = ''; apply(); }));
+
+  apply();
+</script>

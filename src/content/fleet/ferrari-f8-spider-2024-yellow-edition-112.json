@@ -1,0 +1,30 @@
+{
+  "id": "112",
+  "sourceSlug": "ferrari-f8-spider-2024-yellow-edition",
+  "name": "Ferrari F8 Spider 2024 yellow edition",
+  "brand": "Ferrari",
+  "category": "sports",
+  "categories": [
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 3300,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8 Twin-Turbo",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Ferrari F8 Spider 2024 is a masterpiece of speed, style, and Italian craftsmanship. With its striking yellow finish, aerodynamic design, and roaring V8 engine, this supercar delivers an exhilarating driving experience. Renting the Ferrari F8 Spider 2024 in Dubai guarantees head-turning luxury and unmatched performance, perfect for city cruising, weekend escapes, or exclusive events.",
+  "images": [
+    "/images/fleet/112/01.webp",
+    "/images/fleet/112/02.webp",
+    "/images/fleet/112/03.webp",
+    "/images/fleet/112/04.webp",
+    "/images/fleet/112/05.webp"
+  ],
+  "sourceUrl": "/shop/ferrari-f8-spider-2024-yellow-edition-112"
+}

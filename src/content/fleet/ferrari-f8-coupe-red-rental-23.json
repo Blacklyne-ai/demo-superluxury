@@ -1,0 +1,28 @@
+{
+  "id": "23",
+  "sourceSlug": "ferrari-f8-coupe-red-rental",
+  "name": "Ferrari F8 Coupe",
+  "brand": "Ferrari",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 3000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Ferrari F8 Coupe Red, which is available for rent Ferrari Dubai , lets you experience the exhilaration of style and performance. This iconic sports car is a dream come true for both car lovers and thrill-seekers since it blends amazing design, modern technology, and incredible speed.",
+  "images": [
+    "/images/fleet/23/01.webp",
+    "/images/fleet/23/02.webp",
+    "/images/fleet/23/03.webp",
+    "/images/fleet/23/04.webp"
+  ],
+  "sourceUrl": "/shop/ferrari-f8-coupe-red-rental-23"
+}

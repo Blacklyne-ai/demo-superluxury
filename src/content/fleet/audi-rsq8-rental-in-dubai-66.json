@@ -1,0 +1,32 @@
+{
+  "id": "66",
+  "sourceSlug": "audi-rsq8-rental-in-dubai",
+  "name": "Audi RSQ8",
+  "brand": "Audi",
+  "category": "sedan",
+  "categories": [
+    "sedan"
+  ],
+  "priceDaily": 1100,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 5,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Unleash the beast within and conquer the streets of Dubai in the ultimate luxury SUV, the Audi RS Q8. Prepare to be captivated by a symphony of cutting-edge technology, heart-pounding performance, and unparalleled comfort as you navigate the city's vibrant streets in style. Book your rental today and elevate your driving experience to new heights of exhilaration.",
+  "images": [
+    "/images/fleet/66/01.webp",
+    "/images/fleet/66/02.webp",
+    "/images/fleet/66/03.webp",
+    "/images/fleet/66/04.webp",
+    "/images/fleet/66/05.webp",
+    "/images/fleet/66/06.webp",
+    "/images/fleet/66/07.webp",
+    "/images/fleet/66/08.webp"
+  ],
+  "sourceUrl": "/shop/audi-rsq8-rental-in-dubai-66"
+}

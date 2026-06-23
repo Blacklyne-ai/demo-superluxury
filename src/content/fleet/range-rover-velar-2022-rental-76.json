@@ -1,0 +1,33 @@
+{
+  "id": "76",
+  "sourceSlug": "range-rover-velar-2022-rental",
+  "name": "Range Rover Velar 2023 Rental in Dubai",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 630,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6",
+    "seats": 4,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Discover unparalleled luxury with a Range Rover Velar 2022 rental in Dubai. Experience the pinnacle of performance, style, and innovation. Whether for business or pleasure, renting a Range Rover Velar offers an unforgettable driving experience. Book your rental today and elevate your Dubai journey with elegance and prestige.",
+  "images": [
+    "/images/fleet/76/01.webp",
+    "/images/fleet/76/02.webp",
+    "/images/fleet/76/03.webp",
+    "/images/fleet/76/04.webp",
+    "/images/fleet/76/05.webp",
+    "/images/fleet/76/06.webp",
+    "/images/fleet/76/07.webp",
+    "/images/fleet/76/08.webp"
+  ],
+  "sourceUrl": "/shop/range-rover-velar-2022-rental-76"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "67",
+  "sourceSlug": "bentley-gt-rentals-in-dubai",
+  "name": "Rent Bentley GT Dubai",
+  "brand": "Bentley",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sports"
+  ],
+  "priceDaily": 2500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V10",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Bentley GT rental in Dubai is the height of performance and class in a car. For those seeking the ultimate driving experience, this famous car is a dream come true since it combines unmatched elegance with raw power. Renting a Bentley GT in Dubai is a great option if you're a resident hoping to improve your driving skills or a tourist who wants to see the city in luxury.",
+  "images": [
+    "/images/fleet/67/01.webp",
+    "/images/fleet/67/02.webp",
+    "/images/fleet/67/03.webp",
+    "/images/fleet/67/04.webp",
+    "/images/fleet/67/05.webp",
+    "/images/fleet/67/06.webp"
+  ],
+  "sourceUrl": "/shop/bentley-gt-rentals-in-dubai-67"
+}

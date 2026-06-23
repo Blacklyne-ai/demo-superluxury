@@ -1,0 +1,162 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site, contact } from '../data/site';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  navVariant?: 'transparent' | 'solid';
+  wide?: boolean;
+}
+
+const {
+  title = 'Super Luxury Car Rental Dubai — Exotic & Supercar Hire',
+  description = 'Handpicked luxury, sports & SUV rentals in Dubai — Rolls-Royce, Ferrari, Lamborghini, Range Rover and more. Free delivery anywhere in Dubai. 24/7 support. From AED 1,000/day.',
+  image = '/og.jpg',
+  navVariant = 'transparent',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/', Astro.site).href;
+const ldJson = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoRental',
+  name: site.name,
+  legalName: site.legalName,
+  url: Astro.site?.href,
+  image: new URL(image, Astro.site).href,
+  telephone: contact.phonePrimary,
+  email: contact.email,
+  priceRange: 'AED 1,000+',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Office F4 – 53, Al Khaimah 2 Building',
+    addressLocality: 'Al Barsha, Dubai',
+    addressCountry: 'AE',
+  },
+  areaServed: 'Dubai, United Arab Emirates',
+  sameAs: [contact.instagram, contact.facebook],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0A0A0B" />
+
+    <!-- Self-hosted fonts (font-display:optional in global.css → CLS≈0) -->
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/sora-700.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site).href} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(ldJson)} is:inline />
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-pill focus:bg-gold focus:px-5 focus:py-3 focus:text-ink">Skip to content</a>
+
+    <Nav variant={navVariant} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Cookie / privacy note (only first-party storage = wishlist). Hidden inside iframe embeds. -->
+    <div data-consent class="fixed inset-x-3 bottom-3 z-[90] hidden sm:inset-x-auto sm:bottom-5 sm:right-5 sm:max-w-sm">
+      <div class="card shadow-lift p-5">
+        <p class="text-sm leading-relaxed text-mist">
+          We use essential first-party storage only (your saved cars). No tracking cookies. See our
+          <a href="/privacy" class="text-ivory underline decoration-gold/50 underline-offset-2 hover:decoration-gold">privacy note</a>.
+        </p>
+        <button data-consent-ok class="btn-gold mt-4 w-full text-sm">Got it</button>
+      </div>
+    </div>
+
+    <script>
+      // ── Scroll reveal (gentle, once). Safe default: visible if JS/observer absent. ──
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const reveals = Array.from(document.querySelectorAll('[data-reveal]')) as HTMLElement[];
+      if (reduce || !('IntersectionObserver' in window)) {
+        reveals.forEach((el) => { el.style.opacity = '1'; el.style.transform = 'none'; });
+      } else {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target as HTMLElement;
+            const d = Number(el.dataset.delay || 0);
+            el.style.transition = `opacity .9s cubic-bezier(.22,1,.36,1) ${d}ms, transform .9s cubic-bezier(.22,1,.36,1) ${d}ms`;
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            io.unobserve(el);
+          });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+        reveals.forEach((el) => io.observe(el));
+      }
+
+      // ── Wishlist (localStorage, global) ──
+      const WK = 'slcr-wishlist';
+      const read = (): string[] => { try { return JSON.parse(localStorage.getItem(WK) || '[]'); } catch { return []; } };
+      const write = (a: string[]) => { try { localStorage.setItem(WK, JSON.stringify(a)); } catch {} };
+      const sync = () => {
+        const ids = read();
+        document.querySelectorAll('[data-wish]').forEach((b) => {
+          const el = b as HTMLElement;
+          el.setAttribute('aria-pressed', String(ids.includes(el.dataset.id || '')));
+          el.classList.toggle('is-saved', ids.includes(el.dataset.id || ''));
+        });
+        document.querySelectorAll('[data-wish-count]').forEach((c) => {
+          const el = c as HTMLElement;
+          el.textContent = String(ids.length);
+          el.classList.toggle('hidden', ids.length === 0);
+        });
+        document.dispatchEvent(new CustomEvent('wishlist:change', { detail: ids }));
+      };
+      document.addEventListener('click', (e) => {
+        const btn = (e.target as HTMLElement).closest('[data-wish]') as HTMLElement | null;
+        if (!btn) return;
+        e.preventDefault();
+        const id = btn.dataset.id || '';
+        const ids = read();
+        const i = ids.indexOf(id);
+        if (i >= 0) ids.splice(i, 1); else ids.push(id);
+        write(ids);
+        sync();
+      });
+      sync();
+
+      // ── Consent note (once). Not shown inside iframe embeds. ──
+      let embedded = false;
+      try { embedded = window.self !== window.top; } catch { embedded = true; }
+      try {
+        const bar = document.querySelector('[data-consent]') as HTMLElement | null;
+        if (bar && !embedded && !localStorage.getItem('slcr-consent')) {
+          bar.classList.remove('hidden');
+          bar.querySelector('[data-consent-ok]')?.addEventListener('click', () => {
+            localStorage.setItem('slcr-consent', '1');
+            bar.classList.add('hidden');
+          });
+        }
+      } catch {}
+    </script>
+  </body>
+</html>

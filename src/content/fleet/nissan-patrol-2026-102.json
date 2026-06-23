@@ -1,0 +1,33 @@
+{
+  "id": "102",
+  "sourceSlug": "nissan-patrol-2026",
+  "name": "Nissan patrol 2026",
+  "brand": "Nissan",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family"
+  ],
+  "priceDaily": 650,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8 / 5.6L",
+    "seats": 7,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Nissan Patrol 2026 is a perfect combination of power, reliability, and modern technology. Designed for comfort and performance, this SUV is ideal for family trips, desert adventures, or city drives in Dubai. Renting the Nissan Patrol 2026 provides a smooth and capable driving experience, with ample space, advanced features, and unmatched versatility for all occasions.",
+  "images": [
+    "/images/fleet/102/01.webp",
+    "/images/fleet/102/02.webp",
+    "/images/fleet/102/03.webp",
+    "/images/fleet/102/04.webp",
+    "/images/fleet/102/05.webp",
+    "/images/fleet/102/06.webp",
+    "/images/fleet/102/07.webp",
+    "/images/fleet/102/08.webp"
+  ],
+  "sourceUrl": "/shop/nissan-patrol-2026-102"
+}

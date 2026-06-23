@@ -1,0 +1,33 @@
+{
+  "id": "48",
+  "sourceSlug": "porsche-cayenne-2022-rental-in-dubai",
+  "name": "Porsche Cayenne 2025",
+  "brand": "Porsche",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 1050,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Rent Porsche Dubai with the Porsche Cayenne 2022 in Dubai and discover the luxury of driving this exceptional vehicle. Experience unmatched performance and style with our premium car rental services, making it easy to rent Porsche Dubai and elevate your Dubai journey with sophistication and class. Whether you're looking to rent Porsche Dubai with the Porsche Cayenne for a weekend getaway or an extended stay, our services ensure you experience the finest in automotive luxury.",
+  "images": [
+    "/images/fleet/48/01.webp",
+    "/images/fleet/48/02.webp",
+    "/images/fleet/48/03.webp",
+    "/images/fleet/48/04.webp",
+    "/images/fleet/48/05.webp",
+    "/images/fleet/48/06.webp",
+    "/images/fleet/48/07.webp",
+    "/images/fleet/48/08.webp"
+  ],
+  "sourceUrl": "/shop/porsche-cayenne-2022-rental-in-dubai-48"
+}

@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { posts, contact } from '../../data/site';
+import { getFleet } from '../../lib/fleet';
+import { ArrowLeft, MessageCircle } from '@lucide/astro';
+
+export async function getStaticPaths() {
+  const fleet = await getFleet();
+  const pick = (brand: string) => fleet.find((c) => c.brand === brand)?.images[0] ?? fleet[0].images[0];
+  const coverFor: Record<string, string> = {
+    'best-chauffeur-services-in-dubai': pick('Rolls-Royce'),
+    'drive-dubai-in-style': pick('Lamborghini'),
+    'valentines-day-luxury-car-rental-ideas': pick('Ferrari'),
+    'ultimate-guide-to-lamborghini-rental-in-dubai': pick('Lamborghini'),
+    'top-luxury-car-rental-companies-in-dubai': pick('Bentley'),
+    'how-to-book-online-in-dubai': pick('Porsche'),
+  };
+  return posts.map((p) => ({ params: { slug: p.slug }, props: { post: p, cover: coverFor[p.slug] } }));
+}
+const { post, cover } = Astro.props;
+const fmtDate = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const more = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+---
+<Layout title={`${post.title} — Super Luxury Car Rental`} description={post.excerpt ?? post.title} image={cover} navVariant="solid">
+  <article class="pt-[calc(var(--nav-h)+2.5rem)]">
+    <div class="lux-container max-w-3xl">
+      <a href="/blog" class="inline-flex items-center gap-1.5 text-sm text-mist hover:text-gold"><ArrowLeft class="h-4 w-4" /> Journal</a>
+      <p class="mt-6 text-xs uppercase tracking-wide2 text-faint">{fmtDate(post.date)}</p>
+      <h1 class="mt-3 font-display text-3xl font-semibold leading-tight tracking-tight2 text-ivory sm:text-4xl lg:text-5xl">{post.title}</h1>
+    </div>
+    {cover && (
+      <div class="lux-container mt-8 max-w-4xl">
+        <img src={cover} alt={post.title} width="1200" height="675" class="aspect-[16/9] w-full rounded-2xl border border-ivory/10 object-cover" decoding="async" />
+      </div>
+    )}
+    <div class="lux-container mt-10 max-w-3xl pb-16">
+      {post.excerpt && <p class="text-lg leading-relaxed text-ivory/85">{post.excerpt}</p>}
+      <div class="mt-10 rounded-2xl border border-ivory/10 bg-graphite p-7">
+        <p class="text-mist">Want the full story, or planning a trip? Our team is one message away — we’ll match you with the right car and rate.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold px-6 py-3"><MessageCircle class="h-4 w-4" /> WhatsApp us</a>
+          <a href="/fleet" class="btn-outline px-6 py-3">Browse the fleet</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="border-t border-ivory/8 bg-coal py-14">
+      <div class="lux-container">
+        <h2 class="font-display text-xl font-semibold text-ivory">More from the journal</h2>
+        <div class="mt-6 grid gap-5 sm:grid-cols-3">
+          {more.map((p) => (
+            <a href={`/blog/${p.slug}`} class="card p-6 transition-colors hover:border-gold/30">
+              <p class="text-xs uppercase tracking-wide2 text-faint">{fmtDate(p.date)}</p>
+              <h3 class="mt-2 font-display text-base font-semibold leading-snug text-ivory hover:text-gold">{p.title}</h3>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>

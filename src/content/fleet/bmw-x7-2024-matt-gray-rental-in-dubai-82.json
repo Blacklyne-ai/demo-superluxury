@@ -1,0 +1,33 @@
+{
+  "id": "82",
+  "sourceSlug": "bmw-x7-2024-matt-gray-rental-in-dubai",
+  "name": "BMW X7 2024 Matt Grey rental Dubai",
+  "brand": "BMW",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family"
+  ],
+  "priceDaily": 1500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 7,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Discover Dubai in style with a BMW X7 2024 rental in elegant Matt Gray. Discover luxury, comfort, and performance in this iconic SUV.",
+  "images": [
+    "/images/fleet/82/01.webp",
+    "/images/fleet/82/02.webp",
+    "/images/fleet/82/03.webp",
+    "/images/fleet/82/04.webp",
+    "/images/fleet/82/05.webp",
+    "/images/fleet/82/06.webp",
+    "/images/fleet/82/07.webp",
+    "/images/fleet/82/08.webp"
+  ],
+  "sourceUrl": "/shop/bmw-x7-2024-matt-gray-rental-in-dubai-82"
+}

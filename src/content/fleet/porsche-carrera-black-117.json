@@ -1,0 +1,32 @@
+{
+  "id": "117",
+  "sourceSlug": "porsche-carrera-black",
+  "name": "Porsche Carrera Black",
+  "brand": "Porsche",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 1600,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8 Turbo",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Porsche Carrera Black is a symbol of sportiness, luxury, and precision engineering. With its sleek black exterior, powerful engine, and refined interiors, this sports car delivers an exhilarating driving experience. Renting the Porsche Carrera Black in Dubai ensures style, comfort, and performance for city drives, weekend getaways, or special events.",
+  "images": [
+    "/images/fleet/117/01.webp",
+    "/images/fleet/117/02.webp",
+    "/images/fleet/117/03.webp",
+    "/images/fleet/117/04.webp",
+    "/images/fleet/117/05.webp",
+    "/images/fleet/117/06.webp",
+    "/images/fleet/117/07.webp",
+    "/images/fleet/117/08.webp"
+  ],
+  "sourceUrl": "/shop/porsche-carrera-black-117"
+}

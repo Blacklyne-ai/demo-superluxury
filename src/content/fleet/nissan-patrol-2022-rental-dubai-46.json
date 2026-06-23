@@ -1,0 +1,34 @@
+{
+  "id": "46",
+  "sourceSlug": "nissan-patrol-2022-rental-dubai",
+  "name": "Nissan Patrol 2023",
+  "brand": "Nissan",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 350,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6",
+    "seats": 5,
+    "doors": 7,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Luxury Exploration Dubai in luxury and style with a Nissan Patrol 2022 rental in Dubai. Experience unparalleled comfort and capability in this iconic SUV.",
+  "images": [
+    "/images/fleet/46/01.webp",
+    "/images/fleet/46/02.webp",
+    "/images/fleet/46/03.webp",
+    "/images/fleet/46/04.webp",
+    "/images/fleet/46/05.webp",
+    "/images/fleet/46/06.webp",
+    "/images/fleet/46/07.webp",
+    "/images/fleet/46/08.webp"
+  ],
+  "sourceUrl": "/shop/nissan-patrol-2022-rental-dubai-46"
+}

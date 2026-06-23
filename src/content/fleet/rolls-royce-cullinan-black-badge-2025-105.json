@@ -1,0 +1,32 @@
+{
+  "id": "105",
+  "sourceSlug": "rolls-royce-cullinan-black-badge-2025",
+  "name": "Rolls Royce Cullinan Black Badge 2025",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 5200,
+  "currency": "AED",
+  "specs": {
+    "engine": "V12 Twin-Turbo",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Rolls-Royce Cullinan Black Badge 2025 is the ultimate expression of power, prestige, and luxury in the SUV world. With its commanding presence, bespoke craftsmanship, and refined performance, this masterpiece is built for those who demand more than just a drive — they demand an experience. Renting the Rolls-Royce Cullinan Black Badge 2025 in Dubai ensures unmatched comfort, advanced technology, and a head-turning presence wherever you go. Perfect for business trips, city drives, or exclusive events.",
+  "images": [
+    "/images/fleet/105/01.webp",
+    "/images/fleet/105/02.webp",
+    "/images/fleet/105/03.webp",
+    "/images/fleet/105/04.webp",
+    "/images/fleet/105/05.webp",
+    "/images/fleet/105/06.webp",
+    "/images/fleet/105/07.webp",
+    "/images/fleet/105/08.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-cullinan-black-badge-2025-105"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "95",
+  "sourceSlug": "ferrari-purosangue-2024",
+  "name": "Ferrari Purosangue 2024",
+  "brand": "Ferrari",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 9000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V12",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Ferrari Purosangue 2024, available for rent Ferrari Dubai , is a stunning V12-powered SUV that combines Ferrari's legendary performance with exceptional luxury. This four-seater, four-door masterpiece redefines the luxury SUV segment with its unrivaled power, sophistication, and practicality. Experience the pinnacle of rent Ferrari Dubai car rental has to offer with the remarkable Ferrari Purosangue 2024.",
+  "images": [
+    "/images/fleet/95/01.webp",
+    "/images/fleet/95/02.webp",
+    "/images/fleet/95/03.webp",
+    "/images/fleet/95/04.webp",
+    "/images/fleet/95/05.webp",
+    "/images/fleet/95/06.webp",
+    "/images/fleet/95/07.webp",
+    "/images/fleet/95/08.webp"
+  ],
+  "sourceUrl": "/shop/ferrari-purosangue-2024-95"
+}

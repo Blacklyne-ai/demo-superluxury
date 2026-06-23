@@ -1,0 +1,33 @@
+{
+  "id": "92",
+  "sourceSlug": "land-rover-defender-2025",
+  "name": "Land Rover Defender 2025",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 950,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6",
+    "seats": 7,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Land Rover Defender 2023, available for rent in Dubai, is a remarkable 7-seat SUV that combines rugged performance with refined luxury. With its iconic design and advanced features, this vehicle is perfect for those seeking adventure and comfort in equal measure. Experience the pinnacle of luxury car rental Dubai has to offer with the Land Rover Defender 2023.",
+  "images": [
+    "/images/fleet/92/01.webp",
+    "/images/fleet/92/02.webp",
+    "/images/fleet/92/03.webp",
+    "/images/fleet/92/04.webp",
+    "/images/fleet/92/05.webp",
+    "/images/fleet/92/06.webp",
+    "/images/fleet/92/07.webp"
+  ],
+  "sourceUrl": "/shop/land-rover-defender-2025-92"
+}

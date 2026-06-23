@@ -1,0 +1,33 @@
+{
+  "id": "51",
+  "sourceSlug": "range-rover-svr-2022-rental",
+  "name": "Range Rover SVR Blue",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 1100,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Indulge in pure luxury and exhilarating performance with a Range Rover SVR 2022 Blue rental. Elevate your Dubai experience with this unforgettable luxury SUV. Unlock the thrill today!",
+  "images": [
+    "/images/fleet/51/01.webp",
+    "/images/fleet/51/02.webp",
+    "/images/fleet/51/03.webp",
+    "/images/fleet/51/04.webp",
+    "/images/fleet/51/05.webp",
+    "/images/fleet/51/06.webp",
+    "/images/fleet/51/07.webp"
+  ],
+  "sourceUrl": "/shop/range-rover-svr-2022-rental-51"
+}

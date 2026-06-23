@@ -1,0 +1,33 @@
+{
+  "id": "106",
+  "sourceSlug": "bentley-bentyaga-black-2024",
+  "name": "Bentley Bentyaga Black 2024",
+  "brand": "Bentley",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 2000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8 / W12",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Bentley Bentayga Black 2024 is the height of SUV luxury, offering unmatched performance, stunning design, and ultimate comfort. Ideal for those with refined tastes, this SUV combines power and elegance, making every drive in Dubai an extraordinary experience. Renting the Bentley Bentayga Black 2024 ensures a premium and unforgettable journey, whether for city cruising, weekend escapes, or special occasions.",
+  "images": [
+    "/images/fleet/106/01.webp",
+    "/images/fleet/106/02.webp",
+    "/images/fleet/106/03.webp",
+    "/images/fleet/106/04.webp",
+    "/images/fleet/106/05.webp",
+    "/images/fleet/106/06.webp",
+    "/images/fleet/106/07.webp",
+    "/images/fleet/106/08.webp"
+  ],
+  "sourceUrl": "/shop/bentley-bentyaga-black-2024-106"
+}

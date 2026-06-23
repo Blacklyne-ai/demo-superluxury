@@ -1,0 +1,33 @@
+{
+  "id": "126",
+  "sourceSlug": "mclaren-750-s",
+  "name": "McLaren 750 S",
+  "brand": "McLaren",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "convertible"
+  ],
+  "priceDaily": 4500,
+  "currency": "AED",
+  "specs": {
+    "engine": "740 HP Engine",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Experience the perfect fusion of cutting-edge engineering and breathtaking design with the McLaren 750S. Every curve and detail exudes sophistication, while its roar and speed promise an adrenaline-fueled adventure through Dubai’s streets.",
+  "images": [
+    "/images/fleet/126/01.webp",
+    "/images/fleet/126/02.webp",
+    "/images/fleet/126/03.webp",
+    "/images/fleet/126/04.webp",
+    "/images/fleet/126/05.webp",
+    "/images/fleet/126/06.webp",
+    "/images/fleet/126/07.webp",
+    "/images/fleet/126/08.webp"
+  ],
+  "sourceUrl": "/shop/mclaren-750-s-126"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "40",
+  "sourceSlug": "mercedes-benz-s500-rental-in-dubai",
+  "name": "Mercedes Benz S500",
+  "brand": "Mercedes-Benz",
+  "category": "sedan",
+  "categories": [
+    "sedan",
+    "family"
+  ],
+  "priceDaily": 1200,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Only a few cars are comparable to the Mercedes Benz S500's sophistication and performance when it comes to enjoying luxury and elegance on Dubai's roads. The Mercedes Benz S500 is the definition of car perfection, renowned for its luxurious design, modern technology, and potent performance. The Mercedes Benz S500 2022 rental is an ideal option for anyone looking for an exclusive driving experience in Dubai.",
+  "images": [
+    "/images/fleet/40/01.webp",
+    "/images/fleet/40/02.webp",
+    "/images/fleet/40/03.webp",
+    "/images/fleet/40/04.webp",
+    "/images/fleet/40/05.webp",
+    "/images/fleet/40/06.webp",
+    "/images/fleet/40/07.webp",
+    "/images/fleet/40/08.webp"
+  ],
+  "sourceUrl": "/shop/mercedes-benz-s500-rental-in-dubai-40"
+}

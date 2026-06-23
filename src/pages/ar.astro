@@ -1,0 +1,34 @@
+---
+// Arabic (RTL) placeholder. Operator-TODO: full Arabic translation + RTL pass (Phase 2).
+// Standalone so we can set lang="ar" dir="rtl" without the EN Layout.
+import '../styles/global.css';
+import { contact, site } from '../data/site';
+---
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>سوبر لاكشري لتأجير السيارات — دبي</title>
+    <meta name="description" content="النسخة العربية قريباً. تأجير سيارات فاخرة في دبي." />
+    <meta name="theme-color" content="#0A0A0B" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body class="grid min-h-[100svh] place-items-center bg-ink px-6 text-center">
+    <div class="absolute inset-0 hero-glow opacity-70"></div>
+    <main class="relative max-w-lg">
+      <a href="/"><img src="/logo-mark.png" alt={site.name} width="200" height="125" class="mx-auto h-16 w-auto" /></a>
+      <h1 class="mt-10 font-display text-3xl font-semibold text-ivory sm:text-4xl">النسخة العربية قريباً</h1>
+      <p class="mt-5 leading-relaxed text-mist">
+        نعمل على إطلاق النسخة العربية الكاملة من موقع سوبر لاكشري لتأجير السيارات الفاخرة في دبي.
+        حتى ذلك الحين، يسعدنا التواصل معك مباشرةً — توصيل مجاني في جميع أنحاء دبي، وخدمة على مدار الساعة.
+      </p>
+      <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold px-7 py-3.5">واتساب · {contact.whatsappNumber}</a>
+        <a href={contact.phonePrimaryHref} class="btn-outline px-7 py-3.5">اتصل بنا</a>
+      </div>
+      <a href="/" class="mt-8 inline-block text-sm text-gold/90 hover:text-gold" dir="ltr">← English version</a>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "id": "63",
+  "sourceSlug": "mercedes-e450-rental-in-dubai",
+  "name": "Mercedes E450 Cabriolet",
+  "brand": "Mercedes-Benz",
+  "category": "sedan",
+  "categories": [
+    "sedan"
+  ],
+  "priceDaily": 550,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6 Turbo",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "When you rent the Mercedes E450 Black 2022 in Dubai, you can live in luxury and power like never before. This iconic car is a perfect option for anybody looking for an exceptional driving experience in the busy metropolis of Dubai since it expertly combines performance, refinement, and modern technology.",
+  "images": [
+    "/images/fleet/63/01.webp",
+    "/images/fleet/63/02.webp",
+    "/images/fleet/63/03.webp",
+    "/images/fleet/63/04.webp",
+    "/images/fleet/63/05.webp",
+    "/images/fleet/63/06.webp",
+    "/images/fleet/63/07.webp",
+    "/images/fleet/63/08.webp"
+  ],
+  "sourceUrl": "/shop/mercedes-e450-rental-in-dubai-63"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "94",
+  "sourceSlug": "lamborghini-urus-s-2024",
+  "name": "Lamborghini Urus S 2024",
+  "brand": "Lamborghini",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 2900,
+  "currency": "AED",
+  "specs": {
+    "engine": "650 HP",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Discover the pinnacle of performance and luxury when you rent Lamborghini Dubai with the Lamborghini Urus S in Dubai. This elite SUV offers an unmatched blend of style, comfort, and driving excitement, making it the ideal choice for those seeking the best.",
+  "images": [
+    "/images/fleet/94/01.webp",
+    "/images/fleet/94/02.webp",
+    "/images/fleet/94/03.webp",
+    "/images/fleet/94/04.webp",
+    "/images/fleet/94/05.webp",
+    "/images/fleet/94/06.webp",
+    "/images/fleet/94/07.webp",
+    "/images/fleet/94/08.webp"
+  ],
+  "sourceUrl": "/shop/lamborghini-urus-s-2024-94"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "115",
+  "sourceSlug": "land-rover-defender-white-2026",
+  "name": "Land Rover Defender white 2026",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "family"
+  ],
+  "priceDaily": 950,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6 / 3.0L Turbo",
+    "seats": 5,
+    "doors": 5,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Land Rover Defender is the ultimate combination of rugged capability and refined luxury. With its iconic design, spacious interiors, and advanced off-road features, this SUV delivers a smooth and powerful driving experience. Renting the Land Rover Defender White 2026 in Dubai is perfect for city drives, desert adventures, or weekend getaways, ensuring both comfort and prestige.",
+  "images": [
+    "/images/fleet/115/01.webp",
+    "/images/fleet/115/02.webp",
+    "/images/fleet/115/03.webp",
+    "/images/fleet/115/04.webp",
+    "/images/fleet/115/05.webp",
+    "/images/fleet/115/06.webp",
+    "/images/fleet/115/07.webp",
+    "/images/fleet/115/08.webp"
+  ],
+  "sourceUrl": "/shop/land-rover-defender-white-2026-115"
+}

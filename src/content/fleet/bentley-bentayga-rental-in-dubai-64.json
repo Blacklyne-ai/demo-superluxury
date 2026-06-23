@@ -1,0 +1,31 @@
+{
+  "id": "64",
+  "sourceSlug": "bentley-bentayga-rental-in-dubai",
+  "name": "Bentley Bentayga Rental in Dubai",
+  "brand": "Bentley",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 2000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Bentley Bentayga represents a unique balance of luxury and enthralling performance. This is the ultimate luxury SUV with unbelievable comfort and craftsmanship that reveals the true classy style. At Super Luxury Car Rentals, we have plenty of options to rent a Bentley Bentayga in different colors from old to the latest model. Just choose your favorite luxury car book in very easy steps.",
+  "images": [
+    "/images/fleet/64/01.webp",
+    "/images/fleet/64/02.webp",
+    "/images/fleet/64/03.webp",
+    "/images/fleet/64/04.webp",
+    "/images/fleet/64/05.webp",
+    "/images/fleet/64/06.webp"
+  ],
+  "sourceUrl": "/shop/bentley-bentayga-rental-in-dubai-64"
+}

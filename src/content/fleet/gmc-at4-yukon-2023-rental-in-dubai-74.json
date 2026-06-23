@@ -1,0 +1,33 @@
+{
+  "id": "74",
+  "sourceSlug": "gmc-at4-yukon-2023-rental-in-dubai",
+  "name": "GMC Yukon AT4 2024",
+  "brand": "GMC",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family"
+  ],
+  "priceDaily": 500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 7,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Embark on an unforgettable journey with a GMC AT4 Yukon 2023 rental in Dubai. Representing strength and elegance, the AT4 Yukon embodies luxury and sophistication, elevating your travel experience. Its striking design and innovative features guarantee unparalleled comfort and style, promising an unforgettable adventure.",
+  "images": [
+    "/images/fleet/74/01.webp",
+    "/images/fleet/74/02.webp",
+    "/images/fleet/74/03.webp",
+    "/images/fleet/74/04.webp",
+    "/images/fleet/74/05.webp",
+    "/images/fleet/74/06.webp",
+    "/images/fleet/74/07.webp",
+    "/images/fleet/74/08.webp"
+  ],
+  "sourceUrl": "/shop/gmc-at4-yukon-2023-rental-in-dubai-74"
+}

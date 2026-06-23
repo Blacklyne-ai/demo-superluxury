@@ -1,0 +1,33 @@
+{
+  "id": "13",
+  "sourceSlug": "bmw-520i-rental-in-dubai",
+  "name": "BMW 520i",
+  "brand": "BMW",
+  "category": "sedan",
+  "categories": [
+    "sedan",
+    "family"
+  ],
+  "priceDaily": 500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V4",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Embark on a journey of sophistication with our BMW rental in Dubai. Combining elegance with outstanding performance, this vehicle offers a seamless blend of style and comfort, ensuring you travel in unparalleled luxury.",
+  "images": [
+    "/images/fleet/13/01.webp",
+    "/images/fleet/13/02.webp",
+    "/images/fleet/13/03.webp",
+    "/images/fleet/13/04.webp",
+    "/images/fleet/13/05.webp",
+    "/images/fleet/13/06.webp",
+    "/images/fleet/13/07.webp",
+    "/images/fleet/13/08.webp"
+  ],
+  "sourceUrl": "/shop/bmw-520i-rental-in-dubai-13"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "7",
+  "sourceSlug": "audi-q8-rental-in-dubai",
+  "name": "AUDI Q8",
+  "brand": "Audi",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family"
+  ],
+  "priceDaily": 950,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Dive into a realm of unmatched luxury and performance with our Audi Q8 rentals in Dubai. Command attention with its striking design while enjoying cutting-edge technology and superior comfort. Rent Audi Q8 in Dubai today and elevate your driving experience to new heights of elegance and excitement, capturing the essence of Dubai's dynamic lifestyle.",
+  "images": [
+    "/images/fleet/7/01.webp",
+    "/images/fleet/7/02.webp",
+    "/images/fleet/7/03.webp",
+    "/images/fleet/7/04.webp",
+    "/images/fleet/7/05.webp",
+    "/images/fleet/7/06.webp"
+  ],
+  "sourceUrl": "/shop/audi-q8-rental-in-dubai-7"
+}

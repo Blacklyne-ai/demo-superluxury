@@ -1,0 +1,34 @@
+{
+  "id": "88",
+  "sourceSlug": "ferrari-roma-2023-rentals-dubai",
+  "name": "Ferrari Roma 2023",
+  "brand": "Ferrari",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 3000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "If you want to feel the thrill of speeding through Dubai's busy streets in a luxury sports car with a breathtaking view of the city as your backdrop, imagine yourself driving the famous Ferrari Roma down Sheikh Zayed Road. With rent Ferrari Dubai options like Ferrari Roma rentals available, this dream might come true. These cars provide an unmatched driving experience that combines style, performance, and modification.",
+  "images": [
+    "/images/fleet/88/01.webp",
+    "/images/fleet/88/02.webp",
+    "/images/fleet/88/03.webp",
+    "/images/fleet/88/04.webp",
+    "/images/fleet/88/05.webp",
+    "/images/fleet/88/06.webp",
+    "/images/fleet/88/07.webp",
+    "/images/fleet/88/08.webp"
+  ],
+  "sourceUrl": "/shop/ferrari-roma-2023-rentals-dubai-88"
+}

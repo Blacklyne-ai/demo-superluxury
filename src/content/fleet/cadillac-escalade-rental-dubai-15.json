@@ -1,0 +1,33 @@
+{
+  "id": "15",
+  "sourceSlug": "cadillac-escalade-rental-dubai",
+  "name": "Cadillac Escalade 2024",
+  "brand": "Cadillac",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 950,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 7,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Embark on an unprecedented luxury journey in Dubai with a Cadillac Escalade rental. Discover comfort, luxury, and spaciousness in its full dimensions. Renting a Cadillac Escalade in Dubai will add a touch of elegance and enjoyment to your exploration of this magnificent city.",
+  "images": [
+    "/images/fleet/15/01.webp",
+    "/images/fleet/15/02.webp",
+    "/images/fleet/15/03.webp",
+    "/images/fleet/15/04.webp",
+    "/images/fleet/15/05.webp",
+    "/images/fleet/15/06.webp",
+    "/images/fleet/15/07.webp",
+    "/images/fleet/15/08.webp"
+  ],
+  "sourceUrl": "/shop/cadillac-escalade-rental-dubai-15"
+}

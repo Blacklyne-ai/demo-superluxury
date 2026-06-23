@@ -1,0 +1,33 @@
+{
+  "id": "114",
+  "sourceSlug": "land-rover-defender-2025-black",
+  "name": "Land Rover Defender 2025 Black",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "family"
+  ],
+  "priceDaily": 950,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6 / 3.0L Turbo",
+    "seats": 5,
+    "doors": 5,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Land Rover Defender 2025 perfectly blends rugged performance with modern luxury. Featuring a sleek black exterior, advanced off-road capabilities, and spacious interiors, this SUV offers a comfortable and powerful driving experience. Renting the Land Rover Defender 2025 Black in Dubai is ideal for city drives, desert adventures, or weekend trips, providing both style and reliability.",
+  "images": [
+    "/images/fleet/114/01.webp",
+    "/images/fleet/114/02.webp",
+    "/images/fleet/114/03.webp",
+    "/images/fleet/114/04.webp",
+    "/images/fleet/114/05.webp",
+    "/images/fleet/114/06.webp",
+    "/images/fleet/114/07.webp",
+    "/images/fleet/114/08.webp"
+  ],
+  "sourceUrl": "/shop/land-rover-defender-2025-black-114"
+}

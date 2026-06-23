@@ -1,0 +1,33 @@
+{
+  "id": "111",
+  "sourceSlug": "cadillac-escalade-2025-black",
+  "name": "Cadillac Escalade 2025 Black",
+  "brand": "Cadillac",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "family"
+  ],
+  "priceDaily": 1250,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8 / 6.2L",
+    "seats": 7,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Cadillac Escalade 2025 Black is the ultimate luxury SUV, combining bold design, advanced technology, and exceptional comfort. Perfect for family trips, city cruising, or VIP transfers in Dubai, this SUV delivers a commanding presence and smooth, powerful performance. Renting the Cadillac Escalade 2025 Black guarantees a premium and unforgettable driving experience.",
+  "images": [
+    "/images/fleet/111/01.webp",
+    "/images/fleet/111/02.webp",
+    "/images/fleet/111/03.webp",
+    "/images/fleet/111/04.webp",
+    "/images/fleet/111/05.webp",
+    "/images/fleet/111/06.webp",
+    "/images/fleet/111/07.webp",
+    "/images/fleet/111/08.webp"
+  ],
+  "sourceUrl": "/shop/cadillac-escalade-2025-black-111"
+}

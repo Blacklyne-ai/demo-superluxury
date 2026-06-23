@@ -1,0 +1,32 @@
+{
+  "id": "124",
+  "sourceSlug": "rolls-royce-spectre-black",
+  "name": "Rolls Royce Spectre ( Black )",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 6500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V12 Twin-Turbo",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Rolls-Royce Specter Black represents the pinnacle of automotive luxury and elegance. With its refined design, powerful engine, and lavish interior, this car is perfect for those seeking the ultimate prestige experience in Dubai. Renting the Rolls-Royce Specter Black ensures a first-class driving experience, whether you’re attending a high-profile event, exploring the city, or enjoying a weekend escape.",
+  "images": [
+    "/images/fleet/124/01.webp",
+    "/images/fleet/124/02.webp",
+    "/images/fleet/124/03.webp",
+    "/images/fleet/124/04.webp",
+    "/images/fleet/124/05.webp",
+    "/images/fleet/124/06.webp",
+    "/images/fleet/124/07.webp",
+    "/images/fleet/124/08.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-spectre-black-124"
+}

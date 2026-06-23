@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { contact, site } from '../data/site';
+---
+<Layout title="Privacy — Super Luxury Car Rental" navVariant="solid">
+  <section class="lux-container max-w-3xl pb-20 pt-[calc(var(--nav-h)+4rem)]">
+    <p class="eyebrow mb-4">Privacy</p>
+    <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl">Privacy note.</h1>
+    <div class="prose-luxe mt-8 space-y-6 text-mist">
+      <p>This website is a static showcase for {site.legalName}. It does not run tracking cookies or third-party analytics, and it does not collect or store personal data on a server.</p>
+      <h2 class="font-display text-xl font-semibold text-ivory">What is stored</h2>
+      <p>The only data kept is your <strong class="text-ivory/90">saved cars (“wishlist”)</strong>, held locally in your own browser via <code class="text-gold/80">localStorage</code>. It never leaves your device and you can clear it any time from your browser settings.</p>
+      <h2 class="font-display text-xl font-semibold text-ivory">When you contact us</h2>
+      <p>If you send a booking enquiry, it opens WhatsApp or your email app with a pre-filled message — you choose to send it. We then use those details only to answer your enquiry.</p>
+      <h2 class="font-display text-xl font-semibold text-ivory">Embedded map</h2>
+      <p>The location map is embedded from Google Maps. When it loads, Google may receive your IP address under its own privacy policy.</p>
+      <h2 class="font-display text-xl font-semibold text-ivory">Contact</h2>
+      <p>Questions about your data? Email <a href={contact.emailHref} class="text-gold underline underline-offset-2 hover:text-gold-lite">{contact.email}</a> or call <a href={contact.phonePrimaryHref} class="text-gold underline underline-offset-2 hover:text-gold-lite">{contact.phonePrimary}</a>.</p>
+      <p class="text-sm text-faint">Operator-TODO: replace with the operator’s formal UAE privacy policy / data-controller details before going live.</p>
+    </div>
+  </section>
+</Layout>

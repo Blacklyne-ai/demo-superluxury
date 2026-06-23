@@ -1,0 +1,32 @@
+{
+  "id": "85",
+  "sourceSlug": "lamborghini-huracan-evo-spyder-2024",
+  "name": "Lamborghini Huracan EVO Spyder 2024",
+  "brand": "Lamborghini",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sports"
+  ],
+  "priceDaily": 3000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V10",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Lamborghini Evo Spyder 2024, available for rent Lamborghini Dubai , is a bright yellow car with a height of performance and style. With its stunning look and modern technologies, this classic convertible car offers an amazing driving experience.",
+  "images": [
+    "/images/fleet/85/01.webp",
+    "/images/fleet/85/02.webp",
+    "/images/fleet/85/03.webp",
+    "/images/fleet/85/04.webp",
+    "/images/fleet/85/05.webp",
+    "/images/fleet/85/06.webp",
+    "/images/fleet/85/07.webp"
+  ],
+  "sourceUrl": "/shop/lamborghini-huracan-evo-spyder-2024-85"
+}

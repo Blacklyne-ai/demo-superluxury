@@ -1,0 +1,31 @@
+{
+  "id": "52",
+  "sourceSlug": "range-rover-svr-2022-renetal",
+  "name": "Range Rover SVR White",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 1100,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Explore pure luxury and exhilarating performance with a Range Rover SVR 2022 White rental. Book your unforgettable experience in Dubai.",
+  "images": [
+    "/images/fleet/52/01.webp",
+    "/images/fleet/52/02.webp",
+    "/images/fleet/52/03.webp",
+    "/images/fleet/52/04.webp",
+    "/images/fleet/52/05.webp"
+  ],
+  "sourceUrl": "/shop/range-rover-svr-2022-renetal-52"
+}

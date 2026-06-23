@@ -1,0 +1,209 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import FleetCard from '../components/FleetCard.astro';
+import { getFleet, catCounts, fmtAED } from '../lib/fleet';
+import { categories, services, whyChooseUs, brands, contact, site } from '../data/site';
+import { ArrowRight, Plane, UserRound, Crown, CalendarRange, Headset, MapPin, Gem, BadgeCheck, ShieldCheck, Car, Phone, MessageCircle, Mail } from '@lucide/astro';
+
+const icons: Record<string, any> = { Plane, UserRound, Crown, CalendarRange, Headset, MapPin, Gem, BadgeCheck, ShieldCheck, Car };
+const fleet = await getFleet();
+const counts = catCounts(fleet);
+const featured = fleet.slice(0, 8);
+
+// representative photo per category = priciest car holding that category
+const catImage = (slug: string) => {
+  const c = fleet.find((car) => car.categories.includes(slug));
+  return c?.images[0];
+};
+---
+<Layout navVariant="transparent">
+  <Hero />
+
+  <!-- Brand strip -->
+  <section class="border-y border-ivory/8 bg-coal py-7" aria-label="Brands we carry">
+    <div class="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
+      <div class="flex w-max animate-marquee items-center gap-12 pr-12">
+        {[...brands, ...brands].map((b) => (
+          <span class="whitespace-nowrap font-display text-lg font-medium tracking-tight text-ivory/35">{b}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="lux-container py-20 lg:py-28">
+    <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="eyebrow mb-4" data-reveal>The collection</p>
+        <h2 class="max-w-xl font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl lg:text-5xl" data-reveal>
+          Find your category.
+        </h2>
+      </div>
+      <a href="/fleet" class="group inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-lite" data-reveal>
+        All {fleet.length} vehicles <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+      </a>
+    </div>
+
+    <div class="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      {categories.map((c, i) => {
+        const img = catImage(c.slug);
+        const Icon = icons[c.icon] ?? Car;
+        const big = i === 0 || i === 3;
+        return (
+          <a href={`/fleet?category=${c.slug}`}
+            class:list={['group relative overflow-hidden rounded-2xl border border-ivory/10 bg-graphite', big ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/3]']}
+            data-reveal data-delay={i * 60}>
+            {img && <img src={img} alt={c.label} width="640" height="480" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover opacity-55 transition-all duration-700 ease-luxe group-hover:scale-105 group-hover:opacity-70" />}
+            <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-transparent"></div>
+            <div class="relative flex h-full flex-col justify-end p-5 lg:p-6">
+              <Icon class="mb-3 h-6 w-6 text-gold" />
+              <h3 class="font-display text-xl font-semibold text-ivory lg:text-2xl">{c.label}</h3>
+              <p class="mt-1 text-[0.8rem] text-mist">{counts.get(c.slug) ?? 0} cars{big ? ` · ${c.blurb}` : ''}</p>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Featured fleet -->
+  <section class="border-y border-ivory/8 bg-coal py-20 lg:py-28">
+    <div class="lux-container">
+      <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="eyebrow mb-4" data-reveal>Now in the fleet</p>
+          <h2 class="font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl lg:text-5xl" data-reveal>The flagships.</h2>
+        </div>
+        <a href="/fleet" class="group inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-lite" data-reveal>
+          Browse all <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </a>
+      </div>
+      <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {featured.map((car, i) => <div data-reveal data-delay={(i % 4) * 70}><FleetCard car={car} /></div>)}
+      </div>
+      <div class="mt-12 flex items-center justify-center">
+        <a href="/fleet" class="btn-gold px-7 py-3.5">See all {fleet.length} cars</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="lux-container py-20 lg:py-28">
+    <div class="max-w-2xl">
+      <p class="eyebrow mb-4" data-reveal>What we do</p>
+      <h2 class="font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl lg:text-5xl" data-reveal>Beyond the keys.</h2>
+      <p class="mt-5 text-mist" data-reveal data-delay="60">From airport pickup to a chauffeur for the evening — the service around the car is what makes it effortless.</p>
+    </div>
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((s, i) => {
+        const Icon = icons[s.icon] ?? Crown;
+        return (
+          <div class="card p-7 transition-colors duration-500 hover:border-gold/30" data-reveal data-delay={(i % 3) * 70}>
+            <div class="grid h-12 w-12 place-items-center rounded-xl border border-gold/25 bg-gold/10 text-gold"><Icon class="h-6 w-6" /></div>
+            <h3 class="mt-5 font-display text-xl font-semibold text-ivory">{s.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-mist">{s.short}</p>
+          </div>
+        );
+      })}
+    </div>
+    <div class="mt-10"><a href="/services" class="group inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-lite">All services <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" /></a></div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="relative overflow-hidden border-y border-ivory/8 bg-graphite py-20 lg:py-28">
+    <div class="absolute inset-0 grid-texture opacity-60"></div>
+    <div class="lux-container relative">
+      <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p class="eyebrow mb-4" data-reveal>Why Super Luxury</p>
+          <h2 class="font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl lg:text-5xl" data-reveal>A standard you can feel.</h2>
+          <p class="mt-6 max-w-md text-mist" data-reveal data-delay="60">{site.tagline} No hidden charges, professionally maintained cars, and a team that answers — day or night.</p>
+          <a href="/about" class="mt-8 inline-flex"><span class="btn-outline px-6 py-3">About us</span></a>
+        </div>
+        <div class="grid gap-px overflow-hidden rounded-2xl border border-ivory/10 bg-ivory/10 sm:grid-cols-2">
+          {whyChooseUs.map((w, i) => {
+            const Icon = icons[w.icon] ?? BadgeCheck;
+            return (
+              <div class="bg-graphite p-7" data-reveal data-delay={(i % 2) * 70}>
+                <Icon class="h-6 w-6 text-gold" />
+                <h3 class="mt-4 font-display text-lg font-semibold text-ivory">{w.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-mist">{w.body}</p>
+              </div>
+            );
+          })}
+          <div class="bg-gradient-to-br from-gold/15 to-graphite p-7" data-reveal>
+            <p class="font-display text-3xl font-semibold text-gold">{fleet.length}</p>
+            <p class="mt-1 text-sm text-mist">cars ready to drive, from {fmtAED(site.fromPriceAed)}/day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="lux-container py-20 lg:py-28">
+    <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+      <div>
+        <p class="eyebrow mb-4" data-reveal>Renting with us</p>
+        <h2 class="font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl lg:text-5xl" data-reveal>Three steps to the road.</h2>
+        <p class="mt-5 text-mist" data-reveal data-delay="60">Drivers must be 21+ with a valid licence. 250 km/day included; full terms are transparent and published.</p>
+        <a href="/terms" class="mt-6 inline-block text-sm font-medium text-gold hover:text-gold-lite" data-reveal data-delay="80">Read the rental terms →</a>
+      </div>
+      <ol class="grid gap-5 sm:grid-cols-3">
+        {[
+          { n: '01', t: 'Choose your car', d: 'Filter the fleet by category, brand or budget and save your favourites.' },
+          { n: '02', t: 'Send your request', d: 'Book online, WhatsApp or call — we confirm availability and the daily rate.' },
+          { n: '03', t: 'We deliver it', d: 'Free pickup and drop-off anywhere in Dubai, at the time that suits you.' },
+        ].map((s, i) => (
+          <li class="card p-6" data-reveal data-delay={i * 80}>
+            <p class="font-display text-2xl font-semibold text-gold/80">{s.n}</p>
+            <h3 class="mt-4 font-display text-lg font-semibold text-ivory">{s.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-mist">{s.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Contact / location -->
+  <section class="border-t border-ivory/8 bg-coal py-20 lg:py-28">
+    <div class="lux-container grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="eyebrow mb-4" data-reveal>Visit / call</p>
+        <h2 class="font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl lg:text-5xl" data-reveal>Al Barsha, Dubai.</h2>
+        <p class="mt-5 max-w-md text-mist" data-reveal data-delay="60">Prefer your car delivered? Tell us where you are in Dubai — pickup and drop-off are on us.</p>
+        <div class="mt-8 space-y-4 text-sm" data-reveal data-delay="100">
+          <p class="flex items-start gap-3 text-ivory/85"><MapPin class="mt-0.5 h-5 w-5 shrink-0 text-gold" />{contact.address}</p>
+          <p class="flex items-center gap-3 text-ivory/85"><Phone class="h-5 w-5 text-gold" /><a href={contact.phonePrimaryHref} class="hover:text-gold">{contact.phonePrimary}</a><span class="text-faint">·</span><a href={contact.phoneSecondaryHref} class="hover:text-gold">{contact.phoneSecondary}</a></p>
+          <p class="flex items-center gap-3 text-ivory/85"><Mail class="h-5 w-5 text-gold" /><a href={contact.emailHref} class="hover:text-gold">{contact.email}</a></p>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-3" data-reveal data-delay="140">
+          <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold px-6 py-3"><MessageCircle class="h-4 w-4" /> WhatsApp us</a>
+          <a href="/contact" class="btn-outline px-6 py-3">Contact &amp; map</a>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-ivory/10" data-reveal data-delay="80">
+        <iframe
+          title="Map — Al Barsha, Dubai"
+          src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`}
+          class="h-[340px] w-full grayscale-[0.3] contrast-110 lg:h-[420px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="relative overflow-hidden bg-ink py-24 lg:py-32">
+    <div class="absolute inset-0 hero-glow opacity-70"></div>
+    <div class="lux-container relative text-center">
+      <h2 class="mx-auto max-w-3xl font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-5xl lg:text-6xl" data-reveal>
+        Your Dubai, <span class="text-grad-gold">your car.</span>
+      </h2>
+      <p class="mx-auto mt-6 max-w-lg text-mist" data-reveal data-delay="60">Tell us the dates and the destination — we’ll have it waiting.</p>
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-3" data-reveal data-delay="120">
+        <a href="/fleet" class="btn-gold px-8 py-4">Browse the fleet</a>
+        <a href="/book" class="btn-outline px-8 py-4">Book now</a>
+      </div>
+    </div>
+  </section>
+</Layout>

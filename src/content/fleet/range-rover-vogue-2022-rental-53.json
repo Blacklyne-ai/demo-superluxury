@@ -1,0 +1,32 @@
+{
+  "id": "53",
+  "sourceSlug": "range-rover-vogue-2022-rental",
+  "name": "Range Rover Vogue",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 780,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Meet unparalleled luxury with a Range Rover Vogue 2022 rental in Dubai. Experience elegance and comfort on your Dubai journey",
+  "images": [
+    "/images/fleet/53/01.webp",
+    "/images/fleet/53/02.webp",
+    "/images/fleet/53/03.webp",
+    "/images/fleet/53/04.webp",
+    "/images/fleet/53/05.webp",
+    "/images/fleet/53/06.webp"
+  ],
+  "sourceUrl": "/shop/range-rover-vogue-2022-rental-53"
+}

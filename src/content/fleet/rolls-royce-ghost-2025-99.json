@@ -1,0 +1,32 @@
+{
+  "id": "99",
+  "sourceSlug": "rolls-royce-ghost-2025",
+  "name": "Rolls Royce Ghost 2025",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 2900,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Indulge in unparalleled luxury with the Rolls Royce Ghost, now available for rent. This exquisite sedan offers a blend of timeless elegance and advanced technology, ensuring an extraordinary driving experience. Elevate your journey with the finest Rolls Royce Ghost rental Dubai has to offer.",
+  "images": [
+    "/images/fleet/99/01.webp",
+    "/images/fleet/99/02.webp",
+    "/images/fleet/99/03.webp",
+    "/images/fleet/99/04.webp",
+    "/images/fleet/99/05.webp",
+    "/images/fleet/99/06.webp",
+    "/images/fleet/99/07.webp",
+    "/images/fleet/99/08.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-ghost-2025-99"
+}

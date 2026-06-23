@@ -1,0 +1,31 @@
+{
+  "id": "42",
+  "sourceSlug": "rent-a-mercedes-e450-2022-in-dubai",
+  "name": "Mercedes E450 Cabriolet",
+  "brand": "Mercedes-Benz",
+  "category": "sports",
+  "categories": [
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 550,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6 Twin Turbo",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Dubai, a city known for its luxury and magnificence, is where luxury and innovation combine. Renting a Mercedes E450 2022 is a great option if you're planning on visiting this vibrant city and want the best driving experience possible. Exquisitely designed to combine performance, style, and luxury, this car is popular among discriminating travelers.",
+  "images": [
+    "/images/fleet/42/01.webp",
+    "/images/fleet/42/02.webp",
+    "/images/fleet/42/03.webp",
+    "/images/fleet/42/04.webp",
+    "/images/fleet/42/05.webp",
+    "/images/fleet/42/06.webp"
+  ],
+  "sourceUrl": "/shop/rent-a-mercedes-e450-2022-in-dubai-42"
+}

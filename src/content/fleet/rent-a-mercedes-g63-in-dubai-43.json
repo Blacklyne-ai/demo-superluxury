@@ -1,0 +1,32 @@
+{
+  "id": "43",
+  "sourceSlug": "rent-a-mercedes-g63-in-dubai",
+  "name": "Mercedes G63 Black",
+  "brand": "Mercedes-Benz",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 1400,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "If you want to see the heights of style and sophistication on Dubai's bustling highways. Look no further; the magnificent Mercedes G63 Black 2022 is a speculator of automobile engineering that embodies power, sophistication, and beauty in every way. Rent a Mercedes G63 Black for the best driving experience, whether you're a resident looking for a luxury car for rent or a tourist wishing to see Dubai in unparalleled luxury.",
+  "images": [
+    "/images/fleet/43/01.webp",
+    "/images/fleet/43/02.webp",
+    "/images/fleet/43/03.webp",
+    "/images/fleet/43/04.webp",
+    "/images/fleet/43/05.webp",
+    "/images/fleet/43/06.webp",
+    "/images/fleet/43/07.webp"
+  ],
+  "sourceUrl": "/shop/rent-a-mercedes-g63-in-dubai-43"
+}

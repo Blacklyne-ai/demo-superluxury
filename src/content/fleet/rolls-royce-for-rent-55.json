@@ -1,0 +1,31 @@
+{
+  "id": "55",
+  "sourceSlug": "rolls-royce-for-rent",
+  "name": "Rent Rolls Royce Cullinan 2024",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 3800,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "If you're looking for unmatched sophistication and comfort, a Rolls Royce Cullinan rental from Super Luxury Car Rental offers the perfect blend of power, elegance, and prestige — ideal for business travel, luxury vacations, or unforgettable events in Dubai.",
+  "images": [
+    "/images/fleet/55/01.webp",
+    "/images/fleet/55/02.webp",
+    "/images/fleet/55/03.webp",
+    "/images/fleet/55/04.webp",
+    "/images/fleet/55/05.webp",
+    "/images/fleet/55/06.webp",
+    "/images/fleet/55/07.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-for-rent-55"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "78",
+  "sourceSlug": "rent-a-bentley-bentayga-dubai",
+  "name": "Bentley Bentayga Rental in Dubai",
+  "brand": "Bentley",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 2200,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Bentley Bentayga Black is the height of luxurious car design and luxury in Dubai. For people with highly exquisite preferences, this famous car is a perfect option because it combines unmatched performance, stunning appearance, and exquisite luxury. Bentley Bentayga rental in Dubai is an unparalleled experience, regardless of whether you're a resident seeking a weekend break or a visitor trying to indulge in luxury.",
+  "images": [
+    "/images/fleet/78/01.webp",
+    "/images/fleet/78/02.webp",
+    "/images/fleet/78/03.webp",
+    "/images/fleet/78/04.webp",
+    "/images/fleet/78/05.webp"
+  ],
+  "sourceUrl": "/shop/rent-a-bentley-bentayga-dubai-78"
+}

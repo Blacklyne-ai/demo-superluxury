@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FleetCard from '../../components/FleetCard.astro';
+import { getFleet } from '../../lib/fleet';
+import { Heart, MessageCircle } from '@lucide/astro';
+import { contact } from '../../data/site';
+const fleet = await getFleet();
+---
+<Layout title="Saved cars — Super Luxury Car Rental" navVariant="solid">
+  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+2.5rem)]">
+    <div class="lux-container pb-10">
+      <p class="eyebrow mb-4">Your shortlist</p>
+      <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl">Saved cars.</h1>
+      <p class="mt-4 max-w-xl text-mist">The cars you’ve saved live here on this device. Send us your shortlist and we’ll confirm availability and the best rate.</p>
+    </div>
+  </section>
+
+  <section class="lux-container py-12 lg:py-16">
+    <div data-wishgrid class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {fleet.map((car) => (
+        <div data-wishitem data-id={`${car.sourceSlug}-${car.id}`} class="hidden"><FleetCard car={car} /></div>
+      ))}
+    </div>
+
+    <div data-wishempty class="py-20 text-center">
+      <div class="mx-auto grid h-16 w-16 place-items-center rounded-full border border-ivory/10 bg-graphite"><Heart class="h-7 w-7 text-faint" /></div>
+      <p class="mt-5 text-lg text-ivory">No saved cars yet.</p>
+      <p class="mt-2 text-mist">Tap the heart on any car to build your shortlist.</p>
+      <a href="/fleet" class="btn-gold mt-6 px-7 py-3.5">Browse the fleet</a>
+    </div>
+
+    <div data-wishcta class="mt-12 hidden">
+      <div class="rounded-2xl border border-ivory/10 bg-graphite p-7 text-center sm:p-10">
+        <h2 class="font-display text-2xl font-semibold text-ivory">Ready when you are.</h2>
+        <p class="mx-auto mt-3 max-w-md text-mist">Send your shortlist over WhatsApp and we’ll come back with availability, weekly &amp; monthly rates and delivery times.</p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a data-wa href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold px-7 py-3.5"><MessageCircle class="h-4 w-4" /> Send shortlist</a>
+          <a href="/book" class="btn-outline px-7 py-3.5">Book now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const items = Array.from(document.querySelectorAll('[data-wishitem]')) as HTMLElement[];
+  const empty = document.querySelector('[data-wishempty]') as HTMLElement;
+  const cta = document.querySelector('[data-wishcta]') as HTMLElement;
+  const wa = document.querySelector('[data-wa]') as HTMLAnchorElement;
+  const baseWa = wa?.href || '';
+
+  function render() {
+    let ids: string[] = [];
+    try { ids = JSON.parse(localStorage.getItem('slcr-wishlist') || '[]'); } catch {}
+    let count = 0;
+    const names: string[] = [];
+    items.forEach((it) => {
+      const on = ids.includes(it.dataset.id || '');
+      it.classList.toggle('hidden', !on);
+      if (on) { count++; const n = it.querySelector('h3')?.textContent?.trim(); if (n) names.push(n); }
+    });
+    empty.classList.toggle('hidden', count > 0);
+    cta.classList.toggle('hidden', count === 0);
+    if (wa && count > 0) {
+      const txt = encodeURIComponent(`Hi Super Luxury Car Rental, I'm interested in these cars: ${names.join(', ')}. Could you confirm availability and rates?`);
+      wa.href = `${baseWa}&text=${txt}`;
+    }
+  }
+  render();
+  // live-update when hearts toggle elsewhere or storage changes
+  document.addEventListener('wishlist:change', render);
+  window.addEventListener('storage', render);
+</script>

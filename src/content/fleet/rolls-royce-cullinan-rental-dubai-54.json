@@ -1,0 +1,29 @@
+{
+  "id": "54",
+  "sourceSlug": "rolls-royce-cullinan-rental-dubai",
+  "name": "Rolls-Royce Cullinan 2024 Black",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 3800,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Look no further than the Rolls Royce Cullinan Black for rent if you're searching for unmatched refinement and luxury in Dubai. Cullinan Black is the ultimate car elegance, known for its lavishness and imposing presence. This legendary car offers an unforgettable experience, whether you're exploring the city's vibrant streets or on an exquisite desert adventure.",
+  "images": [
+    "/images/fleet/54/01.webp",
+    "/images/fleet/54/02.webp",
+    "/images/fleet/54/03.webp",
+    "/images/fleet/54/04.webp",
+    "/images/fleet/54/05.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-cullinan-rental-dubai-54"
+}

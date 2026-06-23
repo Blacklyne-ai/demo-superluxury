@@ -1,0 +1,33 @@
+{
+  "id": "57",
+  "sourceSlug": "rolls-royce-dawn-rentals",
+  "name": "Rent a Rolls Royce Dawn for Luxury and Style",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "convertible"
+  ],
+  "priceDaily": 3200,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "With its unmatched elegance and performance, the Rolls Royce Dawn is the perfect car for anybody looking for an amazing driving experience in the energetic city of Dubai. Rent a Rolls Royce Dawn in Dubai to experience the heights of luxury and style.",
+  "images": [
+    "/images/fleet/57/01.webp",
+    "/images/fleet/57/02.webp",
+    "/images/fleet/57/03.webp",
+    "/images/fleet/57/04.webp",
+    "/images/fleet/57/05.webp",
+    "/images/fleet/57/06.webp",
+    "/images/fleet/57/07.webp",
+    "/images/fleet/57/08.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-dawn-rentals-57"
+}

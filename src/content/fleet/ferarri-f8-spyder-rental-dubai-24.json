@@ -1,0 +1,32 @@
+{
+  "id": "24",
+  "sourceSlug": "ferarri-f8-spyder-rental-dubai",
+  "name": "Ferrari F8 Spyder",
+  "brand": "Ferrari",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 3400,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Rent Ferrari Dubai with the Ferrari F8 Spyder for an unforgettable experience if you want to feel the thrill of driving a luxury supercar in one of the most extravagant cities in the world. The Ferrari F8 Spyder is a technical marvel from Italy that combines amazing performance and stunning design. Dubai's famous skyline and magnificent roads provide the ideal setting for an amazing driving experience.",
+  "images": [
+    "/images/fleet/24/01.webp",
+    "/images/fleet/24/02.webp",
+    "/images/fleet/24/03.webp",
+    "/images/fleet/24/04.webp",
+    "/images/fleet/24/05.webp",
+    "/images/fleet/24/06.webp",
+    "/images/fleet/24/07.webp",
+    "/images/fleet/24/08.webp"
+  ],
+  "sourceUrl": "/shop/ferarri-f8-spyder-rental-dubai-24"
+}

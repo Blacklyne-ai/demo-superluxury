@@ -1,0 +1,32 @@
+{
+  "id": "8",
+  "sourceSlug": "audi-r8-spyder-2022-rental-in-dubai",
+  "name": "Audi R8 Coupe",
+  "brand": "Audi",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 1700,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Discover the real thrill of renting an Audi R8 Q8 in Dubai! Book now and elevate your driving experience to a new level of cutting-edge technology, exciting performance, and exceptional luxury. Combine comfort and speed while exploring Dubai's iconic streets in style.",
+  "images": [
+    "/images/fleet/8/01.webp",
+    "/images/fleet/8/02.webp",
+    "/images/fleet/8/03.webp",
+    "/images/fleet/8/04.webp",
+    "/images/fleet/8/05.webp",
+    "/images/fleet/8/06.webp",
+    "/images/fleet/8/07.webp",
+    "/images/fleet/8/08.webp"
+  ],
+  "sourceUrl": "/shop/audi-r8-spyder-2022-rental-in-dubai-8"
+}

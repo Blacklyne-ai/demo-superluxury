@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { about, whyChooseUs, brands, contact, site } from '../data/site';
+import { getFleet } from '../lib/fleet';
+import { Gem, BadgeCheck, Headset, MapPin, ShieldCheck, Quote } from '@lucide/astro';
+const icons: Record<string, any> = { Gem, BadgeCheck, Headset, MapPin, ShieldCheck };
+const fleet = await getFleet();
+const hero = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] ?? fleet[0].images[0];
+---
+<Layout title="About — Super Luxury Car Rental Dubai" navVariant="solid">
+  <!-- Header -->
+  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+4rem)]">
+    <div class="lux-container pb-16">
+      <p class="eyebrow mb-4" data-reveal>About us</p>
+      <h1 class="max-w-3xl font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl lg:text-6xl" data-reveal>The luxury lifestyle Dubai has to offer.</h1>
+    </div>
+  </section>
+
+  <!-- Intro + image -->
+  <section class="lux-container grid gap-12 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
+    <div data-reveal>
+      <p class="text-lg leading-relaxed text-ivory/85">{about.intro}</p>
+      <div class="mt-8 grid grid-cols-3 gap-6">
+        <div><p class="font-display text-3xl font-semibold text-gold">{fleet.length}</p><p class="mt-1 text-sm text-mist">cars in the fleet</p></div>
+        <div><p class="font-display text-3xl font-semibold text-gold">{brands.length}</p><p class="mt-1 text-sm text-mist">marques</p></div>
+        <div><p class="font-display text-3xl font-semibold text-gold">24/7</p><p class="mt-1 text-sm text-mist">support</p></div>
+      </div>
+    </div>
+    <div class="overflow-hidden rounded-2xl border border-ivory/10" data-reveal data-delay="80">
+      <img src={hero} alt="Super Luxury Car Rental fleet" width="800" height="600" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover" />
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="border-y border-ivory/8 bg-graphite py-16 lg:py-24">
+    <div class="lux-container">
+      <Quote class="h-10 w-10 text-gold/50" data-reveal />
+      <p class="mt-6 max-w-4xl font-display text-2xl leading-snug text-ivory sm:text-3xl lg:text-4xl" data-reveal>{about.vision}</p>
+      <p class="mt-6 text-sm uppercase tracking-luxe text-faint" data-reveal data-delay="60">Our company vision</p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="lux-container py-16 lg:py-24">
+    <div class="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+      <div>
+        <p class="eyebrow mb-4" data-reveal>Our values</p>
+        <h2 class="font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl" data-reveal>Customers, first.</h2>
+      </div>
+      <ul class="grid gap-px overflow-hidden rounded-2xl border border-ivory/10 bg-ivory/10 sm:grid-cols-2">
+        {about.values.map((v, i) => (
+          <li class="flex items-start gap-3 bg-graphite p-6" data-reveal data-delay={(i % 2) * 60}>
+            <span class="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-gold/40 text-xs font-semibold text-gold">{i + 1}</span>
+            <span class="text-ivory/85">{v}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="border-t border-ivory/8 bg-coal py-16 lg:py-24">
+    <div class="lux-container">
+      <p class="eyebrow mb-4" data-reveal>Why choose us</p>
+      <h2 class="max-w-xl font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl" data-reveal>A standard you can feel.</h2>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {whyChooseUs.map((w, i) => {
+          const Icon = icons[w.icon] ?? BadgeCheck;
+          return (
+            <div class="card p-7" data-reveal data-delay={(i % 3) * 60}>
+              <Icon class="h-6 w-6 text-gold" />
+              <h3 class="mt-4 font-display text-lg font-semibold text-ivory">{w.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-mist">{w.body}</p>
+            </div>
+          );
+        })}
+      </div>
+      <div class="mt-12 flex flex-wrap gap-3" data-reveal>
+        <a href="/fleet" class="btn-gold px-7 py-3.5">Browse the fleet</a>
+        <a href="/contact" class="btn-outline px-7 py-3.5">Contact us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

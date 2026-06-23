@@ -1,0 +1,32 @@
+{
+  "id": "45",
+  "sourceSlug": "mini-cooper-rental-in-dubai",
+  "name": "Mini Cooper Rental",
+  "brand": "Mini",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 450,
+  "currency": "AED",
+  "specs": {
+    "engine": "V4",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Are you ready to explore Dubai in iconic style? Look no further than our Mini Cooper rental services in Dubai. Experience the luxury and excitement of driving a Mini Cooper through the vibrant streets of this cosmopolitan city.",
+  "images": [
+    "/images/fleet/45/01.webp",
+    "/images/fleet/45/02.webp",
+    "/images/fleet/45/03.webp",
+    "/images/fleet/45/04.webp",
+    "/images/fleet/45/05.webp",
+    "/images/fleet/45/06.webp",
+    "/images/fleet/45/07.webp",
+    "/images/fleet/45/08.webp"
+  ],
+  "sourceUrl": "/shop/mini-cooper-rental-in-dubai-45"
+}

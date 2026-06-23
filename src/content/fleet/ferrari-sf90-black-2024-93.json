@@ -1,0 +1,31 @@
+{
+  "id": "93",
+  "sourceSlug": "ferrari-sf90-black-2024",
+  "name": "Ferrari SF90 Black 2024",
+  "brand": "Ferrari",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 4800,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Ferrari SF90 is more than just a supercar; it embodies power and prestige, offering the ultimate driving experience. With its unique exterior and cutting-edge technology, Ferrari's dedication to innovation and quality is evident in every detail. If you're seeking the thrill of driving a fast car, rent Ferrari Dubai and choose the Ferrari SF90 Black 2023 — the perfect choice in Dubai.",
+  "images": [
+    "/images/fleet/93/01.webp",
+    "/images/fleet/93/02.webp",
+    "/images/fleet/93/03.webp",
+    "/images/fleet/93/04.webp",
+    "/images/fleet/93/05.webp",
+    "/images/fleet/93/06.webp",
+    "/images/fleet/93/07.webp"
+  ],
+  "sourceUrl": "/shop/ferrari-sf90-black-2024-93"
+}

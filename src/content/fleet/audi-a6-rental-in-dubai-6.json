@@ -1,0 +1,31 @@
+{
+  "id": "6",
+  "sourceSlug": "audi-a6-rental-in-dubai",
+  "name": "Audi A6",
+  "brand": "Audi",
+  "category": "sedan",
+  "categories": [
+    "sedan",
+    "family"
+  ],
+  "priceDaily": 500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V4",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Audi A6: The Pinnacle of Luxury in Dubai Rentals. Merge timeless elegance with dynamic performance as you explore the city's opulence and sophistication. In a city where excellence is the norm, don't settle for anything less than extraordinary. Embark on a journey of luxury and refinement – in unmatched style.",
+  "images": [
+    "/images/fleet/6/01.webp",
+    "/images/fleet/6/02.webp",
+    "/images/fleet/6/03.webp",
+    "/images/fleet/6/04.webp",
+    "/images/fleet/6/05.webp",
+    "/images/fleet/6/06.webp"
+  ],
+  "sourceUrl": "/shop/audi-a6-rental-in-dubai-6"
+}

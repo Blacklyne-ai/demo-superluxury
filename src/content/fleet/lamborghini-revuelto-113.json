@@ -1,0 +1,32 @@
+{
+  "id": "113",
+  "sourceSlug": "lamborghini-revuelto",
+  "name": "Lamborghini Revuelto",
+  "brand": "Lamborghini",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 10500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V12 Hybrid",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Lamborghini Revuelto is the latest in Lamborghini’s lineup, combining cutting-edge design, breathtaking performance, and futuristic technology. With its aggressive styling and roaring engine, this supercar delivers an unforgettable driving experience. Renting the Lamborghini Revuelto in Dubai ensures luxury, speed, and exclusivity for city drives, weekend adventures, or high-profile events.",
+  "images": [
+    "/images/fleet/113/01.webp",
+    "/images/fleet/113/02.webp",
+    "/images/fleet/113/03.webp",
+    "/images/fleet/113/04.webp",
+    "/images/fleet/113/05.webp",
+    "/images/fleet/113/06.webp",
+    "/images/fleet/113/07.webp",
+    "/images/fleet/113/08.webp"
+  ],
+  "sourceUrl": "/shop/lamborghini-revuelto-113"
+}

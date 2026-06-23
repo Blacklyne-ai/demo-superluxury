@@ -1,0 +1,33 @@
+{
+  "id": "107",
+  "sourceSlug": "bentley-continental-gt-cabriolet",
+  "name": "Bentley Continental GT Cabriolet",
+  "brand": "Bentley",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sports"
+  ],
+  "priceDaily": 2500,
+  "currency": "AED",
+  "specs": {
+    "engine": "W12 Twin-Turbo",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Bentley Continental GT Cabriolet is the ultimate luxury convertible, blending performance, elegance, and open-air driving pleasure. Perfect for those who love sophistication and thrill, this convertible delivers a smooth, powerful ride while making a statement wherever you go. Renting the Bentley Continental GT Cabriolet in Dubai promises an unforgettable luxury driving experience, whether for city tours, weekend getaways, or special events.",
+  "images": [
+    "/images/fleet/107/01.webp",
+    "/images/fleet/107/02.webp",
+    "/images/fleet/107/03.webp",
+    "/images/fleet/107/04.webp",
+    "/images/fleet/107/05.webp",
+    "/images/fleet/107/06.webp",
+    "/images/fleet/107/07.webp",
+    "/images/fleet/107/08.webp"
+  ],
+  "sourceUrl": "/shop/bentley-continental-gt-cabriolet-107"
+}

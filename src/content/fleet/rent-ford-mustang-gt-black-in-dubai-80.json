@@ -1,0 +1,33 @@
+{
+  "id": "80",
+  "sourceSlug": "rent-ford-mustang-gt-black-in-dubai",
+  "name": "Ford Mustang GT Cabriolet",
+  "brand": "Ford",
+  "category": "sports",
+  "categories": [
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Embark on an unforgettable adventure in Dubai with our luxury car rental service, featuring the legendary Mustang and a diverse range of other luxury vehicles. Experience the thrill of the open road as you drive the iconic Mustang through the streets of Dubai with elegance and comfort. With our luxury car rental options in Dubai, you can elevate your Dubai experience to new levels, guaranteed with every moment filled with luxury, excitement, and unforgettable memories.",
+  "images": [
+    "/images/fleet/80/01.webp",
+    "/images/fleet/80/02.webp",
+    "/images/fleet/80/03.webp",
+    "/images/fleet/80/04.webp",
+    "/images/fleet/80/05.webp",
+    "/images/fleet/80/06.webp",
+    "/images/fleet/80/07.webp",
+    "/images/fleet/80/08.webp"
+  ],
+  "sourceUrl": "/shop/rent-ford-mustang-gt-black-in-dubai-80"
+}

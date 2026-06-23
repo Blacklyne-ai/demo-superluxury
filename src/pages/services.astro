@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { services, contact } from '../data/site';
+import { Plane, UserRound, Crown, CalendarRange, Headset, MapPin, MessageCircle, ArrowUpRight } from '@lucide/astro';
+const icons: Record<string, any> = { Plane, UserRound, Crown, CalendarRange, Headset, MapPin };
+---
+<Layout title="Services — Chauffeur, Limousine & Delivery | Super Luxury Car Rental Dubai" navVariant="solid">
+  <!-- Header -->
+  <section class="relative overflow-hidden border-b border-ivory/8 bg-ink pt-[calc(var(--nav-h)+4rem)]">
+    <div class="absolute inset-0 hero-glow opacity-60"></div>
+    <div class="lux-container relative pb-16">
+      <p class="eyebrow mb-4" data-reveal>What we do</p>
+      <h1 class="max-w-2xl font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl lg:text-6xl" data-reveal>The service around the car.</h1>
+      <p class="mt-5 max-w-xl text-mist" data-reveal data-delay="60">From the airport gate to your hotel door, and every kilometre between — here is everything we handle so your only job is to drive (or be driven).</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="lux-container py-16 lg:py-24">
+    <div class="space-y-5">
+      {services.map((s, i) => {
+        const Icon = icons[s.icon] ?? Crown;
+        return (
+          <div class="group grid gap-6 rounded-2xl border border-ivory/10 bg-graphite p-7 transition-colors duration-500 hover:border-gold/30 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-10 lg:p-9" data-reveal data-delay={(i % 3) * 60}>
+            <div class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-gold/25 bg-gold/10 text-gold"><Icon class="h-7 w-7" /></div>
+            <div>
+              <h2 class="font-display text-2xl font-semibold text-ivory">{s.title}</h2>
+              <p class="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-mist">{s.body}</p>
+            </div>
+            <a href={`${contact.whatsapp}&text=${encodeURIComponent(`Hi, I'd like to ask about your ${s.title}.`)}`} target="_blank" rel="noopener" class="btn-outline shrink-0 px-5 py-3 lg:px-6">Send request <ArrowUpRight class="h-4 w-4" /></a>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- closing copy (verbatim) -->
+    <div class="mt-16 rounded-2xl border border-ivory/10 bg-gradient-to-br from-gold/10 to-graphite p-8 text-center lg:p-12" data-reveal>
+      <p class="mx-auto max-w-3xl font-display text-xl leading-relaxed text-ivory sm:text-2xl">
+        We specialize in providing an exclusive selection of luxury vehicles at Super Luxury Car Rental, the leading Car Rental Agency in Dubai. Experience the best in performance, comfort, and style with our exceptional fleet.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <a href="/fleet" class="btn-gold px-7 py-3.5">Browse the fleet</a>
+        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-outline px-7 py-3.5"><MessageCircle class="h-4 w-4" /> WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

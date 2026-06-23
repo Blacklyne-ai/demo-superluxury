@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { contact, site } from '../data/site';
+---
+<Layout title="Legal notice — Super Luxury Car Rental" navVariant="solid">
+  <section class="lux-container max-w-3xl pb-20 pt-[calc(var(--nav-h)+4rem)]">
+    <p class="eyebrow mb-4">Legal</p>
+    <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl">Legal notice.</h1>
+    <div class="mt-8 space-y-6 text-mist">
+      <div>
+        <h2 class="font-display text-lg font-semibold text-ivory">Company</h2>
+        <p class="mt-2">{site.legalName}<br />Part of {site.operator}.</p>
+      </div>
+      <div>
+        <h2 class="font-display text-lg font-semibold text-ivory">Registered office</h2>
+        <p class="mt-2">{contact.address}<br />{site.country}</p>
+      </div>
+      <div>
+        <h2 class="font-display text-lg font-semibold text-ivory">Contact</h2>
+        <p class="mt-2">
+          Phone: <a href={contact.phonePrimaryHref} class="text-gold hover:text-gold-lite">{contact.phonePrimary}</a> · <a href={contact.phoneSecondaryHref} class="text-gold hover:text-gold-lite">{contact.phoneSecondary}</a><br />
+          Email: <a href={contact.emailHref} class="text-gold hover:text-gold-lite">{contact.email}</a>
+        </p>
+      </div>
+      <div class="rounded-2xl border border-gold/20 bg-gold/[0.06] p-6 text-sm">
+        <p class="text-mist"><strong class="text-ivory/90">Operator-TODO before go-live:</strong> add the UAE Trade Licence number, issuing authority (DED), VAT/TRN, and confirm the operating entity and “by {site.operator}” relationship. Verify all legal disclosures required for a Dubai car-rental business.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

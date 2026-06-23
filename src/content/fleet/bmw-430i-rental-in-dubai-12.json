@@ -1,0 +1,30 @@
+{
+  "id": "12",
+  "sourceSlug": "bmw-430i-rental-in-dubai",
+  "name": "BMW 430i 2025",
+  "brand": "BMW",
+  "category": "convertible",
+  "categories": [
+    "convertible"
+  ],
+  "priceDaily": 550,
+  "currency": "AED",
+  "specs": {
+    "engine": "V4",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Embrace Dubai's Majestic Skyline as Your Own with BMW 430i Rentals! Merge City Elegance with Unmatched Performance as You Cruise Through Luxury and Speed. In a City of Exquisite Details, opt for the Extraordinary. Choose BMW 430i Rentals for a Journey Through Style and Sophistication. Experience the Ultimate Blend of Luxury and Performance with BMW Rental Dubai. Elevate Your Drive with Luxury Car Rental Dubai and Set Your Sights on Unforgettable Adventures.",
+  "images": [
+    "/images/fleet/12/01.webp",
+    "/images/fleet/12/02.webp",
+    "/images/fleet/12/03.webp",
+    "/images/fleet/12/04.webp",
+    "/images/fleet/12/05.webp",
+    "/images/fleet/12/06.webp"
+  ],
+  "sourceUrl": "/shop/bmw-430i-rental-in-dubai-12"
+}

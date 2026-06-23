@@ -1,0 +1,29 @@
+{
+  "id": "120",
+  "sourceSlug": "range-rover-sport-2026-white",
+  "name": "Range Rover Sport 2026 ( White )",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 1050,
+  "currency": "AED",
+  "specs": {
+    "freePickup": false
+  },
+  "description": "",
+  "images": [
+    "/images/fleet/120/01.webp",
+    "/images/fleet/120/02.webp",
+    "/images/fleet/120/03.webp",
+    "/images/fleet/120/04.webp",
+    "/images/fleet/120/05.webp",
+    "/images/fleet/120/06.webp",
+    "/images/fleet/120/07.webp",
+    "/images/fleet/120/08.webp"
+  ],
+  "sourceUrl": "/shop/range-rover-sport-2026-white-120"
+}

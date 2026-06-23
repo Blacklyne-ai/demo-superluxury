@@ -1,0 +1,33 @@
+{
+  "id": "25",
+  "sourceSlug": "ferrari-portofino-rentals",
+  "name": "Ferrari Portofino",
+  "brand": "Ferrari",
+  "category": "sports",
+  "categories": [
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 2700,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Rent Ferrari Dubai with the Ferrari Portofino — a perfect way to experience the vibrant environment of Dubai, a city well-known for its luxurious offers and affluent lifestyle. Driving a Ferrari Portofino around Dubai, whether you're there for business or pleasure, has the potential to grab attention and create a lasting impression.",
+  "images": [
+    "/images/fleet/25/01.webp",
+    "/images/fleet/25/02.webp",
+    "/images/fleet/25/03.webp",
+    "/images/fleet/25/04.webp",
+    "/images/fleet/25/05.webp",
+    "/images/fleet/25/06.webp",
+    "/images/fleet/25/07.webp",
+    "/images/fleet/25/08.webp"
+  ],
+  "sourceUrl": "/shop/ferrari-portofino-rentals-25"
+}

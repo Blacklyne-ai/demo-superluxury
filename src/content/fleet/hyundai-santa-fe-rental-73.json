@@ -1,0 +1,32 @@
+{
+  "id": "73",
+  "sourceSlug": "hyundai-santa-fe-rental",
+  "name": "Hyundai Santa Fe",
+  "brand": "Hyundai",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family",
+    "economy"
+  ],
+  "priceDaily": 175,
+  "currency": "AED",
+  "specs": {
+    "engine": "v4",
+    "seats": 4,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Set off on an extraordinary journey with a Hyundai Santa Fe rental in Dubai. Discover a seamless blend of luxury, performance, and versatility on each excursion.",
+  "images": [
+    "/images/fleet/73/01.webp",
+    "/images/fleet/73/02.webp",
+    "/images/fleet/73/03.webp",
+    "/images/fleet/73/04.webp",
+    "/images/fleet/73/05.webp",
+    "/images/fleet/73/06.webp"
+  ],
+  "sourceUrl": "/shop/hyundai-santa-fe-rental-73"
+}

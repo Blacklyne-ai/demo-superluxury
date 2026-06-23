@@ -1,0 +1,30 @@
+{
+  "id": "5",
+  "sourceSlug": "audi-a3-rental-in-dubai",
+  "name": "Audi A3 2025",
+  "brand": "Audi",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 350,
+  "currency": "AED",
+  "specs": {
+    "engine": "V4",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Step into the world of luxury with Audi A3 rentals in Duba i. Whether you're looking to rent Audi in Dubai for its sleek design, cutting-edge technology, or responsive handling, the Audi A3 offers the ideal choice for those seeking a refined driving experience. Explore Audi A3 renting options in Dubai and discover automotive perfection.",
+  "images": [
+    "/images/fleet/5/01.webp",
+    "/images/fleet/5/02.webp",
+    "/images/fleet/5/03.webp",
+    "/images/fleet/5/04.webp",
+    "/images/fleet/5/05.webp",
+    "/images/fleet/5/06.webp"
+  ],
+  "sourceUrl": "/shop/audi-a3-rental-in-dubai-5"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "71",
+  "sourceSlug": "captiva",
+  "name": "Captiva",
+  "brand": "Chevrolet",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family",
+    "economy"
+  ],
+  "priceDaily": 150,
+  "currency": "AED",
+  "specs": {
+    "freePickup": false
+  },
+  "description": "The Chevrolet Captiva is designed with families in mind, offering ample space and a range of amenities to ensure a comfortable ride for passengers of all ages. With seating for up to seven passengers, including available third-row seating, the Captiva accommodates larger families with ease.",
+  "images": [
+    "/images/fleet/71/01.webp",
+    "/images/fleet/71/02.webp",
+    "/images/fleet/71/03.webp",
+    "/images/fleet/71/04.webp",
+    "/images/fleet/71/05.webp",
+    "/images/fleet/71/06.webp"
+  ],
+  "sourceUrl": "/shop/captiva-71"
+}

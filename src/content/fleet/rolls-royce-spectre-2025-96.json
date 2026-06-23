@@ -1,0 +1,32 @@
+{
+  "id": "96",
+  "sourceSlug": "rolls-royce-spectre-2025",
+  "name": "Rolls Royce Spectre 2025",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 6000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V12",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Rolls Royce Spectre 2024, available for rent in Dubai, is a luxurious V12 marvel that exudes elegance and sophistication. This stunning 2-door, 4-seat coupe combines Rolls Royce's signature opulence with cutting-edge technology, delivering an unmatched driving experience. Embrace the ultimate in luxury car rental Dubai offers with this exquisite vehicle.",
+  "images": [
+    "/images/fleet/96/01.webp",
+    "/images/fleet/96/02.webp",
+    "/images/fleet/96/03.webp",
+    "/images/fleet/96/04.webp",
+    "/images/fleet/96/05.webp",
+    "/images/fleet/96/06.webp",
+    "/images/fleet/96/07.webp",
+    "/images/fleet/96/08.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-spectre-2025-96"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "60",
+  "sourceSlug": "bmw-740i-2023-rental-dubai",
+  "name": "BMW 740i 2024",
+  "brand": "BMW",
+  "category": "sedan",
+  "categories": [
+    "sedan"
+  ],
+  "priceDaily": 1200,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Discover unparalleled luxury with a BMW 740i 2023 rental in Dubai. Experience elegance and sophistication on every drive. Contact us for your luxury car rental in Dubai.",
+  "images": [
+    "/images/fleet/60/01.webp",
+    "/images/fleet/60/02.webp",
+    "/images/fleet/60/03.webp",
+    "/images/fleet/60/04.webp",
+    "/images/fleet/60/05.webp",
+    "/images/fleet/60/06.webp",
+    "/images/fleet/60/07.webp"
+  ],
+  "sourceUrl": "/shop/bmw-740i-2023-rental-dubai-60"
+}

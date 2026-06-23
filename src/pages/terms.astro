@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { terms, contact } from '../data/site';
+import { Info } from '@lucide/astro';
+---
+<Layout title="Terms & Conditions — Super Luxury Car Rental Dubai" navVariant="solid" description="Standard rental terms and conditions for Super Luxury Car Rental L.L.C, Dubai.">
+  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+4rem)]">
+    <div class="lux-container pb-12">
+      <p class="eyebrow mb-4">Standard terms &amp; conditions of sale</p>
+      <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl">Rental policy.</h1>
+      <p class="mt-5 max-w-2xl text-mist">{terms.intro}</p>
+    </div>
+  </section>
+
+  <section class="lux-container py-14 lg:py-20">
+    <div class="grid gap-12 lg:grid-cols-[260px_1fr] lg:gap-16">
+      <!-- index -->
+      <nav class="top-[calc(var(--nav-h)+1.5rem)] h-max lg:sticky" aria-label="Sections">
+        <ol class="space-y-1.5 text-sm">
+          {terms.sections.map((s) => (
+            <li><a href={`#sec-${s.n}`} class="flex gap-2 rounded-lg px-3 py-2 text-mist transition-colors hover:bg-ivory/5 hover:text-gold"><span class="text-gold/60">{s.n}</span> {s.title}</a></li>
+          ))}
+        </ol>
+      </nav>
+
+      <!-- content -->
+      <div class="max-w-3xl space-y-12">
+        {terms.sections.map((s) => (
+          <section id={`sec-${s.n}`} class="scroll-mt-[calc(var(--nav-h)+1.5rem)]">
+            <h2 class="flex items-baseline gap-3 font-display text-2xl font-semibold text-ivory">
+              <span class="font-display text-base font-semibold text-gold/70">{s.n}</span>{s.title}
+            </h2>
+            <ul class="mt-5 space-y-3.5">
+              {s.items.map((it) => (
+                <li class="flex gap-3 text-[0.95rem] leading-relaxed text-mist">
+                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold/60"></span>{it}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+
+        <div class="rounded-2xl border border-gold/20 bg-gold/[0.06] p-6">
+          <div class="flex gap-3">
+            <Info class="h-5 w-5 shrink-0 text-gold" />
+            <p class="text-sm leading-relaxed text-mist">
+              The security deposit, insurance excess and weekly/monthly rates are confirmed per vehicle on the rental contract. For any question on the terms, message us on
+              <a href={contact.whatsapp} target="_blank" rel="noopener" class="text-gold underline underline-offset-2 hover:text-gold-lite">WhatsApp</a> or call
+              <a href={contact.phonePrimaryHref} class="text-gold underline underline-offset-2 hover:text-gold-lite">{contact.phonePrimary}</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

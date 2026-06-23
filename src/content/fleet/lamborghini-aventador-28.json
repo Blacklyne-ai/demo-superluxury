@@ -1,0 +1,33 @@
+{
+  "id": "28",
+  "sourceSlug": "lamborghini-aventador",
+  "name": "Lamborghini Aventador",
+  "brand": "Lamborghini",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sports"
+  ],
+  "priceDaily": 6000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V12",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Rent Lamborghini Dubai with the Lamborghini Aventador in Dubai — an experience that represents the heights of luxury and performance cars. With its phenomenal design and unmatched performance, the Lamborghini Aventador is an icon of power and splendor on Dubai's roadways, a city known for its opulence and respect for the greater things in life.",
+  "images": [
+    "/images/fleet/28/01.webp",
+    "/images/fleet/28/02.webp",
+    "/images/fleet/28/03.webp",
+    "/images/fleet/28/04.webp",
+    "/images/fleet/28/05.webp",
+    "/images/fleet/28/06.webp",
+    "/images/fleet/28/07.webp",
+    "/images/fleet/28/08.webp"
+  ],
+  "sourceUrl": "/shop/lamborghini-aventador-28"
+}

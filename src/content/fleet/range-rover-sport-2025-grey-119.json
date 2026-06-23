@@ -1,0 +1,28 @@
+{
+  "id": "119",
+  "sourceSlug": "range-rover-sport-2025-grey",
+  "name": "Range Rover Sport 2025 ( Grey )",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "family"
+  ],
+  "priceDaily": 1050,
+  "currency": "AED",
+  "specs": {
+    "freePickup": false
+  },
+  "description": "",
+  "images": [
+    "/images/fleet/119/01.webp",
+    "/images/fleet/119/02.webp",
+    "/images/fleet/119/03.webp",
+    "/images/fleet/119/04.webp",
+    "/images/fleet/119/05.webp",
+    "/images/fleet/119/06.webp",
+    "/images/fleet/119/07.webp",
+    "/images/fleet/119/08.webp"
+  ],
+  "sourceUrl": "/shop/range-rover-sport-2025-grey-119"
+}

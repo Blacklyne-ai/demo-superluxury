@@ -1,0 +1,32 @@
+{
+  "id": "70",
+  "sourceSlug": "lamborghini-huracan-sto",
+  "name": "Lamborghini Huracan STO",
+  "brand": "Lamborghini",
+  "category": "sports",
+  "categories": [
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 3700,
+  "currency": "AED",
+  "specs": {
+    "engine": "V10",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Rent Lamborghini Dubai with the Lamborghini Huracan 2023 — the perfect way to take advantage of the glamour and excitement of Dubai, a city known for its luxurious services and rich lifestyle. This conventional supercar is destined to draw attention wherever you travel, whether you're a resident trying to brighten up your weekend or a visitor wanting to see Dubai in style.",
+  "images": [
+    "/images/fleet/70/01.webp",
+    "/images/fleet/70/02.webp",
+    "/images/fleet/70/03.webp",
+    "/images/fleet/70/04.webp",
+    "/images/fleet/70/05.webp",
+    "/images/fleet/70/06.webp",
+    "/images/fleet/70/07.webp"
+  ],
+  "sourceUrl": "/shop/lamborghini-huracan-sto-70"
+}

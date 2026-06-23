@@ -1,0 +1,34 @@
+{
+  "id": "121",
+  "sourceSlug": "range-rover-velar-nardo-2025-grey",
+  "name": "Range Rover Velar Nardo 2025 ( Grey )",
+  "brand": "Range Rover",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 650,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6 / 3.0L Turbo",
+    "seats": 5,
+    "doors": 5,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Range Rover Velar Nardo 2025 is a sophisticated SUV that perfectly combines style, performance, and advanced technology. With its sleek grey exterior and luxurious interiors, this vehicle provides a smooth, comfortable, and powerful driving experience. Renting the Range Rover Velar Nardo 2025 in Dubai is ideal for city drives, desert adventures, or special occasions, ensuring a premium and unforgettable journey.",
+  "images": [
+    "/images/fleet/121/01.webp",
+    "/images/fleet/121/02.webp",
+    "/images/fleet/121/03.webp",
+    "/images/fleet/121/04.webp",
+    "/images/fleet/121/05.webp",
+    "/images/fleet/121/06.webp",
+    "/images/fleet/121/07.webp",
+    "/images/fleet/121/08.webp"
+  ],
+  "sourceUrl": "/shop/range-rover-velar-nardo-2025-grey-121"
+}

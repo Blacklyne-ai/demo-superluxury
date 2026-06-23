@@ -1,0 +1,28 @@
+{
+  "id": "11",
+  "sourceSlug": "shopbentley-gt-v12-rentals-dubai",
+  "name": "Bentley GT V12 for Rent in Dubai",
+  "brand": "Bentley",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 2500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Few names in the world of luxury cars bring up the same degree of grandeur and reputation as Bentley. The Bentley GT V12 is evidence of the company's dedication to producing cars that combine unparalleled performance and excellent design. The height of luxury on the road is renting a Bentley GT V12 in Dubai, for those seeking an unforgettable driving experience",
+  "images": [
+    "/images/fleet/11/01.webp",
+    "/images/fleet/11/02.webp",
+    "/images/fleet/11/03.webp",
+    "/images/fleet/11/04.webp"
+  ],
+  "sourceUrl": "/shop/shopbentley-gt-v12-rentals-dubai-11"
+}

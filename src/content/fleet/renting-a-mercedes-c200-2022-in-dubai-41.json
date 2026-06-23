@@ -1,0 +1,33 @@
+{
+  "id": "41",
+  "sourceSlug": "renting-a-mercedes-c200-2022-in-dubai",
+  "name": "Mercedes C200",
+  "brand": "Mercedes-Benz",
+  "category": "sedan",
+  "categories": [
+    "sedan",
+    "family"
+  ],
+  "priceDaily": 500,
+  "currency": "AED",
+  "specs": {
+    "engine": "V4",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The spectacular Mercedes C200 is a masterpiece of refinement and advanced automotive engineering, combining luxury with performance. One of the best options for a driving experience in Dubai is to rent a Mercedes C200 2022 from one of the city's reputable rental companies.",
+  "images": [
+    "/images/fleet/41/01.webp",
+    "/images/fleet/41/02.webp",
+    "/images/fleet/41/03.webp",
+    "/images/fleet/41/04.webp",
+    "/images/fleet/41/05.webp",
+    "/images/fleet/41/06.webp",
+    "/images/fleet/41/07.webp",
+    "/images/fleet/41/08.webp"
+  ],
+  "sourceUrl": "/shop/renting-a-mercedes-c200-2022-in-dubai-41"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "125",
+  "sourceSlug": "rolls-royce-dawn-blue",
+  "name": "Rolls Royce Dawn Blue",
+  "brand": "Rolls-Royce",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 3300,
+  "currency": "AED",
+  "specs": {
+    "engine": "V12 Twin-Turbo",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Rolls-Royce Dawn Blue is the ultimate luxury convertible, combining elegance, performance, and open-air driving thrill. Designed for those with discerning tastes, this car delivers a smooth, powerful ride while making a grand statement on Dubai’s streets. Renting the Rolls-Royce Dawn Blue offers an unforgettable premium driving experience, perfect for city tours, special events, or weekend escapes.",
+  "images": [
+    "/images/fleet/125/01.webp",
+    "/images/fleet/125/02.webp",
+    "/images/fleet/125/03.webp",
+    "/images/fleet/125/04.webp",
+    "/images/fleet/125/05.webp",
+    "/images/fleet/125/06.webp",
+    "/images/fleet/125/07.webp",
+    "/images/fleet/125/08.webp"
+  ],
+  "sourceUrl": "/shop/rolls-royce-dawn-blue-125"
+}

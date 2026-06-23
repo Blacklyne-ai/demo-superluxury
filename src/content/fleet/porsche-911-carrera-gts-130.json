@@ -1,0 +1,33 @@
+{
+  "id": "130",
+  "sourceSlug": "porsche-911-carrera-gts",
+  "name": "Porsche 911 Carrera GTS",
+  "brand": "Porsche",
+  "category": "sports",
+  "categories": [
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 1900,
+  "currency": "AED",
+  "specs": {
+    "engine": "V6 Turbo",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Looking to rent a Porsche 911 Carrera GTS in Dubai ? This high-performance sports car blends luxury with pure driving excitement, delivering powerful acceleration, sharp handling, and an iconic design that never goes out of style. With its sporty interior, advanced engineering, and thrilling road presence, the Porsche 911 Carrera GTS is perfect for cruising Dubai’s streets or enjoying open highways, making every drive an unforgettable experience.",
+  "images": [
+    "/images/fleet/130/01.webp",
+    "/images/fleet/130/02.webp",
+    "/images/fleet/130/03.webp",
+    "/images/fleet/130/04.webp",
+    "/images/fleet/130/05.webp",
+    "/images/fleet/130/06.webp",
+    "/images/fleet/130/07.webp",
+    "/images/fleet/130/08.webp"
+  ],
+  "sourceUrl": "/shop/porsche-911-carrera-gts-130"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "68",
+  "sourceSlug": "dodge-challenger-rental-dubai",
+  "name": "Dodge Challenger",
+  "brand": "Dodge",
+  "category": "sports",
+  "categories": [
+    "sports"
+  ],
+  "priceDaily": 550,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 5,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Rent a Dodge Challenger for heart-pounding excitement in Dubai. Experience the power and style of this iconic muscle car",
+  "images": [
+    "/images/fleet/68/01.webp",
+    "/images/fleet/68/02.webp",
+    "/images/fleet/68/03.webp",
+    "/images/fleet/68/04.webp",
+    "/images/fleet/68/05.webp",
+    "/images/fleet/68/06.webp"
+  ],
+  "sourceUrl": "/shop/dodge-challenger-rental-dubai-68"
+}

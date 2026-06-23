@@ -1,0 +1,32 @@
+{
+  "id": "108",
+  "sourceSlug": "bentley-bentyaga-white-2024",
+  "name": "Bentley Bentyaga white 2024",
+  "brand": "Bentley",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv"
+  ],
+  "priceDaily": 2000,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8/ W12",
+    "seats": 4,
+    "doors": 5,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Bentley Bentayga 2024 is the pinnacle of luxury SUVs, combining unmatched performance, elegance, and cutting-edge technology. Perfect for those with refined tastes, this SUV delivers a smooth, powerful drive while turning heads on every street of Dubai. Renting the Bentley Bentayga White 2024 guarantees a premium and unforgettable driving experience, whether for city cruising, weekend escapes, or special occasions.",
+  "images": [
+    "/images/fleet/108/01.webp",
+    "/images/fleet/108/02.webp",
+    "/images/fleet/108/03.webp",
+    "/images/fleet/108/04.webp",
+    "/images/fleet/108/05.webp",
+    "/images/fleet/108/06.webp",
+    "/images/fleet/108/07.webp"
+  ],
+  "sourceUrl": "/shop/bentley-bentyaga-white-2024-108"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "129",
+  "sourceSlug": "lamborghini-urus-green",
+  "name": "Lamborghini Urus Green",
+  "brand": "Lamborghini",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sports",
+    "suv"
+  ],
+  "priceDaily": 3000,
+  "currency": "AED",
+  "specs": {
+    "engine": "650 HP",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Lamborghini Urus Green is your gateway to an unparalleled luxury driving experience. The Urus is a masterpiece of design and engineering, combining the bold aesthetics of a supercar with the practicality of an SUV. Whether you're cruising down Sheikh Zayed Road or exploring the desert, renting the Urus in Dubai ensures you'll do it in style and comfort.",
+  "images": [
+    "/images/fleet/129/01.webp",
+    "/images/fleet/129/02.webp",
+    "/images/fleet/129/03.webp",
+    "/images/fleet/129/04.webp",
+    "/images/fleet/129/05.webp",
+    "/images/fleet/129/06.webp",
+    "/images/fleet/129/07.webp",
+    "/images/fleet/129/08.webp"
+  ],
+  "sourceUrl": "/shop/lamborghini-urus-green-129"
+}

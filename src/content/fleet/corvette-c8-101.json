@@ -1,0 +1,33 @@
+{
+  "id": "101",
+  "sourceSlug": "corvette-c8",
+  "name": "Corvette C8",
+  "brand": "Chevrolet",
+  "category": "sports",
+  "categories": [
+    "sports",
+    "convertible"
+  ],
+  "priceDaily": 1050,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 2,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Explore luxury and power with Corvette car rental. Cruise through Dubai in style and make a statement on the road.",
+  "images": [
+    "/images/fleet/101/01.webp",
+    "/images/fleet/101/02.webp",
+    "/images/fleet/101/03.webp",
+    "/images/fleet/101/04.webp",
+    "/images/fleet/101/05.webp",
+    "/images/fleet/101/06.webp",
+    "/images/fleet/101/07.webp",
+    "/images/fleet/101/08.webp"
+  ],
+  "sourceUrl": "/shop/corvette-c8-101"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "72",
+  "sourceSlug": "gmc-yukon-denali-rental-dubai",
+  "name": "GMC Yukon Denali",
+  "brand": "GMC",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "suv",
+    "family"
+  ],
+  "priceDaily": 600,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 7,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Renting a GMC Yukon Denali can elevate your Dubai travel experience. Symbolizing power and refinement, the GMC Yukon Denali embodies luxury and sophistication. With its sleek design and advanced features, it offers unparalleled comfort and style, ensuring a truly memorable journey.",
+  "images": [
+    "/images/fleet/72/01.webp",
+    "/images/fleet/72/02.webp",
+    "/images/fleet/72/03.webp",
+    "/images/fleet/72/04.webp",
+    "/images/fleet/72/05.webp",
+    "/images/fleet/72/06.webp",
+    "/images/fleet/72/07.webp",
+    "/images/fleet/72/08.webp"
+  ],
+  "sourceUrl": "/shop/gmc-yukon-denali-rental-dubai-72"
+}

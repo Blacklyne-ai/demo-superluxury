@@ -1,0 +1,31 @@
+{
+  "id": "97",
+  "sourceSlug": "mercedes-g63",
+  "name": "Mercedes G63",
+  "brand": "Mercedes-Benz",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 1400,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The 2022 Mercedes-Benz G 63 is an excellent choice if you're looking to rent a luxurious and powerful car in Dubai that seamlessly combines comfort, performance, and elegance. This classic four-wheel-drive vehicle from Mercedes-Benz is a symbol of sophistication and sleek design, characterized by its distinctive white and red color combination that exudes a sense of exclusivity and refinement.",
+  "images": [
+    "/images/fleet/97/01.webp",
+    "/images/fleet/97/02.webp",
+    "/images/fleet/97/03.webp",
+    "/images/fleet/97/04.webp",
+    "/images/fleet/97/05.webp",
+    "/images/fleet/97/06.webp",
+    "/images/fleet/97/07.webp"
+  ],
+  "sourceUrl": "/shop/mercedes-g63-97"
+}

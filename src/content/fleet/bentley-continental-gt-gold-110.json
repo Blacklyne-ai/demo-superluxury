@@ -1,0 +1,32 @@
+{
+  "id": "110",
+  "sourceSlug": "bentley-continental-gt-gold",
+  "name": "Bentley Continental GT Gold",
+  "brand": "Bentley",
+  "category": "luxury",
+  "categories": [
+    "luxury"
+  ],
+  "priceDaily": 2000,
+  "currency": "AED",
+  "specs": {
+    "engine": "W12 Twin-Turbo",
+    "seats": 4,
+    "doors": 2,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Bentley Continental GT Gold is the epitome of elegance and high-performance luxury in Dubai. Perfect for those with refined tastes, this stunning vehicle combines exceptional speed, iconic design, and unmatched comfort. Renting the Bentley Continental GT Gold in Dubai offers an unforgettable experience, whether you’re a resident planning a weekend drive or a visitor wanting to indulge in true luxury.",
+  "images": [
+    "/images/fleet/110/01.webp",
+    "/images/fleet/110/02.webp",
+    "/images/fleet/110/03.webp",
+    "/images/fleet/110/04.webp",
+    "/images/fleet/110/05.webp",
+    "/images/fleet/110/06.webp",
+    "/images/fleet/110/07.webp",
+    "/images/fleet/110/08.webp"
+  ],
+  "sourceUrl": "/shop/bentley-continental-gt-gold-110"
+}

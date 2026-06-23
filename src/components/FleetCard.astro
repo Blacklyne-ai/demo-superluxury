@@ -1,0 +1,62 @@
+---
+import { Heart, Users, Cog, DoorOpen } from '@lucide/astro';
+import { fmtAED } from '../lib/fleet';
+import { categoryMap } from '../data/site';
+import type { Car } from '../lib/fleet';
+
+interface Props { car: Car; eager?: boolean }
+const { car, eager = false } = Astro.props;
+const href = `/fleet/${car.sourceSlug}-${car.id}`;
+const cover = car.images[0];
+const cat = categoryMap[car.category];
+---
+<article
+  class="group relative overflow-hidden rounded-2xl border border-ivory/10 bg-graphite transition-all duration-500 ease-luxe hover:border-gold/35 hover:shadow-lift"
+  data-card
+  data-id={`${car.sourceSlug}-${car.id}`}
+  data-name={car.name.toLowerCase()}
+  data-brand={car.brand}
+  data-cats={car.categories.join(',')}
+  data-price={car.priceDaily}
+  data-seats={car.specs.seats ?? ''}
+>
+  <a href={href} class="block">
+    <div class="relative aspect-[4/3] overflow-hidden bg-coal">
+      {cover ? (
+        <img src={cover} alt={car.name} width="640" height="480"
+          loading={eager ? 'eager' : 'lazy'} decoding="async"
+          class="h-full w-full object-cover transition-transform duration-[1.2s] ease-luxe group-hover:scale-[1.06]" />
+      ) : (
+        <div class="grid h-full w-full place-items-center text-faint">No image</div>
+      )}
+      <div class="absolute inset-0 bg-gradient-to-t from-graphite/80 via-transparent to-transparent"></div>
+      <span class="absolute left-3 top-3 chip-gold backdrop-blur-sm">{cat?.label ?? car.category}</span>
+    </div>
+  </a>
+
+  <!-- Wishlist -->
+  <button data-wish data-id={`${car.sourceSlug}-${car.id}`} aria-label={`Save ${car.name}`} aria-pressed="false"
+    class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full border border-ivory/15 bg-ink/55 text-ivory/80 backdrop-blur-sm transition-colors hover:text-gold">
+    <Heart class="h-[18px] w-[18px]" />
+  </button>
+
+  <div class="p-5">
+    <p class="text-[0.72rem] uppercase tracking-wide2 text-faint">{car.brand}</p>
+    <a href={href}><h3 class="mt-1 truncate font-display text-lg font-semibold text-ivory transition-colors group-hover:text-gold">{car.name}</h3></a>
+
+    <!-- specs -->
+    <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[0.78rem] text-mist">
+      {car.specs.seats && <span class="inline-flex items-center gap-1.5"><Users class="h-3.5 w-3.5 text-gold/70" />{car.specs.seats} seats</span>}
+      {car.specs.doors && <span class="inline-flex items-center gap-1.5"><DoorOpen class="h-3.5 w-3.5 text-gold/70" />{car.specs.doors} doors</span>}
+      {car.specs.transmission && <span class="inline-flex items-center gap-1.5"><Cog class="h-3.5 w-3.5 text-gold/70" />{car.specs.transmission}</span>}
+    </div>
+
+    <div class="mt-4 flex items-end justify-between border-t border-ivory/8 pt-4">
+      <div>
+        <p class="price-aed font-display text-xl font-semibold text-gold">{fmtAED(car.priceDaily)}</p>
+        <p class="text-[0.72rem] text-faint">per day</p>
+      </div>
+      <a href={href} class="btn-outline px-4 py-2 text-[0.8rem]">Details</a>
+    </div>
+  </div>
+</article>

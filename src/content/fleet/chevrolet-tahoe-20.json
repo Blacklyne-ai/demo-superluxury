@@ -1,0 +1,33 @@
+{
+  "id": "20",
+  "sourceSlug": "chevrolet-tahoe",
+  "name": "Chevrolet Tahoe",
+  "brand": "Chevrolet",
+  "category": "suv",
+  "categories": [
+    "suv",
+    "family"
+  ],
+  "priceDaily": 450,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8",
+    "seats": 7,
+    "doors": 4,
+    "mileagePerDayKm": 250,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "Experience the pinnacle of luxury and performance with the Chevrolet Tahoe 2022 rental in Dubai. Unrivaled comfort, cutting-edge technology, and commanding presence.",
+  "images": [
+    "/images/fleet/20/01.webp",
+    "/images/fleet/20/02.webp",
+    "/images/fleet/20/03.webp",
+    "/images/fleet/20/04.webp",
+    "/images/fleet/20/05.webp",
+    "/images/fleet/20/06.webp",
+    "/images/fleet/20/07.webp",
+    "/images/fleet/20/08.webp"
+  ],
+  "sourceUrl": "/shop/chevrolet-tahoe-20"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "118",
+  "sourceSlug": "porsche-panamera-navy-blue",
+  "name": "Porsche Panamera Navy Blue",
+  "brand": "Porsche",
+  "category": "luxury",
+  "categories": [
+    "luxury",
+    "sports"
+  ],
+  "priceDaily": 1100,
+  "currency": "AED",
+  "specs": {
+    "engine": "V8 Turbo",
+    "seats": 4,
+    "doors": 4,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Porsche Panamera Navy Blue combines elegance, sportiness, and high performance in one luxurious package. With its sleek design, advanced technology, and powerful engine, this luxury sedan delivers a smooth and thrilling driving experience. Renting the Porsche Panamera Navy Blue in Dubai ensures comfort, prestige, and an unforgettable ride for city cruising, weekend trips, or special occasions.",
+  "images": [
+    "/images/fleet/118/01.webp",
+    "/images/fleet/118/02.webp",
+    "/images/fleet/118/03.webp",
+    "/images/fleet/118/04.webp",
+    "/images/fleet/118/05.webp",
+    "/images/fleet/118/06.webp"
+  ],
+  "sourceUrl": "/shop/porsche-panamera-navy-blue-118"
+}

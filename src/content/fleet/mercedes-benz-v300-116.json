@@ -1,0 +1,32 @@
+{
+  "id": "116",
+  "sourceSlug": "mercedes-benz-v300",
+  "name": "Mercedes-Benz V300",
+  "brand": "Mercedes-Benz",
+  "category": "family",
+  "categories": [
+    "family"
+  ],
+  "priceDaily": 900,
+  "currency": "AED",
+  "specs": {
+    "engine": "2.0L Turbo",
+    "seats": 7,
+    "doors": 4,
+    "mileagePerDayKm": 300,
+    "transmission": "Automatic",
+    "freePickup": true
+  },
+  "description": "The Mercedes-Benz V300 is a versatile luxury van that combines comfort, space, and advanced technology. Perfect for group trips, airport transfers, or family outings in Dubai, the V300 offers a smooth and safe driving experience. Renting the Mercedes-Benz V300 ensures ample room, premium interiors, and reliability for every journey.",
+  "images": [
+    "/images/fleet/116/01.webp",
+    "/images/fleet/116/02.webp",
+    "/images/fleet/116/03.webp",
+    "/images/fleet/116/04.webp",
+    "/images/fleet/116/05.webp",
+    "/images/fleet/116/06.webp",
+    "/images/fleet/116/07.webp",
+    "/images/fleet/116/08.webp"
+  ],
+  "sourceUrl": "/shop/mercedes-benz-v300-116"
+}
