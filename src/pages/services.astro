@@ -1,47 +1,69 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ParallaxBand from '../components/ParallaxBand.astro';
 import { services, contact } from '../data/site';
-import { Plane, UserRound, Crown, CalendarRange, Headset, MapPin, MessageCircle, ArrowUpRight } from '@lucide/astro';
+import { getFleet } from '../lib/fleet';
+import { Plane, UserRound, Crown, CalendarRange, Headset, MapPin, MessageCircle } from '@lucide/astro';
 const icons: Record<string, any> = { Plane, UserRound, Crown, CalendarRange, Headset, MapPin };
+const fleet = await getFleet();
+const img = (brand: string, n = 0) => fleet.find((c) => c.brand === brand)?.images[n];
+// one cinematic photo per service
+const shots: Record<string, string> = {
+  'airport-hotel-pickup': img('Rolls-Royce', 0) || fleet[0].images[0],
+  'chauffeur': img('Bentley', 0) || fleet[1].images[0],
+  'limousine': img('Rolls-Royce', 3) || fleet[2].images[0],
+  'short-long-term': img('Range Rover', 0) || fleet[3].images[0],
+  'support': img('Ferrari', 0) || fleet[4].images[0],
+  'free-delivery': fleet.find((c) => c.id === '129')?.images[1] || img('Lamborghini', 0)!,
+};
 ---
-<Layout title="Services — Chauffeur, Limousine & Delivery | Super Luxury Car Rental Dubai" navVariant="solid">
-  <!-- Header -->
-  <section class="relative overflow-hidden border-b border-ivory/8 bg-ink pt-[calc(var(--nav-h)+4rem)]">
-    <div class="absolute inset-0 hero-glow opacity-60"></div>
-    <div class="lux-container relative pb-16">
-      <p class="eyebrow mb-4" data-reveal>What we do</p>
-      <h1 class="max-w-2xl font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl lg:text-6xl" data-reveal>The service around the car.</h1>
-      <p class="mt-5 max-w-xl text-mist" data-reveal data-delay="60">From the airport gate to your hotel door, and every kilometre between — here is everything we handle so your only job is to drive (or be driven).</p>
-    </div>
+<Layout title="Services — Chauffeur, Limousine & Delivery | Super Luxury Car Rental Dubai">
+  <!-- Parallax header -->
+  <ParallaxBand image="/film/showcase-poster.webp" alt="Lamborghini Urus with the Dubai skyline"
+    height="h-[72vh] min-h-[480px]" eyebrow="What we do" title="The service around the car."
+    text="From the airport gate to your hotel door, and every kilometre between." />
+
+  <!-- Intro line -->
+  <section class="lux-container py-20 lg:py-28">
+    <p class="mx-auto max-w-3xl text-center font-display text-[clamp(1.5rem,3vw,2.4rem)] font-normal leading-[1.3] text-ivory" data-reveal>
+      Six ways we make a supercar feel effortless — so your only job is to drive, or be driven.
+    </p>
   </section>
 
-  <!-- Services -->
-  <section class="lux-container py-16 lg:py-24">
-    <div class="space-y-5">
-      {services.map((s, i) => {
-        const Icon = icons[s.icon] ?? Crown;
-        return (
-          <div class="group grid gap-6 rounded-2xl border border-ivory/10 bg-graphite p-7 transition-colors duration-500 hover:border-gold/30 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-10 lg:p-9" data-reveal data-delay={(i % 3) * 60}>
-            <div class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-gold/25 bg-gold/10 text-gold"><Icon class="h-7 w-7" /></div>
-            <div>
-              <h2 class="font-display text-2xl font-semibold text-ivory">{s.title}</h2>
-              <p class="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-mist">{s.body}</p>
+  <!-- Alternating service splits -->
+  <div>
+    {services.map((s, i) => {
+      const Icon = icons[s.icon] ?? Crown;
+      const flip = i % 2 === 1;
+      return (
+        <section class="grid items-stretch lg:grid-cols-2">
+          <div class:list={['relative min-h-[340px] overflow-hidden lg:min-h-[520px]', flip ? 'lg:order-2' : '']}>
+            <div data-parallax="0.12" class="absolute inset-0">
+              <img src={shots[s.slug]} alt={s.title} class="parallax h-full w-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <a href={`${contact.whatsapp}&text=${encodeURIComponent(`Hi, I'd like to ask about your ${s.title}.`)}`} target="_blank" rel="noopener" class="btn-primary shrink-0 px-5 py-3 lg:px-6">Send request <ArrowUpRight class="h-4 w-4" /></a>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
-        );
-      })}
-    </div>
+          <div class:list={['flex flex-col justify-center bg-coal px-7 py-14 lg:px-16 lg:py-20', flip ? 'lg:order-1' : '']} data-reveal>
+            <div class="flex items-center gap-4">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl border border-gold/30 bg-gold/10 text-gold-deep"><Icon class="h-6 w-6" stroke-width={1.4} /></span>
+              <span class="font-display text-2xl text-gold-deep/60">0{i + 1}</span>
+            </div>
+            <h2 class="mt-6 font-display text-[clamp(1.8rem,3vw,2.6rem)] leading-tight text-ivory">{s.title}</h2>
+            <p class="mt-4 max-w-lg text-[0.98rem] leading-relaxed text-mist">{s.body}</p>
+            <a href={`${contact.whatsapp}&text=${encodeURIComponent(`Hi, I'd like to ask about your ${s.title}.`)}`} target="_blank" rel="noopener" class="link-arrow mt-8">Send request
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </section>
+      );
+    })}
+  </div>
 
-    <!-- closing copy (verbatim) -->
-    <div class="mt-16 rounded-2xl border border-ivory/10 bg-gradient-to-br from-gold/10 to-graphite p-8 text-center lg:p-12" data-reveal>
-      <p class="mx-auto max-w-3xl font-display text-xl leading-relaxed text-ivory sm:text-2xl">
-        We specialize in providing an exclusive selection of luxury vehicles at Super Luxury Car Rental, the leading Car Rental Agency in Dubai. Experience the best in performance, comfort, and style with our exceptional fleet.
-      </p>
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <a href="/fleet" class="btn-gold px-7 py-3.5">Browse the fleet</a>
-        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-primary px-7 py-3.5"><MessageCircle class="h-4 w-4" /> WhatsApp us</a>
-      </div>
-    </div>
+  <!-- Closing CTA band -->
+  <ParallaxBand image="/film/poster.webp" alt="Dubai skyline" height="h-[60vh] min-h-[420px]" align="center"
+    eyebrow="The leading car rental agency in Dubai" title="Performance, comfort and style — handled."
+    ctaHref="/fleet" ctaLabel="Browse the fleet" />
+  <section class="lux-container flex flex-wrap items-center justify-center gap-4 py-16">
+    <a href="/book" class="btn-gold">Book now</a>
+    <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-primary"><MessageCircle class="h-4 w-4" /> WhatsApp us</a>
   </section>
 </Layout>

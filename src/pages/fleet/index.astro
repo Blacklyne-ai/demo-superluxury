@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import FleetCard from '../../components/FleetCard.astro';
+import ParallaxBand from '../../components/ParallaxBand.astro';
 import { getFleet, catCounts, activeBrands } from '../../lib/fleet';
 import { categories, brands } from '../../data/site';
 import { Search, SlidersHorizontal, X } from '@lucide/astro';
@@ -17,15 +18,11 @@ const priceBands = [
   { v: '4000-99999', label: 'AED 4,000+' },
 ];
 ---
-<Layout title="Fleet — Super Luxury Car Rental Dubai" navVariant="solid">
-  <!-- Header -->
-  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+2.5rem)]">
-    <div class="lux-container pb-10">
-      <p class="eyebrow mb-4">The collection</p>
-      <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl lg:text-6xl">The fleet.</h1>
-      <p class="mt-4 max-w-xl text-mist">{fleet.length} handpicked cars, ready to drive in Dubai. Filter by category, brand or budget — daily rates in AED, free delivery across the city.</p>
-    </div>
-  </section>
+<Layout title="Fleet — Super Luxury Car Rental Dubai">
+  <!-- Parallax header -->
+  <ParallaxBand image="/film/showcase-poster.webp" alt="Lamborghini Urus with the Dubai skyline"
+    height="h-[64vh] min-h-[440px]" eyebrow="The collection" title="The fleet."
+    text={`${fleet.length} handpicked cars, ready to drive in Dubai — daily rates in AED, free delivery across the city.`} />
 
   <!-- Filter toolbar -->
   <div class="sticky top-[var(--nav-h)] z-40 border-b border-ivory/8 bg-ink/92 backdrop-blur-xl">

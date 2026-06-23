@@ -1,56 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ParallaxBand from '../components/ParallaxBand.astro';
 import { terms, contact } from '../data/site';
-import { Info } from '@lucide/astro';
+import { getFleet } from '../lib/fleet';
+import { Info, MessageCircle, Phone } from '@lucide/astro';
+const fleet = await getFleet();
+const header = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] || '/film/poster.webp';
 ---
-<Layout title="Terms & Conditions — Super Luxury Car Rental Dubai" navVariant="solid" description="Standard rental terms and conditions for Super Luxury Car Rental L.L.C, Dubai.">
-  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+4rem)]">
-    <div class="lux-container pb-12">
-      <p class="eyebrow mb-4">Standard terms &amp; conditions of sale</p>
-      <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl">Rental policy.</h1>
-      <p class="mt-5 max-w-2xl text-mist">{terms.intro}</p>
-    </div>
-  </section>
+<Layout title="Terms & Conditions — Super Luxury Car Rental Dubai" description="Standard rental terms and conditions for Super Luxury Car Rental L.L.C, Dubai.">
+  <!-- Parallax header -->
+  <ParallaxBand image={header} alt="Rolls-Royce on the road in Dubai"
+    height="h-[60vh] min-h-[420px]" eyebrow="Standard terms & conditions of sale" title="Rental policy."
+    text={terms.intro} />
 
-  <section class="lux-container py-14 lg:py-20">
-    <div class="grid gap-12 lg:grid-cols-[260px_1fr] lg:gap-16">
-      <!-- index -->
-      <nav class="top-[calc(var(--nav-h)+1.5rem)] h-max lg:sticky" aria-label="Sections">
-        <ol class="space-y-1.5 text-sm">
+  <!-- Sections + sticky index -->
+  <section class="bg-coal py-16 lg:py-24">
+    <div class="lux-container">
+      <div class="grid gap-12 lg:grid-cols-[260px_1fr] lg:gap-16">
+        <!-- index -->
+        <nav class="top-[calc(var(--nav-h)+1.5rem)] h-max lg:sticky" aria-label="Sections" data-reveal>
+          <p class="eyebrow mb-5">Contents</p>
+          <ol class="space-y-1">
+            {terms.sections.map((s) => (
+              <li>
+                <a href={`#sec-${s.n}`} class="flex gap-3 rounded-lg px-3 py-2 text-sm text-mist transition-colors hover:bg-ivory/5 hover:text-gold-deep">
+                  <span class="font-display text-base leading-none text-gold-deep/55">{s.n}</span> {s.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
+        <!-- content -->
+        <div class="lux-narrow !mx-0 !px-0 max-w-3xl space-y-14">
           {terms.sections.map((s) => (
-            <li><a href={`#sec-${s.n}`} class="flex gap-2 rounded-lg px-3 py-2 text-mist transition-colors hover:bg-ivory/5 hover:text-gold"><span class="text-gold/60">{s.n}</span> {s.title}</a></li>
+            <section id={`sec-${s.n}`} class="scroll-mt-[calc(var(--nav-h)+1.5rem)] border-b border-ivory/10 pb-14 last:border-0 last:pb-0" data-reveal>
+              <div class="flex items-baseline gap-4">
+                <span class="font-display text-3xl leading-none text-gold-deep/45">{s.n}</span>
+                <h2 class="font-display text-[clamp(1.7rem,3vw,2.3rem)] font-normal leading-tight text-ivory">{s.title}</h2>
+              </div>
+              <ul class="mt-7 space-y-4">
+                {s.items.map((it) => (
+                  <li class="flex gap-3.5 text-[0.98rem] leading-relaxed text-mist">
+                    <span class="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-gold-deep/45"></span>{it}
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))}
-        </ol>
-      </nav>
 
-      <!-- content -->
-      <div class="max-w-3xl space-y-12">
-        {terms.sections.map((s) => (
-          <section id={`sec-${s.n}`} class="scroll-mt-[calc(var(--nav-h)+1.5rem)]">
-            <h2 class="flex items-baseline gap-3 font-display text-2xl font-semibold text-ivory">
-              <span class="font-display text-base font-semibold text-gold/70">{s.n}</span>{s.title}
-            </h2>
-            <ul class="mt-5 space-y-3.5">
-              {s.items.map((it) => (
-                <li class="flex gap-3 text-[0.95rem] leading-relaxed text-mist">
-                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold/60"></span>{it}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-
-        <div class="rounded-2xl border border-gold/20 bg-gold/[0.06] p-6">
-          <div class="flex gap-3">
-            <Info class="h-5 w-5 shrink-0 text-gold" />
-            <p class="text-sm leading-relaxed text-mist">
-              The security deposit, insurance excess and weekly/monthly rates are confirmed per vehicle on the rental contract. For any question on the terms, message us on
-              <a href={contact.whatsapp} target="_blank" rel="noopener" class="text-gold underline underline-offset-2 hover:text-gold-lite">WhatsApp</a> or call
-              <a href={contact.phonePrimaryHref} class="text-gold underline underline-offset-2 hover:text-gold-lite">{contact.phonePrimary}</a>.
-            </p>
+          <div class="rounded-2xl border border-gold/25 bg-gold/[0.06] p-6 lg:p-7" data-reveal>
+            <div class="flex gap-3.5">
+              <Info class="h-5 w-5 shrink-0 text-gold-deep" stroke-width={1.6} />
+              <p class="text-[0.95rem] leading-relaxed text-mist">
+                The security deposit, insurance excess and weekly/monthly rates are confirmed per vehicle on the rental contract. For any question on the terms, message us on
+                <a href={contact.whatsapp} target="_blank" rel="noopener" class="text-gold-deep underline underline-offset-2 hover:text-gold">WhatsApp</a> or call
+                <a href={contact.phonePrimaryHref} class="text-gold-deep underline underline-offset-2 hover:text-gold">{contact.phonePrimary}</a>.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Questions? contact line -->
+  <section class="bg-ink py-16 lg:py-20" data-reveal>
+    <div class="lux-container flex flex-col items-center text-center">
+      <p class="eyebrow mb-4">Still have a question?</p>
+      <h2 class="max-w-2xl font-display text-[clamp(1.7rem,3vw,2.4rem)] font-normal leading-tight text-ivory">Talk to us before you book — we keep it simple.</h2>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold"><MessageCircle class="h-4 w-4" /> WhatsApp us</a>
+        <a href={contact.phonePrimaryHref} class="btn-primary"><Phone class="h-4 w-4" /> {contact.phonePrimary}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA band -->
+  <ParallaxBand image="/film/poster.webp" alt="Dubai skyline" height="h-[60vh] min-h-[420px]" align="center"
+    eyebrow="The leading car rental agency in Dubai" title="Ready when you are."
+    ctaHref="/fleet" ctaLabel="Browse the fleet" />
 </Layout>

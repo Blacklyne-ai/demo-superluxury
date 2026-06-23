@@ -1,64 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ParallaxBand from '../components/ParallaxBand.astro';
 import { getFleet, fmtAED } from '../lib/fleet';
 import { contact } from '../data/site';
-import { MessageCircle, Phone, CalendarCheck, ShieldCheck, MapPin, Clock } from '@lucide/astro';
+import { MessageCircle, Phone, ShieldCheck, MapPin, Clock } from '@lucide/astro';
 const fleet = await getFleet();
+const header = fleet.find((c) => c.id === '129')?.images[1] ?? fleet[0].images[0];
 const assurances = [
   { icon: ShieldCheck, t: 'No payment now', d: 'This sends an enquiry. We confirm the car, rate and deposit before anything is charged.' },
   { icon: MapPin, t: 'Free Dubai delivery', d: 'We bring the car to your hotel, home or the airport — anywhere in Dubai.' },
   { icon: Clock, t: '24/7 reply', d: 'Message any time. A real person comes back to you fast.' },
 ];
 ---
-<Layout title="Book a car — Super Luxury Car Rental Dubai" navVariant="solid">
-  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+4rem)]">
-    <div class="lux-container pb-12">
-      <p class="eyebrow mb-4">Book now</p>
-      <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl">Reserve your car.</h1>
-      <p class="mt-5 max-w-xl text-mist">Fill in a few details and we’ll confirm availability, the daily rate and delivery — over WhatsApp or email. No payment is taken here.</p>
-    </div>
-  </section>
+<Layout title="Book a car — Super Luxury Car Rental Dubai">
+  <!-- Parallax header -->
+  <ParallaxBand image={header} alt="Lamborghini Urus in Dubai" height="h-[60vh] min-h-[420px]"
+    eyebrow="Book now" title="Reserve your car."
+    text="A few details and we confirm availability, the daily rate and delivery — no payment taken here." />
 
-  <section class="lux-container grid gap-12 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:py-16">
+  <section class="lux-container grid gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
     <!-- form -->
-    <form data-bookform class="rounded-2xl border border-ivory/10 bg-graphite p-7 lg:p-9">
+    <form data-bookform class="rounded-3xl border border-ivory/10 bg-graphite p-7 shadow-[0_24px_60px_-32px_rgba(0,0,0,0.25)] lg:p-10" data-reveal>
       <div class="grid gap-5 sm:grid-cols-2">
-        <label class="block"><span class="mb-2 block text-sm text-mist">Your name</span>
-          <input name="name" required class="field" placeholder="Full name" /></label>
-        <label class="block"><span class="mb-2 block text-sm text-mist">Phone / WhatsApp</span>
-          <input name="phone" required class="field" placeholder="+971 …" /></label>
+        <label class="block"><span class="mb-2 block text-sm text-mist">Your name</span><input name="name" required class="field" placeholder="Full name" /></label>
+        <label class="block"><span class="mb-2 block text-sm text-mist">Phone / WhatsApp</span><input name="phone" required class="field" placeholder="+971 …" /></label>
         <label class="block sm:col-span-2"><span class="mb-2 block text-sm text-mist">Car</span>
           <select name="car" class="field">
             <option value="">Any — help me choose</option>
             {fleet.map((c) => <option value={`${c.name} (${fmtAED(c.priceDaily)}/day)`}>{c.name} — {fmtAED(c.priceDaily)}/day</option>)}
           </select></label>
-        <label class="block"><span class="mb-2 block text-sm text-mist">Pickup date</span>
-          <input name="pickup" type="date" class="field" /></label>
-        <label class="block"><span class="mb-2 block text-sm text-mist">Return date</span>
-          <input name="return" type="date" class="field" /></label>
-        <label class="block sm:col-span-2"><span class="mb-2 block text-sm text-mist">Delivery location in Dubai</span>
-          <input name="location" class="field" placeholder="Hotel, address or “Airport (DXB)”" /></label>
-        <label class="block sm:col-span-2"><span class="mb-2 block text-sm text-mist">Notes (optional)</span>
-          <textarea name="notes" rows="3" class="field" placeholder="Chauffeur, child seat, anything else…"></textarea></label>
+        <label class="block"><span class="mb-2 block text-sm text-mist">Pickup date</span><input name="pickup" type="date" class="field" /></label>
+        <label class="block"><span class="mb-2 block text-sm text-mist">Return date</span><input name="return" type="date" class="field" /></label>
+        <label class="block sm:col-span-2"><span class="mb-2 block text-sm text-mist">Delivery location in Dubai</span><input name="location" class="field" placeholder="Hotel, address or “Airport (DXB)”" /></label>
+        <label class="block sm:col-span-2"><span class="mb-2 block text-sm text-mist">Notes (optional)</span><textarea name="notes" rows="3" class="field" placeholder="Chauffeur, child seat, anything else…"></textarea></label>
       </div>
       <div class="mt-7 flex flex-col gap-3 sm:flex-row">
         <button type="submit" data-send="wa" class="btn-gold flex-1 py-3.5"><MessageCircle class="h-4 w-4" /> Send via WhatsApp</button>
         <button type="submit" data-send="mail" class="btn-primary flex-1 py-3.5">Send by email</button>
       </div>
-      <p class="mt-4 text-xs text-faint">By sending you agree to be contacted about your enquiry. Drivers must be 21+ with a valid licence — see <a href="/terms" class="text-gold/80 underline underline-offset-2">terms</a>.</p>
+      <p class="mt-4 text-xs text-faint">By sending you agree to be contacted about your enquiry. Drivers must be 21+ with a valid licence — see <a href="/terms" class="text-gold-deep underline underline-offset-2">terms</a>.</p>
     </form>
 
     <!-- assurances -->
     <aside class="space-y-5">
-      {assurances.map((a) => (
-        <div class="card flex gap-4 p-6">
-          <div class="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-gold/25 bg-gold/10 text-gold"><a.icon class="h-5 w-5" /></div>
-          <div><h3 class="font-display text-base font-semibold text-ivory">{a.t}</h3><p class="mt-1 text-sm leading-relaxed text-mist">{a.d}</p></div>
+      {assurances.map((a, i) => (
+        <div class="flex gap-5 rounded-2xl border border-ivory/10 bg-coal p-7" data-reveal data-delay={i * 60}>
+          <div class="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-gold/25 bg-gold/10 text-gold-deep"><a.icon class="h-5 w-5" stroke-width={1.5} /></div>
+          <div><h3 class="font-display text-[1.3rem] leading-tight text-ivory">{a.t}</h3><p class="mt-1.5 text-sm leading-relaxed text-mist">{a.d}</p></div>
         </div>
       ))}
-      <div class="rounded-2xl border border-ivory/10 bg-gradient-to-br from-gold/10 to-graphite p-6 text-center">
+      <div class="rounded-2xl border border-gold/25 bg-gold/[0.06] p-7 text-center" data-reveal>
         <p class="text-sm text-mist">Prefer to talk?</p>
-        <div class="mt-3 flex flex-col gap-2.5">
+        <div class="mt-4 flex flex-col gap-2.5">
           <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold py-3"><MessageCircle class="h-4 w-4" /> {contact.whatsappNumber}</a>
           <a href={contact.phonePrimaryHref} class="btn-primary py-3"><Phone class="h-4 w-4" /> {contact.phonePrimary}</a>
         </div>
@@ -68,15 +61,14 @@ const assurances = [
 </Layout>
 
 <style>
-  .field { @apply w-full rounded-xl border border-ivory/12 bg-ink/60 px-4 py-3 text-sm text-ivory placeholder:text-faint focus:border-gold/50 focus:outline-none; }
-  .field::-webkit-calendar-picker-indicator { filter: invert(0.7); }
+  .field { @apply w-full rounded-xl border border-ivory/15 bg-ink px-4 py-3 text-sm text-ivory placeholder:text-faint focus:border-gold/60 focus:outline-none; }
+  .field::-webkit-calendar-picker-indicator { opacity: 0.55; }
 </style>
 
 <script>
   const form = document.querySelector('[data-bookform]') as HTMLFormElement | null;
   const WA = 'https://api.whatsapp.com/send?phone=971559339369';
   const EMAIL = 'info@superluxurycarrental.com';
-  // preselect car from ?car=
   const carParam = new URLSearchParams(location.search).get('car');
   if (carParam && form) {
     const sel = form.querySelector('[name=car]') as HTMLSelectElement;
@@ -86,11 +78,7 @@ const assurances = [
   function compose(): string {
     const d = new FormData(form!);
     const L = (k: string, label: string) => { const v = (d.get(k) || '').toString().trim(); return v ? `${label}: ${v}` : ''; };
-    return [
-      'New booking enquiry — Super Luxury Car Rental',
-      L('name', 'Name'), L('phone', 'Phone'), L('car', 'Car'),
-      L('pickup', 'Pickup'), L('return', 'Return'), L('location', 'Delivery'), L('notes', 'Notes'),
-    ].filter(Boolean).join('\n');
+    return ['New booking enquiry — Super Luxury Car Rental', L('name', 'Name'), L('phone', 'Phone'), L('car', 'Car'), L('pickup', 'Pickup'), L('return', 'Return'), L('location', 'Delivery'), L('notes', 'Notes')].filter(Boolean).join('\n');
   }
   let mode = 'wa';
   form?.querySelectorAll('[data-send]').forEach((b) => b.addEventListener('click', () => { mode = (b as HTMLElement).dataset.send || 'wa'; }));
@@ -98,10 +86,7 @@ const assurances = [
     e.preventDefault();
     if (!form!.reportValidity()) return;
     const body = compose();
-    if (mode === 'mail') {
-      location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Booking enquiry')}&body=${encodeURIComponent(body)}`;
-    } else {
-      window.open(`${WA}&text=${encodeURIComponent(body)}`, '_blank', 'noopener');
-    }
+    if (mode === 'mail') location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Booking enquiry')}&body=${encodeURIComponent(body)}`;
+    else window.open(`${WA}&text=${encodeURIComponent(body)}`, '_blank', 'noopener');
   });
 </script>

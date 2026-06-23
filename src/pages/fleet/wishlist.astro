@@ -1,41 +1,50 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ParallaxBand from '../../components/ParallaxBand.astro';
 import FleetCard from '../../components/FleetCard.astro';
 import { getFleet } from '../../lib/fleet';
 import { Heart, MessageCircle } from '@lucide/astro';
 import { contact } from '../../data/site';
 const fleet = await getFleet();
+const heroImg = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] ?? '/film/showcase-poster.webp';
 ---
-<Layout title="Saved cars — Super Luxury Car Rental" navVariant="solid">
-  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+2.5rem)]">
-    <div class="lux-container pb-10">
-      <p class="eyebrow mb-4">Your shortlist</p>
-      <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl">Saved cars.</h1>
-      <p class="mt-4 max-w-xl text-mist">The cars you’ve saved live here on this device. Send us your shortlist and we’ll confirm availability and the best rate.</p>
-    </div>
-  </section>
+<Layout title="Saved cars — Super Luxury Car Rental">
+  <!-- Parallax header -->
+  <ParallaxBand image={heroImg} alt="A car from the Super Luxury collection"
+    height="h-[64vh] min-h-[440px]" eyebrow="Your shortlist" title="Saved cars."
+    text="The cars you've saved live here on this device. Send us your shortlist and we'll confirm availability and the best rate." />
 
-  <section class="lux-container py-12 lg:py-16">
-    <div data-wishgrid class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  <section class="lux-container py-20 lg:py-28">
+    <div data-wishgrid class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {fleet.map((car) => (
         <div data-wishitem data-id={`${car.sourceSlug}-${car.id}`} class="hidden"><FleetCard car={car} /></div>
       ))}
     </div>
 
-    <div data-wishempty class="py-20 text-center">
-      <div class="mx-auto grid h-16 w-16 place-items-center rounded-full border border-ivory/10 bg-graphite"><Heart class="h-7 w-7 text-faint" /></div>
-      <p class="mt-5 text-lg text-ivory">No saved cars yet.</p>
-      <p class="mt-2 text-mist">Tap the heart on any car to build your shortlist.</p>
-      <a href="/fleet" class="btn-gold mt-6 px-7 py-3.5">Browse the fleet</a>
+    <!-- Empty state -->
+    <div data-wishempty class="mx-auto max-w-xl py-16 text-center lg:py-24" data-reveal>
+      <div class="mx-auto grid h-20 w-20 place-items-center rounded-full border border-gold/25 bg-gold/8 text-gold-deep">
+        <Heart class="h-8 w-8" stroke-width={1.3} />
+      </div>
+      <h2 class="mt-8 font-display text-[clamp(1.8rem,3vw,2.6rem)] font-normal leading-tight text-ivory">No saved cars — yet.</h2>
+      <p class="mx-auto mt-4 max-w-md text-[1rem] leading-relaxed text-mist">Tap the heart on any car as you browse the collection, and it will be waiting for you here when you're ready to decide.</p>
+      <a href="/fleet" class="btn-gold mt-9 px-7 py-3.5">Browse the fleet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
-    <div data-wishcta class="mt-12 hidden">
-      <div class="rounded-2xl border border-ivory/10 bg-graphite p-7 text-center sm:p-10">
-        <h2 class="font-display text-2xl font-semibold text-ivory">Ready when you are.</h2>
-        <p class="mx-auto mt-3 max-w-md text-mist">Send your shortlist over WhatsApp and we’ll come back with availability, weekly &amp; monthly rates and delivery times.</p>
-        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <a data-wa href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold px-7 py-3.5"><MessageCircle class="h-4 w-4" /> Send shortlist</a>
-          <a href="/book" class="btn-primary px-7 py-3.5">Book now</a>
+    <!-- Shortlist CTA -->
+    <div data-wishcta class="mt-16 hidden" data-reveal>
+      <div class="overflow-hidden rounded-3xl border border-ivory/10 bg-coal">
+        <div class="grid items-center gap-8 p-8 sm:p-12 lg:grid-cols-12 lg:gap-12 lg:p-16">
+          <div class="lg:col-span-8">
+            <p class="eyebrow mb-4">One message away</p>
+            <h2 class="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-normal leading-tight text-ivory">Ready when you are.</h2>
+            <p class="mt-4 max-w-xl text-[1rem] leading-relaxed text-mist">Send your shortlist over WhatsApp and we'll come back with availability, weekly &amp; monthly rates, and delivery times across Dubai.</p>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:flex-col lg:items-stretch">
+            <a data-wa href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold justify-center px-7 py-3.5"><MessageCircle class="h-4 w-4" /> Send shortlist</a>
+            <a href="/book" class="btn-primary justify-center px-7 py-3.5">Book now</a>
+          </div>
         </div>
       </div>
     </div>

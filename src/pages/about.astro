@@ -1,84 +1,82 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ParallaxBand from '../components/ParallaxBand.astro';
 import { about, whyChooseUs, brands, contact, site } from '../data/site';
 import { getFleet } from '../lib/fleet';
-import { Gem, BadgeCheck, Headset, MapPin, ShieldCheck, Quote } from '@lucide/astro';
+import { Gem, BadgeCheck, Headset, MapPin, ShieldCheck } from '@lucide/astro';
 const icons: Record<string, any> = { Gem, BadgeCheck, Headset, MapPin, ShieldCheck };
 const fleet = await getFleet();
-const hero = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] ?? fleet[0].images[0];
+const visionImg = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] ?? fleet[0].images[0];
 ---
-<Layout title="About — Super Luxury Car Rental Dubai" navVariant="solid">
-  <!-- Header -->
-  <section class="border-b border-ivory/8 bg-coal pt-[calc(var(--nav-h)+4rem)]">
-    <div class="lux-container pb-16">
-      <p class="eyebrow mb-4" data-reveal>About us</p>
-      <h1 class="max-w-3xl font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl lg:text-6xl" data-reveal>The luxury lifestyle Dubai has to offer.</h1>
-    </div>
-  </section>
+<Layout title="About — Super Luxury Car Rental Dubai">
+  <!-- Parallax header -->
+  <ParallaxBand image="/film/poster.webp" alt="Dubai skyline at golden hour"
+    height="h-[78vh] min-h-[500px]" eyebrow="About us" title="The luxury lifestyle Dubai has to offer." />
 
-  <!-- Intro + image -->
-  <section class="lux-container grid gap-12 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
-    <div data-reveal>
-      <p class="text-lg leading-relaxed text-ivory/85">{about.intro}</p>
-      <div class="mt-8 grid grid-cols-3 gap-6">
-        <div><p class="font-display text-3xl font-semibold text-gold">{fleet.length}</p><p class="mt-1 text-sm text-mist">cars in the fleet</p></div>
-        <div><p class="font-display text-3xl font-semibold text-gold">{brands.length}</p><p class="mt-1 text-sm text-mist">marques</p></div>
-        <div><p class="font-display text-3xl font-semibold text-gold">24/7</p><p class="mt-1 text-sm text-mist">support</p></div>
+  <!-- Intro + stats -->
+  <section class="lux-container py-20 lg:py-32">
+    <div class="grid gap-14 lg:grid-cols-12 lg:gap-20">
+      <p class="lg:col-span-7 font-display text-[clamp(1.6rem,3vw,2.5rem)] font-normal leading-[1.3] text-ivory" data-reveal>{about.intro}</p>
+      <div class="lg:col-span-5 lg:pt-3">
+        <div class="grid grid-cols-3 gap-6 border-t border-ivory/10 pt-8" data-reveal data-delay="80">
+          <div><p class="font-display text-[2.6rem] leading-none text-gold-deep">{fleet.length}</p><p class="mt-2 text-[0.82rem] uppercase tracking-[0.14em] text-faint">cars</p></div>
+          <div><p class="font-display text-[2.6rem] leading-none text-gold-deep">{brands.length}</p><p class="mt-2 text-[0.82rem] uppercase tracking-[0.14em] text-faint">marques</p></div>
+          <div><p class="font-display text-[2.6rem] leading-none text-gold-deep">24/7</p><p class="mt-2 text-[0.82rem] uppercase tracking-[0.14em] text-faint">support</p></div>
+        </div>
+        <a href="/fleet" class="link-arrow mt-10" data-reveal data-delay="120">See the collection
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-    <div class="overflow-hidden rounded-2xl border border-ivory/10" data-reveal data-delay="80">
-      <img src={hero} alt="Super Luxury Car Rental fleet" width="800" height="600" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover" />
-    </div>
   </section>
 
-  <!-- Vision -->
-  <section class="border-y border-ivory/8 bg-graphite py-16 lg:py-24">
-    <div class="lux-container">
-      <Quote class="h-10 w-10 text-gold/50" data-reveal />
-      <p class="mt-6 max-w-4xl font-display text-2xl leading-snug text-ivory sm:text-3xl lg:text-4xl" data-reveal>{about.vision}</p>
-      <p class="mt-6 text-sm uppercase tracking-luxe text-faint" data-reveal data-delay="60">Our company vision</p>
-    </div>
-  </section>
+  <!-- Vision band -->
+  <ParallaxBand image={visionImg} alt="Rolls-Royce" height="h-[72vh] min-h-[480px]" align="center"
+    eyebrow="Our company vision" title={about.vision} />
 
   <!-- Values -->
-  <section class="lux-container py-16 lg:py-24">
-    <div class="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-      <div>
-        <p class="eyebrow mb-4" data-reveal>Our values</p>
-        <h2 class="font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl" data-reveal>Customers, first.</h2>
-      </div>
-      <ul class="grid gap-px overflow-hidden rounded-2xl border border-ivory/10 bg-ivory/10 sm:grid-cols-2">
-        {about.values.map((v, i) => (
-          <li class="flex items-start gap-3 bg-graphite p-6" data-reveal data-delay={(i % 2) * 60}>
-            <span class="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-gold/40 text-xs font-semibold text-gold">{i + 1}</span>
-            <span class="text-ivory/85">{v}</span>
-          </li>
-        ))}
-      </ul>
+  <section class="lux-container py-20 lg:py-32">
+    <div class="mb-14 max-w-2xl">
+      <p class="eyebrow mb-4" data-reveal>Our values</p>
+      <h2 class="display-2 text-ivory" data-reveal>Customers, first.</h2>
+    </div>
+    <div class="grid gap-x-12 gap-y-10 sm:grid-cols-2">
+      {about.values.map((v, i) => (
+        <div class="flex items-start gap-5 border-t border-ivory/10 pt-7" data-reveal data-delay={(i % 2) * 60}>
+          <span class="font-display text-[2rem] leading-none text-gold-deep/50">0{i + 1}</span>
+          <p class="text-[1.05rem] leading-relaxed text-ivory/85">{v}</p>
+        </div>
+      ))}
     </div>
   </section>
 
-  <!-- Why -->
-  <section class="border-t border-ivory/8 bg-coal py-16 lg:py-24">
+  <!-- Why choose us -->
+  <section class="bg-coal py-20 lg:py-32">
     <div class="lux-container">
-      <p class="eyebrow mb-4" data-reveal>Why choose us</p>
-      <h2 class="max-w-xl font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl" data-reveal>A standard you can feel.</h2>
-      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mb-16 max-w-2xl">
+        <p class="eyebrow mb-4" data-reveal>Why Super Luxury</p>
+        <h2 class="display-2 text-ivory" data-reveal>A standard you can feel.</h2>
+      </div>
+      <div class="grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
         {whyChooseUs.map((w, i) => {
           const Icon = icons[w.icon] ?? BadgeCheck;
           return (
-            <div class="card p-7" data-reveal data-delay={(i % 3) * 60}>
-              <Icon class="h-6 w-6 text-gold" />
-              <h3 class="mt-4 font-display text-lg font-semibold text-ivory">{w.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-mist">{w.body}</p>
+            <div class="border-t border-ivory/12 pt-7" data-reveal data-delay={(i % 3) * 60}>
+              <Icon class="h-7 w-7 text-gold-deep" stroke-width={1.3} />
+              <h3 class="mt-5 font-display text-[1.7rem] leading-tight text-ivory">{w.title}</h3>
+              <p class="mt-2.5 text-[0.95rem] leading-relaxed text-mist">{w.body}</p>
             </div>
           );
         })}
       </div>
-      <div class="mt-12 flex flex-wrap gap-3" data-reveal>
-        <a href="/fleet" class="btn-gold px-7 py-3.5">Browse the fleet</a>
-        <a href="/contact" class="btn-primary px-7 py-3.5">Contact us</a>
-      </div>
     </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <ParallaxBand image="/film/showcase-poster.webp" alt="Lamborghini Urus with Dubai skyline"
+    height="h-[64vh] min-h-[440px]" align="center" eyebrow="Embrace the lifestyle"
+    title="Your car is waiting." ctaHref="/fleet" ctaLabel="Browse the fleet" />
+  <section class="lux-container flex flex-wrap items-center justify-center gap-4 py-16">
+    <a href="/book" class="btn-gold">Book now</a>
+    <a href="/contact" class="btn-primary">Contact us</a>
   </section>
 </Layout>

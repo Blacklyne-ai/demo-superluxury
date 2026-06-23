@@ -1,29 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ParallaxBand from '../components/ParallaxBand.astro';
 import { contact, site } from '../data/site';
+import { getFleet } from '../lib/fleet';
+const fleet = await getFleet();
+const header = fleet.find((c) => c.brand === 'Range Rover')?.images[0] || '/film/poster.webp';
 ---
-<Layout title="Legal notice — Super Luxury Car Rental" navVariant="solid">
-  <section class="lux-container max-w-3xl pb-20 pt-[calc(var(--nav-h)+4rem)]">
-    <p class="eyebrow mb-4">Legal</p>
-    <h1 class="font-display text-4xl font-semibold tracking-tight2 text-ivory sm:text-5xl">Legal notice.</h1>
-    <div class="mt-8 space-y-6 text-mist">
-      <div>
-        <h2 class="font-display text-lg font-semibold text-ivory">Company</h2>
-        <p class="mt-2">{site.legalName}<br />Part of {site.operator}.</p>
+<Layout title="Legal notice — Super Luxury Car Rental">
+  <!-- Parallax header -->
+  <ParallaxBand image={header} alt="Range Rover in Dubai" height="h-[60vh] min-h-[420px]"
+    eyebrow="Legal" title="Legal notice."
+    text="The company behind the fleet — registered details and how to reach us." />
+
+  <!-- Body -->
+  <section class="bg-coal py-16 lg:py-24">
+    <div class="lux-narrow space-y-12">
+      <div class="border-t border-ivory/10 pt-12 first:border-0 first:pt-0" data-reveal>
+        <h2 class="eyebrow mb-3">Company</h2>
+        <p class="font-display text-[clamp(1.3rem,2.2vw,1.7rem)] font-normal leading-snug text-ivory">{site.legalName}</p>
+        <p class="mt-2 text-mist">Part of {site.operator}.</p>
       </div>
-      <div>
-        <h2 class="font-display text-lg font-semibold text-ivory">Registered office</h2>
-        <p class="mt-2">{contact.address}<br />{site.country}</p>
+
+      <div class="border-t border-ivory/10 pt-12" data-reveal>
+        <h2 class="eyebrow mb-3">Registered office</h2>
+        <p class="text-[1.02rem] leading-relaxed text-mist">{contact.address}<br />{site.country}</p>
       </div>
-      <div>
-        <h2 class="font-display text-lg font-semibold text-ivory">Contact</h2>
-        <p class="mt-2">
-          Phone: <a href={contact.phonePrimaryHref} class="text-gold hover:text-gold-lite">{contact.phonePrimary}</a> · <a href={contact.phoneSecondaryHref} class="text-gold hover:text-gold-lite">{contact.phoneSecondary}</a><br />
-          Email: <a href={contact.emailHref} class="text-gold hover:text-gold-lite">{contact.email}</a>
+
+      <div class="border-t border-ivory/10 pt-12" data-reveal>
+        <h2 class="eyebrow mb-3">Contact</h2>
+        <p class="text-[1.02rem] leading-relaxed text-mist">
+          Phone: <a href={contact.phonePrimaryHref} class="text-gold-deep hover:text-gold">{contact.phonePrimary}</a> · <a href={contact.phoneSecondaryHref} class="text-gold-deep hover:text-gold">{contact.phoneSecondary}</a><br />
+          Email: <a href={contact.emailHref} class="text-gold-deep hover:text-gold">{contact.email}</a>
         </p>
       </div>
-      <div class="rounded-2xl border border-gold/20 bg-gold/[0.06] p-6 text-sm">
-        <p class="text-mist"><strong class="text-ivory/90">Operator-TODO before go-live:</strong> add the UAE Trade Licence number, issuing authority (DED), VAT/TRN, and confirm the operating entity and “by {site.operator}” relationship. Verify all legal disclosures required for a Dubai car-rental business.</p>
+
+      <div class="rounded-2xl border border-gold/25 bg-gold/[0.06] p-6 text-sm lg:p-7" data-reveal>
+        <p class="leading-relaxed text-mist"><strong class="font-medium text-ivory">Operator-TODO before go-live:</strong> add the UAE Trade Licence number, issuing authority (DED), VAT/TRN, and confirm the operating entity and “by {site.operator}” relationship. Verify all legal disclosures required for a Dubai car-rental business.</p>
       </div>
     </div>
   </section>
