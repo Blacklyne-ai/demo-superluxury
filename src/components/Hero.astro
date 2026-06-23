@@ -1,117 +1,74 @@
 ---
-// ── CINEMATIC DUBAI HERO ──────────────────────────────────────────────
-// The real header film (Burj Khalifa descent → supercar drive through Downtown,
-// golden hour) is delivered by Blacklyne and dropped at:
-//     /public/film/hero-dubai.mp4   + poster  /public/film/poster.webp (LCP)
-// Until then this renders a high-end poster placeholder (no layout shift).
-//
-// PLAYBACK SWITCH (decide when the final film exists — see STYLE-GUIDE.md):
-//   (A) DEFAULT — calm autoplay loop: <video muted playsinline loop> played via JS
-//       only when motion is allowed. Best for a "busy" flight+drive film.
-//   (B) SCROLL-SCRUB (PONY-style) — only if the final film is calm/even enough.
-//       Prepared, commented, at the bottom of this file. Operator-TODO.
-// prefers-reduced-motion → no autoplay/scrub, static poster only. Sound always off.
-import { ChevronDown } from '@lucide/astro';
-import { site, categories } from '../data/site';
-const HAS_VIDEO = false; // flip to true once /film/hero-dubai.mp4 is delivered
-const quickCats = categories.slice(0, 5);
+// ── CINEMATIC DUBAI HERO (minimalist) ─────────────────────────────────
+// Real film delivered later → /public/film/hero-dubai.mp4 + poster /public/film/poster.webp (LCP).
+// Until then: high-end poster placeholder. Flip HAS_VIDEO once the mp4 lands.
+//   (A) DEFAULT calm autoplay loop (muted/playsinline/loop, JS-played when motion allowed)
+//   (B) scroll-scrub prepared (commented) — only if the final film is calm enough.
+// prefers-reduced-motion → static poster. Sound always off. Poster = LCP, no layout shift.
+import { site } from '../data/site';
+const HAS_VIDEO = false;
 ---
-
 <section class="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink">
-  <!-- Media layer (poster + optional film) -->
+  <!-- Media -->
   <div class="absolute inset-0 z-0">
-    <!-- Poster placeholder background (rich, so it never reads as an empty black box) -->
     <div class="absolute inset-0 bg-ink"></div>
-    <div class="absolute inset-0 hero-glow"></div>
-    <!-- LCP poster: shows the moment /film/poster.webp is delivered -->
     <img
       src="/film/poster.webp"
       alt="Dubai skyline at golden hour"
-      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 data-[loaded]:opacity-100 motion-safe:animate-kenburns"
-      onload="this.setAttribute('data-loaded','')"
-      onerror="this.remove()"
-      fetchpriority="high"
-      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[1200ms] data-[loaded]:opacity-100 motion-safe:animate-kenburns"
+      onload="this.setAttribute('data-loaded','')" onerror="this.remove()"
+      fetchpriority="high" decoding="async"
     />
     {HAS_VIDEO && (
-      <video
-        data-hero-video
-        class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700"
-        poster="/film/poster.webp"
-        muted
-        loop
-        playsinline
-        preload="none"
-        aria-hidden="true"
-      >
+      <video data-hero-video class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700"
+        poster="/film/poster.webp" muted loop playsinline preload="none" aria-hidden="true">
         <source src="/film/hero-dubai.mp4" type="video/mp4" />
       </video>
     )}
-    <!-- Cinematic grade: keep headline (left) legible, let the skyline/car (right) breathe -->
-    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/20"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-ink/55"></div>
-  </div>
-
-  <!-- Top trust strip -->
-  <div class="lux-wide pointer-events-none absolute inset-x-0 top-[calc(var(--nav-h)+8px)] z-10 hidden sm:block">
-    <div class="flex items-center gap-2 text-[0.72rem] font-medium uppercase tracking-wide2 text-ivory/55">
-      <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/70"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-gold"></span></span>
-      Available 24/7 · Free delivery anywhere in Dubai
-    </div>
+    <!-- restrained grade: dark from the bottom-left for legibility, image breathes top-right -->
+    <div class="absolute inset-0 bg-gradient-to-tr from-ink via-ink/55 to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink to-transparent"></div>
   </div>
 
   <!-- Copy -->
-  <div class="lux-wide relative z-10 pb-16 pt-28 sm:pb-20 lg:pb-28">
-    <p class="eyebrow mb-6 text-gold" data-reveal>{site.city} · United Arab Emirates</p>
-    <h1 class="max-w-4xl font-display text-[2.6rem] font-bold leading-[1.02] tracking-tight2 text-ivory sm:text-6xl lg:text-7xl" style="text-shadow:0 2px 40px rgb(0 0 0 / 0.6)">
-      Drive Dubai in a<br /><span class="text-grad-gold">class of its own.</span>
+  <div class="lux-wide relative z-10 pb-20 pt-32 sm:pb-24 lg:pb-28">
+    <p class="eyebrow mb-7" data-reveal>{site.city} · United Arab Emirates</p>
+    <h1 class="max-w-4xl font-display text-[clamp(3rem,8vw,7rem)] font-normal leading-[0.98] text-ivory" style="text-shadow:0 2px 60px rgb(0 0 0 / 0.5)" data-reveal data-delay="60">
+      Drive Dubai in a<br />class of its own.
     </h1>
-    <p class="mt-7 max-w-xl text-base leading-relaxed text-ivory/75 sm:text-lg" data-reveal data-delay="80">
-      Handpicked luxury, sports &amp; SUV rentals — delivered anywhere in Dubai. From {`AED ${site.fromPriceAed.toLocaleString('en-US')}`} a day, with 24/7 support and free city-wide delivery.
+    <p class="mt-9 max-w-md text-[1.05rem] leading-relaxed text-ivory/70" data-reveal data-delay="140">
+      Handpicked luxury, sports &amp; SUV rentals — delivered anywhere in Dubai.
     </p>
-
-    <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center" data-reveal data-delay="140">
-      <a href="/fleet" class="btn-gold px-7 py-3.5 text-[0.95rem]">Browse the fleet</a>
-      <a href="/book" class="btn-outline px-7 py-3.5 text-[0.95rem]">Book now</a>
+    <div class="mt-11 flex flex-wrap items-center gap-x-10 gap-y-5" data-reveal data-delay="220">
+      <a href="/fleet" class="link-arrow">Explore the fleet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="/book" class="link-arrow">Book now
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
-
-    <!-- Quick category jump -->
-    <div class="mt-10 flex flex-wrap items-center gap-2.5" data-reveal data-delay="200">
-      {quickCats.map((c) => (
-        <a href={`/fleet?category=${c.slug}`} class="chip transition-colors hover:border-gold/50 hover:text-gold">{c.label}</a>
-      ))}
-      <a href="/fleet" class="text-sm font-medium text-gold/90 hover:text-gold">+ all</a>
-    </div>
+    <p class="mt-12 text-[0.72rem] uppercase tracking-[0.22em] text-faint" data-reveal data-delay="300">
+      From AED {site.fromPriceAed.toLocaleString('en-US')} / day · Free delivery · 24/7
+    </p>
   </div>
 
-  <!-- Scroll cue -->
-  <div class="lux-wide relative z-10 pb-6">
-    <div class="flex items-center gap-2 text-[0.7rem] uppercase tracking-wide2 text-ivory/40">
-      <ChevronDown class="h-4 w-4 motion-safe:animate-scrollcue" /> Scroll to explore
-    </div>
+  <!-- Scroll cue: a single quiet line -->
+  <div class="lux-wide relative z-10 pb-8">
+    <div class="h-10 w-px bg-gradient-to-b from-ivory/40 to-transparent motion-safe:animate-scrollcue"></div>
   </div>
 </section>
 
 <script>
-  // (A) Calm autoplay loop — play only when motion is allowed and the file exists.
+  // (A) calm autoplay loop — play only when motion allowed + file present.
   const v = document.querySelector('[data-hero-video]') as HTMLVideoElement | null;
-  if (v) {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduce) {
-      v.preload = 'auto';
-      const reveal = () => { v.style.opacity = '1'; };
-      v.addEventListener('playing', reveal, { once: true });
-      v.play().catch(() => { /* poster stays — fine */ });
-    }
+  if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.preload = 'auto';
+    v.addEventListener('playing', () => { v.style.opacity = '1'; }, { once: true });
+    v.play().catch(() => {});
   }
-
-  // (B) SCROLL-SCRUB option — enable ONLY if the final film is calm/even.
-  // Prepare frames (ffmpeg -g 1 keyframe-dense OR extract to webp) and uncomment:
-  // import gsap from 'gsap'; import ScrollTrigger from 'gsap/ScrollTrigger';
-  // gsap.registerPlugin(ScrollTrigger);
+  // (B) SCROLL-SCRUB option (enable only if the final film is calm/even):
+  // import gsap from 'gsap'; import ScrollTrigger from 'gsap/ScrollTrigger'; gsap.registerPlugin(ScrollTrigger);
   // const film = document.querySelector('[data-hero-video]') as HTMLVideoElement;
-  // film?.addEventListener('loadedmetadata', () => {
-  //   ScrollTrigger.create({ trigger: film, start: 'top top', end: '+=200%', scrub: true,
-  //     onUpdate: (self) => { if (film.duration) film.currentTime = self.progress * film.duration; } });
-  // });
+  // film?.addEventListener('loadedmetadata', () => ScrollTrigger.create({ trigger: film, start:'top top', end:'+=200%', scrub:true,
+  //   onUpdate:(s)=>{ if(film.duration) film.currentTime = s.progress*film.duration; }}));
 </script>

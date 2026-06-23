@@ -29,7 +29,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
           <div class="group relative">
             <a
               href="/fleet"
-              class:list={['flex items-center gap-1 rounded-pill px-4 py-2 text-sm font-medium transition-colors', isActive(item.href) ? 'text-gold' : 'text-ivory/80 hover:text-ivory']}
+              class:list={['flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.76rem] font-medium uppercase tracking-[0.14em] transition-colors', isActive(item.href) ? 'text-gold' : 'text-ivory/80 hover:text-ivory']}
               aria-haspopup="true"
             >
               {item.label}
@@ -37,7 +37,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
             </a>
             <!-- Mega dropdown -->
             <div class="invisible absolute left-1/2 top-full w-[680px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div class="card shadow-lift overflow-hidden p-6">
+              <div class="overflow-hidden border border-ivory/10 bg-coal/95 p-7 backdrop-blur-xl">
                 <div class="grid grid-cols-2 gap-6">
                   <div>
                     <p class="eyebrow mb-4">By category</p>
@@ -63,7 +63,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         ) : (
           <a
             href={item.href}
-            class:list={['rounded-pill px-4 py-2 text-sm font-medium transition-colors', isActive(item.href) ? 'text-gold' : 'text-ivory/80 hover:text-ivory']}
+            class:list={['rounded-full px-3.5 py-2 text-[0.76rem] font-medium uppercase tracking-[0.14em] transition-colors', isActive(item.href) ? 'text-gold' : 'text-ivory/80 hover:text-ivory']}
           >
             {item.label}
           </a>
@@ -78,7 +78,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         <span data-wish-count class="absolute -right-0.5 -top-0.5 hidden min-w-[18px] rounded-full bg-gold px-1 text-center text-[11px] font-semibold leading-[18px] text-ink">0</span>
       </a>
       <a href="/ar" class="hidden rounded-pill border border-ivory/15 px-3 py-1.5 text-xs font-medium tracking-wide text-ivory/70 transition-colors hover:border-gold/60 hover:text-gold sm:inline-flex" hreflang="ar" lang="ar" title="النسخة العربية (coming soon)">عربي</a>
-      <a href="/book" class="btn-gold hidden px-5 py-2.5 sm:inline-flex">Book now</a>
+      <a href="/book" class="btn-primary hidden px-5 py-2.5 text-[0.74rem] uppercase tracking-[0.14em] sm:inline-flex">Book now</a>
       <!-- Mobile toggle -->
       <button data-menu-open class="rounded-pill p-2 text-ivory lg:hidden" aria-label="Open menu" aria-expanded="false">
         <Menu class="h-6 w-6" />
@@ -102,7 +102,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       <a href="/fleet/wishlist" class="border-b border-ivory/8 py-3.5 font-display text-2xl font-semibold tracking-tight2 text-ivory">Saved <span data-wish-count class="ml-1 hidden text-base text-gold">0</span></a>
       <div class="mt-5 flex flex-col gap-3">
         <a href="/book" class="btn-gold py-3.5">Book now</a>
-        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-outline py-3.5"><MessageCircle class="h-4 w-4" /> WhatsApp</a>
+        <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-primary py-3.5"><MessageCircle class="h-4 w-4" /> WhatsApp</a>
         <a href="/ar" class="btn-ghost justify-center py-2 text-mist" lang="ar">النسخة العربية · Arabic (soon)</a>
       </div>
       <p class="mt-6 text-sm text-mist">{contact.phonePrimary}</p>

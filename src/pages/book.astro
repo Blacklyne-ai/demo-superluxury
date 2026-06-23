@@ -43,7 +43,7 @@ const assurances = [
       </div>
       <div class="mt-7 flex flex-col gap-3 sm:flex-row">
         <button type="submit" data-send="wa" class="btn-gold flex-1 py-3.5"><MessageCircle class="h-4 w-4" /> Send via WhatsApp</button>
-        <button type="submit" data-send="mail" class="btn-outline flex-1 py-3.5">Send by email</button>
+        <button type="submit" data-send="mail" class="btn-primary flex-1 py-3.5">Send by email</button>
       </div>
       <p class="mt-4 text-xs text-faint">By sending you agree to be contacted about your enquiry. Drivers must be 21+ with a valid licence — see <a href="/terms" class="text-gold/80 underline underline-offset-2">terms</a>.</p>
     </form>
@@ -60,7 +60,7 @@ const assurances = [
         <p class="text-sm text-mist">Prefer to talk?</p>
         <div class="mt-3 flex flex-col gap-2.5">
           <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold py-3"><MessageCircle class="h-4 w-4" /> {contact.whatsappNumber}</a>
-          <a href={contact.phonePrimaryHref} class="btn-outline py-3"><Phone class="h-4 w-4" /> {contact.phonePrimary}</a>
+          <a href={contact.phonePrimaryHref} class="btn-primary py-3"><Phone class="h-4 w-4" /> {contact.phonePrimary}</a>
         </div>
       </div>
     </aside>

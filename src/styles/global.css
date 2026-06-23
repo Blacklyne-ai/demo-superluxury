@@ -1,151 +1,119 @@
 /* ──────────────────────────────────────────────────────────────
    Super Luxury Car Rental — Design System (Single Source of Truth: :root)
-   Cinematic dark luxury: deep black + warm ivory + restrained champagne-gold.
-   Gold is pixel-derived from the logo (#998855 family). Sora (display) · Inter (UI).
-   Self-hosted fonts, font-display:optional → no headline reflow (CLS≈0).
-   Keyframes live in tailwind.config (animation utilities).
+   QUIET LUXURY / minimalist ultra-premium: deep black, vast negative space,
+   editorial Cormorant Garamond display + Inter UI, gold used only as a whisper
+   (prices + a single hairline). Self-hosted fonts, font-display:optional (CLS≈0).
    ────────────────────────────────────────────────────────────── */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ---- Fonts (self-hosted, font-display:optional) ---- */
-@font-face {
-  font-family: 'Inter Variable';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: optional;
-  src: url('/fonts/inter.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Sora';
-  font-style: normal;
-  font-weight: 600;
-  font-display: optional;
-  src: url('/fonts/sora-600.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Sora';
-  font-style: normal;
-  font-weight: 700;
-  font-display: optional;
-  src: url('/fonts/sora-700.woff2') format('woff2');
-}
+@font-face { font-family: 'Inter Variable'; font-style: normal; font-weight: 100 900; font-display: optional; src: url('/fonts/inter.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: optional; src: url('/fonts/cormorant-400.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: optional; src: url('/fonts/cormorant-500.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: optional; src: url('/fonts/cormorant-600.woff2') format('woff2'); }
 
 :root {
-  /* RGB triplets → Tailwind colors with <alpha-value> */
-  --rgb-ink: 10 10 11;          /* #0A0A0B */
-  --rgb-coal: 18 18 20;         /* #121214 */
-  --rgb-graphite: 24 24 27;     /* #18181B */
-  --rgb-steel: 35 35 39;        /* #232327 */
-  --rgb-ivory: 244 242 236;     /* #F4F2EC */
-  --rgb-mist: 180 175 164;      /* #B4AFA4 */
-  --rgb-faint: 124 120 111;     /* #7C786F */
-  --rgb-line: 244 242 236;      /* ivory base for hairlines (low alpha inline) */
-  --rgb-gold: 198 164 92;       /* #C6A45C champagne accent */
-  --rgb-gold-lite: 228 206 151; /* #E4CE97 */
-  --rgb-gold-deep: 147 130 75;  /* #93824B logo-true */
-  --nav-h: 76px;
+  --rgb-ink: 8 8 10;            /* #08080A deepest cinematic ground */
+  --rgb-coal: 13 13 15;         /* #0D0D0F */
+  --rgb-graphite: 18 18 20;     /* #121214 raised surface */
+  --rgb-steel: 38 38 42;        /* #26262A rare border */
+  --rgb-ivory: 242 240 233;     /* #F2F0E9 primary text */
+  --rgb-mist: 157 153 143;      /* #9D998F secondary */
+  --rgb-faint: 103 100 92;      /* #67645C tertiary / labels */
+  --rgb-line: 242 240 233;      /* hairline base (low alpha) */
+  --rgb-gold: 196 164 99;       /* #C4A463 champagne — whisper accent */
+  --rgb-gold-lite: 224 203 149; /* #E0CB95 */
+  --rgb-gold-deep: 142 124 73;  /* #8E7C49 */
+  --nav-h: 84px;
 }
 
 @layer base {
   * { -webkit-tap-highlight-color: transparent; }
-  html {
-    scroll-behavior: smooth;
-    background: rgb(var(--rgb-ink));
-    -webkit-text-size-adjust: 100%;
-  }
+  html { scroll-behavior: smooth; background: rgb(var(--rgb-ink)); -webkit-text-size-adjust: 100%; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   }
   body {
     background: rgb(var(--rgb-ink));
     color: rgb(var(--rgb-ivory));
     font-family: 'Inter Variable', Inter, system-ui, sans-serif;
     font-feature-settings: 'cv02','cv03','cv04','ss01';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
-  h1,h2,h3,h4 { font-family: 'Sora', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.02em; }
-  ::selection { background: rgb(var(--rgb-gold) / 0.28); color: rgb(var(--rgb-ivory)); }
-  :focus-visible { outline: 2px solid rgb(var(--rgb-gold) / 0.7); outline-offset: 3px; border-radius: 2px; }
+  /* Editorial serif display */
+  h1, h2, h3, .font-display {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-weight: 500; letter-spacing: -0.01em; line-height: 1.04;
+  }
+  h4 { font-family: 'Inter Variable', Inter, sans-serif; font-weight: 500; letter-spacing: -0.01em; }
+  ::selection { background: rgb(var(--rgb-gold) / 0.22); color: rgb(var(--rgb-ivory)); }
+  :focus-visible { outline: 1px solid rgb(var(--rgb-gold) / 0.7); outline-offset: 4px; }
   img { content-visibility: auto; }
-  /* dark, slim scrollbar */
-  ::-webkit-scrollbar { width: 11px; height: 11px; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: rgb(var(--rgb-ink)); }
   ::-webkit-scrollbar-thumb { background: rgb(var(--rgb-steel)); border-radius: 999px; border: 3px solid rgb(var(--rgb-ink)); }
   ::-webkit-scrollbar-thumb:hover { background: rgb(var(--rgb-gold-deep)); }
 }
 
 @layer components {
-  .lux-container { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10; }
-  .lux-wide { @apply mx-auto w-full max-w-8xl px-5 sm:px-8 lg:px-12; }
+  /* Generous, disciplined containers — space is the luxury */
+  .lux-container { @apply mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-12; }
+  .lux-wide { @apply mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-14; }
+  .lux-narrow { @apply mx-auto w-full max-w-3xl px-6 sm:px-10; }
 
-  /* Eyebrow / kicker */
-  .eyebrow { @apply inline-flex items-center gap-2.5 text-[0.72rem] font-medium uppercase tracking-luxe text-gold; }
-  .eyebrow::before { content: ''; @apply h-px w-7 bg-gold/55; }
+  /* Eyebrow — quiet, just letter-spaced caps. No gold, no chip. */
+  .eyebrow { @apply inline-block text-[0.7rem] font-medium uppercase tracking-[0.32em] text-faint; }
+  .eyebrow-gold { @apply text-gold/90; }
 
-  /* Buttons — slim, never chunky */
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-pill text-[0.9rem] font-medium leading-none transition duration-300 ease-luxe; }
-  .btn-gold { @apply btn bg-gold px-6 py-3 text-ink hover:bg-gold-lite; }
-  .btn-gold:hover { box-shadow: 0 14px 40px -14px rgb(var(--rgb-gold) / 0.6); }
-  .btn-outline { @apply btn border border-ivory/20 px-6 py-3 text-ivory hover:border-gold/70 hover:text-gold; }
-  .btn-ghost { @apply btn px-5 py-2.5 text-ivory/85 hover:text-gold; }
+  /* Headlines helpers */
+  .display-1 { @apply font-display text-[clamp(2.8rem,7vw,6.5rem)] font-normal leading-[1.0]; }
+  .display-2 { @apply font-display text-[clamp(2.2rem,4.5vw,4rem)] font-medium leading-[1.05]; }
+  .display-3 { @apply font-display text-[clamp(1.6rem,3vw,2.6rem)] font-medium leading-[1.1]; }
+
+  /* Buttons — slim, understated. Gold is reserved for the single key action. */
+  .btn { @apply inline-flex items-center justify-center gap-2 text-[0.82rem] font-medium leading-none transition-all duration-500 ease-luxe; }
+  .btn-primary { @apply btn rounded-full border border-ivory/25 px-7 py-3.5 text-ivory/90 hover:border-gold/70 hover:text-gold; }
+  .btn-gold { @apply btn rounded-full bg-gold px-7 py-3.5 text-ink hover:bg-gold-lite; }
+  .btn-ghost { @apply btn px-2 py-1 text-ivory/70 hover:text-gold; }
   .btn-block { @apply w-full; }
 
-  /* Surfaces */
-  .card { @apply rounded-2xl border border-ivory/10 bg-graphite; }
+  /* Minimal inline CTA: text + arrow */
+  .link-arrow { @apply inline-flex items-center gap-2 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-ivory/80 transition-colors hover:text-gold; }
+  .link-arrow svg { transition: transform .5s cubic-bezier(.22,1,.36,1); }
+  .link-arrow:hover svg { transform: translateX(4px); }
+
+  /* Surfaces — hairline, no heavy shadows */
+  .card { @apply rounded-xl border border-ivory/8 bg-graphite; }
   .hairline { @apply border-ivory/10; }
-  .panel-grad { background: linear-gradient(180deg, rgb(var(--rgb-graphite)) 0%, rgb(var(--rgb-coal)) 100%); }
+  .rule { @apply h-px w-full bg-ivory/10; }
+  .rule-gold { height: 1px; background: linear-gradient(90deg, rgb(var(--rgb-gold) / 0.5), transparent); }
 
-  /* Chips / pills */
-  .chip { @apply inline-flex items-center gap-1.5 rounded-pill border border-ivory/12 px-3 py-1 text-[0.74rem] font-medium text-mist; }
-  .chip-gold { @apply inline-flex items-center gap-1.5 rounded-pill border border-gold/30 bg-gold/10 px-3 py-1 text-[0.74rem] font-medium text-gold; }
+  /* Quiet chips (filters only) */
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-ivory/12 px-3.5 py-1.5 text-[0.72rem] font-medium uppercase tracking-[0.12em] text-mist transition-colors; }
 
-  /* Gold gradient text (use on solid bg, never on hero photo per CLS note) */
-  .text-grad-gold {
-    background: linear-gradient(100deg, rgb(var(--rgb-gold-lite)), rgb(var(--rgb-gold)) 55%, rgb(var(--rgb-gold-deep)));
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
-  }
-  .hr-gold { height: 1px; background: linear-gradient(90deg, transparent, rgb(var(--rgb-gold) / 0.6), transparent); }
+  /* Glass nav */
+  .glass { background: rgb(var(--rgb-ink) / 0.6); backdrop-filter: blur(20px) saturate(1.2); -webkit-backdrop-filter: blur(20px) saturate(1.2); }
 
-  /* Glass nav pill */
-  .glass {
-    background: rgb(var(--rgb-ink) / 0.55);
-    backdrop-filter: blur(18px) saturate(1.3);
-    -webkit-backdrop-filter: blur(18px) saturate(1.3);
-    border: 1px solid rgb(var(--rgb-ivory) / 0.08);
-  }
-
-  /* Scroll reveal — gated on html.js so it is VISIBLE when JS is off (no FOUC trap).
-     JS (Layout) flips opacity/transform inline on intersection. */
-  .js [data-reveal] { opacity: 0; transform: translateY(26px); will-change: opacity, transform; }
+  /* Scroll reveal — slow, subtle. Visible if JS off (gated on html.js). */
+  .js [data-reveal] { opacity: 0; transform: translateY(16px); will-change: opacity, transform; }
   @media (prefers-reduced-motion: reduce) { .js [data-reveal] { opacity: 1 !important; transform: none !important; } }
 
-  /* Price emphasis */
-  .price-aed { font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
-
-  /* Wishlist heart saved state */
+  .price-aed { font-variant-numeric: tabular-nums; letter-spacing: 0; }
   [data-wish].is-saved { color: rgb(var(--rgb-gold)); }
   [data-wish].is-saved svg { fill: currentColor; }
 
-  /* Subtle film grain / vignette helpers */
-  .vignette { box-shadow: inset 0 0 200px 40px rgb(0 0 0 / 0.65); }
-  .top-fade { background: linear-gradient(180deg, rgb(var(--rgb-ink)) 0%, transparent 100%); }
-
-  /* Hero poster placeholder — cinematic glow so the header is never an empty box */
+  /* Hero: clean image, restrained cinematic grade (no neon glow) */
+  .vignette { box-shadow: inset 0 0 240px 60px rgb(0 0 0 / 0.55); }
+  /* Very faint dark wash for placeholder/section backdrops */
   .hero-glow {
     background:
-      radial-gradient(120% 85% at 50% 108%, rgb(var(--rgb-gold) / 0.14), transparent 58%),
-      radial-gradient(70% 55% at 82% 6%, rgb(var(--rgb-gold-deep) / 0.10), transparent 55%),
-      radial-gradient(90% 70% at 12% 20%, rgb(40 40 48 / 0.55), transparent 60%),
-      linear-gradient(180deg, #0c0c0f 0%, #060607 100%);
+      radial-gradient(110% 80% at 50% 110%, rgb(var(--rgb-gold) / 0.06), transparent 60%),
+      linear-gradient(180deg, #0a0a0c 0%, #070708 100%);
   }
-  /* Faint dot-grid texture for dark sections */
-  .grid-texture {
-    background-image: radial-gradient(rgb(var(--rgb-ivory) / 0.05) 1px, transparent 1px);
-    background-size: 26px 26px;
-  }
+  .chip-gold { @apply chip; }
 }

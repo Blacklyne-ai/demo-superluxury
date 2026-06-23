@@ -63,7 +63,7 @@ const specRows = [
           <span class="chip-gold">{cat?.label ?? car.category}</span>
           <span class="chip">{car.brand}</span>
         </div>
-        <h1 class="mt-4 font-display text-3xl font-semibold tracking-tight2 text-ivory sm:text-4xl">{car.name}</h1>
+        <h1 class="mt-4 font-display text-[2.4rem] leading-[1.05] text-ivory sm:text-[3rem]">{car.name}</h1>
 
         <!-- price card -->
         <div class="mt-6 rounded-2xl border border-ivory/10 bg-graphite p-6">
@@ -81,8 +81,8 @@ const specRows = [
           <div class="mt-5 flex flex-col gap-2.5">
             <a href={`/book?car=${encodeURIComponent(car.name)}`} class="btn-gold py-3.5"><CalendarCheck class="h-4 w-4" /> Book this car</a>
             <div class="grid grid-cols-2 gap-2.5">
-              <a href={`${contact.whatsapp}&text=${waText}`} target="_blank" rel="noopener" class="btn-outline py-3"><MessageCircle class="h-4 w-4" /> WhatsApp</a>
-              <a href={contact.phonePrimaryHref} class="btn-outline py-3"><Phone class="h-4 w-4" /> Call</a>
+              <a href={`${contact.whatsapp}&text=${waText}`} target="_blank" rel="noopener" class="btn-primary py-3"><MessageCircle class="h-4 w-4" /> WhatsApp</a>
+              <a href={contact.phonePrimaryHref} class="btn-primary py-3"><Phone class="h-4 w-4" /> Call</a>
             </div>
           </div>
         </div>
