@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import FleetCard from '../../components/FleetCard.astro';
 import ParallaxBand from '../../components/ParallaxBand.astro';
-import { getFleet, fmtAED, similar } from '../../lib/fleet';
+import { getFleet, fmtAED, similar, shortName } from '../../lib/fleet';
 import { categoryMap, contact } from '../../data/site';
 import { Heart, Users, DoorOpen, Cog, Gauge, MapPin, CheckCircle2, ChevronRight, MessageCircle, Phone, CalendarCheck, ArrowLeft } from '@lucide/astro';
 
@@ -130,7 +130,7 @@ const specRows = [
   <!-- Closing CTA band -->
   <ParallaxBand image={car.images[car.images.length > 2 ? 2 : 0]} alt={car.name}
     height="h-[64vh] min-h-[440px]" align="center" eyebrow={`${fmtAED(car.priceDaily)} / day · free Dubai delivery`}
-    title={`Drive the ${car.name}.`} ctaHref={`/book?car=${encodeURIComponent(car.name)}`} ctaLabel="Book this car" />
+    title={`Drive the ${shortName(car.id, car.name)}.`} ctaHref={`/book?car=${encodeURIComponent(car.name)}`} ctaLabel="Book this car" />
 </Layout>
 
 <script>
