@@ -19,7 +19,9 @@ const perks = [
 <Layout navVariant="solid">
   <Hero />
 
-  <!-- FLEET — cars first -->
+  <!-- Content slides up over the sticky hero video (real parallax reveal) -->
+  <div class="relative z-10 bg-ink shadow-[0_-40px_80px_-30px_rgba(0,0,0,0.4)]">
+  <!-- FLEET - cars first -->
   <section id="fleet" class="scroll-mt-[var(--nav-h)] pt-16 lg:pt-24">
     <div class="lux-wide mb-8 flex items-end justify-between">
       <div>
@@ -62,7 +64,7 @@ const perks = [
     <div class="lux-wide absolute inset-0 z-10 flex flex-col items-start justify-center text-white">
       <p class="mb-4 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/75" data-reveal>Delivered to you</p>
       <h2 class="max-w-2xl font-display text-[clamp(2rem,4.5vw,3.6rem)] font-normal leading-[1.05]" data-reveal data-delay="60">Your car, wherever you are in Dubai.</h2>
-      <a href="/book" class="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-ink transition hover:bg-gold hover:text-white" data-reveal data-delay="120">Book now</a>
+      <a href="/book" class="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-ivory transition hover:bg-gold hover:text-white" data-reveal data-delay="120">Book now</a>
     </div>
   </section>
 
@@ -94,9 +96,10 @@ const perks = [
       </div>
     </div>
     <div class="overflow-hidden rounded-2xl border border-ivory/10" data-reveal data-delay="80">
-      <iframe title="Map — Al Barsha, Dubai" src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`} class="h-[340px] w-full lg:h-[400px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe title="Map - Al Barsha, Dubai" src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`} class="h-[340px] w-full lg:h-[400px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
+  </div>
 </Layout>
 
 <script>
@@ -128,7 +131,7 @@ const perks = [
     apply();
   }
 
-  // showcase video — lazy play when scrolled into view (skip for reduced-motion)
+  // showcase video - lazy play when scrolled into view (skip for reduced-motion)
   const sv = document.querySelector('[data-showcase-video]') as HTMLVideoElement | null;
   if (sv && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {

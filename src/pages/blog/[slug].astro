@@ -22,7 +22,7 @@ const { post, cover } = Astro.props;
 const fmtDate = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const more = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 ---
-<Layout title={`${post.title} — Super Luxury Car Rental`} description={post.excerpt ?? post.title} image={cover}>
+<Layout title={`${post.title} - Super Luxury Car Rental`} description={post.excerpt ?? post.title} image={cover}>
   <article>
     <!-- Cinematic cover header -->
     <section class="relative h-[82vh] min-h-[520px] overflow-hidden">
@@ -45,12 +45,12 @@ const more = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
       <div class="mt-12 space-y-6 text-[1.08rem] leading-[1.85] text-ivory/80" data-reveal data-delay="60">
         <p>
-          Dubai rewards the people who arrive prepared. The right car is rarely about horsepower alone — it is about how the
+          Dubai rewards the people who arrive prepared. The right car is rarely about horsepower alone - it is about how the
           city receives you when the door opens. That is the thread running through everything we do, and the reason this
           journal exists: to share what we have learned moving people through this city, one journey at a time.
         </p>
         <p>
-          Our team is on hand to translate any of this into a real itinerary — the marque, the rate, the delivery window and
+          Our team is on hand to translate any of this into a real itinerary - the marque, the rate, the delivery window and
           the small details that make a difference. Read on, or simply tell us where you're headed and we'll take it from there.
         </p>
       </div>
@@ -58,7 +58,7 @@ const more = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
       <!-- Inline CTA -->
       <div class="mt-14 rounded-2xl border border-ivory/10 bg-coal p-8 lg:p-10" data-reveal data-delay="120">
         <p class="font-display text-[1.5rem] leading-snug text-ivory">Want the full story, or planning a trip?</p>
-        <p class="mt-3 max-w-lg text-[0.98rem] leading-relaxed text-mist">Our team is one message away — we'll match you with the right car and the right rate, and have it where you need it.</p>
+        <p class="mt-3 max-w-lg text-[0.98rem] leading-relaxed text-mist">Our team is one message away - we'll match you with the right car and the right rate, and have it where you need it.</p>
         <div class="mt-7 flex flex-wrap gap-3">
           <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold px-6 py-3"><MessageCircle class="h-4 w-4" /> WhatsApp us</a>
           <a href="/fleet" class="btn-primary px-6 py-3">Browse the fleet</a>

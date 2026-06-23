@@ -17,11 +17,11 @@ const heroImg = fleet.find((c) => c.brand === 'Lamborghini')?.images[0] ?? '/fil
 const featured = posts[0];
 const rest = posts.slice(1);
 ---
-<Layout title="Journal — Super Luxury Car Rental Dubai">
+<Layout title="Journal - Super Luxury Car Rental Dubai">
   <!-- Parallax header -->
   <ParallaxBand image="/film/showcase-poster.webp" alt="Lamborghini Urus with the Dubai skyline"
     height="h-[78vh] min-h-[500px]" eyebrow="Journal" title="Dubai, on wheels."
-    text="Car-rental trends, new launches and the city — notes from the Super Luxury team." />
+    text="Car-rental trends, new launches and the city - notes from the Super Luxury team." />
 
   <!-- Section heading -->
   <section class="lux-container pt-20 lg:pt-28">
@@ -31,7 +31,7 @@ const rest = posts.slice(1);
         <h1 class="display-2 text-ivory" data-reveal data-delay="60">Stories from the front seat.</h1>
       </div>
       <p class="text-[0.98rem] leading-relaxed text-mist lg:col-span-4 lg:pb-2" data-reveal data-delay="120">
-        A slow, considered look at the cars, the city and the way Dubai moves — written by the people who hand you the keys.
+        A slow, considered look at the cars, the city and the way Dubai moves - written by the people who hand you the keys.
       </p>
     </div>
   </section>
@@ -42,7 +42,7 @@ const rest = posts.slice(1);
       <div class="relative aspect-[16/11] overflow-hidden bg-coal lg:aspect-auto lg:min-h-[460px]">
         {covers[0] && <img src={covers[0]} alt="" width="960" height="640" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]" />}
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-        <span class="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-1.5 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-ink">Featured</span>
+        <span class="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-1.5 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-ivory">Featured</span>
       </div>
       <div class="flex flex-col justify-center px-7 py-12 lg:px-14 lg:py-16">
         <p class="text-[0.75rem] uppercase tracking-[0.18em] text-faint">{fmtDate(featured.date)}</p>

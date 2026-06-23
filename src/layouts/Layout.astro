@@ -13,8 +13,8 @@ export interface Props {
 }
 
 const {
-  title = 'Super Luxury Car Rental Dubai — Exotic & Supercar Hire',
-  description = 'Handpicked luxury, sports & SUV rentals in Dubai — Rolls-Royce, Ferrari, Lamborghini, Range Rover and more. Free delivery anywhere in Dubai. 24/7 support. From AED 1,000/day.',
+  title = 'Super Luxury Car Rental Dubai - Exotic & Supercar Hire',
+  description = 'Handpicked luxury, sports & SUV rentals in Dubai - Rolls-Royce, Ferrari, Lamborghini, Range Rover and more. Free delivery anywhere in Dubai. 24/7 support. From AED 1,000/day.',
   image = '/og.jpg',
   navVariant = 'transparent',
 } = Astro.props;
@@ -32,7 +32,7 @@ const ldJson = {
   priceRange: 'AED 1,000+',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Office F4 – 53, Al Khaimah 2 Building',
+    streetAddress: 'Office F4 - 53, Al Khaimah 2 Building',
     addressLocality: 'Al Barsha, Dubai',
     addressCountry: 'AE',
   },
@@ -71,7 +71,7 @@ const ldJson = {
     <script type="application/ld+json" set:html={JSON.stringify(ldJson)} is:inline />
   </head>
   <body>
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-pill focus:bg-gold focus:px-5 focus:py-3 focus:text-ink">Skip to content</a>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-pill focus:bg-gold focus:px-5 focus:py-3 focus:text-ivory">Skip to content</a>
 
     <Nav variant={navVariant} />
 

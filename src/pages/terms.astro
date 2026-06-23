@@ -7,7 +7,7 @@ import { Info, MessageCircle, Phone } from '@lucide/astro';
 const fleet = await getFleet();
 const header = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] || '/film/poster.webp';
 ---
-<Layout title="Terms & Conditions — Super Luxury Car Rental Dubai" description="Standard rental terms and conditions for Super Luxury Car Rental L.L.C, Dubai.">
+<Layout title="Terms & Conditions - Super Luxury Car Rental Dubai" description="Standard rental terms and conditions for Super Luxury Car Rental L.L.C, Dubai.">
   <!-- Parallax header -->
   <ParallaxBand image={header} alt="Rolls-Royce on the road in Dubai"
     height="h-[60vh] min-h-[420px]" eyebrow="Standard terms & conditions of sale" title="Rental policy."
@@ -68,7 +68,7 @@ const header = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] || '/film
   <section class="bg-ink py-16 lg:py-20" data-reveal>
     <div class="lux-container flex flex-col items-center text-center">
       <p class="eyebrow mb-4">Still have a question?</p>
-      <h2 class="max-w-2xl font-display text-[clamp(1.7rem,3vw,2.4rem)] font-normal leading-tight text-ivory">Talk to us before you book — we keep it simple.</h2>
+      <h2 class="max-w-2xl font-display text-[clamp(1.7rem,3vw,2.4rem)] font-normal leading-tight text-ivory">Talk to us before you book - we keep it simple.</h2>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
         <a href={contact.whatsapp} target="_blank" rel="noopener" class="btn-gold"><MessageCircle class="h-4 w-4" /> WhatsApp us</a>
         <a href={contact.phonePrimaryHref} class="btn-primary"><Phone class="h-4 w-4" /> {contact.phonePrimary}</a>

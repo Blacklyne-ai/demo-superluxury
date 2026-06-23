@@ -1,9 +1,9 @@
 /* ──────────────────────────────────────────────────────────────
-   Super Luxury Car Rental — Design System (Single Source of Truth: :root)
+   Super Luxury Car Rental - Design System (Single Source of Truth: :root)
    LIGHT editorial luxury, derived from the logo (gold emblem + charcoal
    wordmark on white). Warm-white canvas, charcoal ink, antique-gold accent.
    Cars first. Cormorant Garamond display + Inter UI. Self-hosted fonts.
-   Token note: names kept from the dark build but VALUES are inverted for light —
+   Token note: names kept from the dark build but VALUES are inverted for light -
    `ink` = light page ground, `ivory` = dark text/hairlines.
    ────────────────────────────────────────────────────────────── */
 @tailwind base;
@@ -17,7 +17,7 @@
 
 :root {
   --rgb-ink: 250 248 243;       /* #FAF8F3 warm-white page ground (bg-ink) */
-  --rgb-coal: 243 239 231;      /* #F3EFE7 bone — alternating section */
+  --rgb-coal: 243 239 231;      /* #F3EFE7 bone - alternating section */
   --rgb-graphite: 255 255 255;  /* #FFFFFF card / panel */
   --rgb-steel: 230 225 214;     /* #E6E1D6 light raised / fill */
   --rgb-ivory: 26 25 23;        /* #1A1917 PRIMARY DARK text + hairlines */
@@ -44,7 +44,7 @@
     font-feature-settings: 'cv02','cv03','cv04','ss01';
     font-size: 1rem; line-height: 1.6;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    overflow-x: clip; /* clip (not hidden) → no scroll container → position:sticky hero stays pinned */
   }
   h1, h2, h3, .font-display {
     font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
@@ -101,7 +101,7 @@
   .cat-pill:hover { @apply border-ivory/30 text-ivory; }
   .cat-pill.is-on { @apply border-ivory bg-ivory text-[rgb(250,248,243)]; }
 
-  /* Scroll reveal — gated on html.js (visible without JS) */
+  /* Scroll reveal - gated on html.js (visible without JS) */
   .js [data-reveal] { opacity: 0; transform: translateY(18px); will-change: opacity, transform; }
   @media (prefers-reduced-motion: reduce) { .js [data-reveal] { opacity: 1 !important; transform: none !important; } }
 

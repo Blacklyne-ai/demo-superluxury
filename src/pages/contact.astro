@@ -7,16 +7,16 @@ import { MessageCircle, Phone, Mail, MapPin, Clock, ArrowUpRight } from '@lucide
 const fleet = await getFleet();
 const header = fleet.find((c) => c.brand === 'Bentley')?.images[0] ?? fleet[0].images[0];
 const tiles = [
-  { icon: MessageCircle, label: 'WhatsApp', value: contact.whatsappNumber, href: contact.whatsapp, note: 'Fastest reply — chat now', ext: true },
+  { icon: MessageCircle, label: 'WhatsApp', value: contact.whatsappNumber, href: contact.whatsapp, note: 'Fastest reply - chat now', ext: true },
   { icon: Phone, label: 'Call us', value: contact.phonePrimary, href: contact.phonePrimaryHref, note: contact.phoneSecondary },
   { icon: Mail, label: 'Email', value: contact.email, href: contact.emailHref, note: 'For longer enquiries' },
 ];
 ---
-<Layout title="Contact — Super Luxury Car Rental, Al Barsha Dubai">
+<Layout title="Contact - Super Luxury Car Rental, Al Barsha Dubai">
   <!-- Parallax header -->
   <ParallaxBand image={header} alt="Bentley in Dubai" height="h-[68vh] min-h-[460px]"
     eyebrow="Get in touch" title="Let’s get you driving."
-    text="Tell us the car, the dates and where you are in Dubai — we deliver across the city." />
+    text="Tell us the car, the dates and where you are in Dubai - we deliver across the city." />
 
   <!-- Tiles -->
   <section class="lux-container py-20 lg:py-28">
@@ -44,7 +44,7 @@ const tiles = [
         <h2 class="display-2 text-ivory">Visit the showroom.</h2>
         <ul class="mt-9 space-y-6 text-ivory/85">
           <li class="flex items-start gap-4"><MapPin class="mt-0.5 h-5 w-5 shrink-0 text-gold-deep" stroke-width={1.5} /><span>{contact.address}<br /><span class="text-mist">{site.country}</span></span></li>
-          <li class="flex items-start gap-4"><Clock class="mt-0.5 h-5 w-5 shrink-0 text-gold-deep" stroke-width={1.5} /><span>Open 24/7 — call or message any time<br /><span class="text-mist">support around the clock</span></span></li>
+          <li class="flex items-start gap-4"><Clock class="mt-0.5 h-5 w-5 shrink-0 text-gold-deep" stroke-width={1.5} /><span>Open 24/7 - call or message any time<br /><span class="text-mist">support around the clock</span></span></li>
           <li class="flex items-start gap-4"><Phone class="mt-0.5 h-5 w-5 shrink-0 text-gold-deep" stroke-width={1.5} /><span><a href={contact.phonePrimaryHref} class="hover:text-gold-deep">{contact.phonePrimary}</a> · <a href={contact.phoneSecondaryHref} class="hover:text-gold-deep">{contact.phoneSecondary}</a></span></li>
         </ul>
         <div class="mt-10 flex flex-wrap gap-3">
@@ -58,7 +58,7 @@ const tiles = [
         </div>
       </div>
       <div class="overflow-hidden rounded-2xl border border-ivory/10 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.3)]" data-reveal data-delay="80">
-        <iframe title="Map — Al Barsha, Dubai" src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`} class="h-[380px] w-full lg:h-[460px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="Map - Al Barsha, Dubai" src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&t=m&z=13&output=embed`} class="h-[380px] w-full lg:h-[460px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>

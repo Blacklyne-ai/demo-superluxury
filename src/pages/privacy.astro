@@ -7,11 +7,11 @@ import { MessageCircle, Phone } from '@lucide/astro';
 const fleet = await getFleet();
 const header = fleet.find((c) => c.brand === 'Bentley')?.images[0] || '/film/poster.webp';
 ---
-<Layout title="Privacy — Super Luxury Car Rental">
+<Layout title="Privacy - Super Luxury Car Rental">
   <!-- Parallax header -->
   <ParallaxBand image={header} alt="Bentley detail" height="h-[60vh] min-h-[420px]"
     eyebrow="Privacy" title="Privacy note."
-    text="A static showcase, kept deliberately simple — here is exactly what happens with your data." />
+    text="A static showcase, kept deliberately simple - here is exactly what happens with your data." />
 
   <!-- Body -->
   <section class="bg-coal py-16 lg:py-24">
@@ -28,7 +28,7 @@ const header = fleet.find((c) => c.brand === 'Bentley')?.images[0] || '/film/pos
 
         <div class="border-t border-ivory/10 pt-12" data-reveal>
           <h2 class="font-display text-[clamp(1.4rem,2.4vw,1.9rem)] font-normal leading-tight text-ivory">When you contact us</h2>
-          <p class="mt-4 text-[0.98rem] leading-relaxed text-mist">If you send a booking enquiry, it opens WhatsApp or your email app with a pre-filled message — you choose to send it. We then use those details only to answer your enquiry.</p>
+          <p class="mt-4 text-[0.98rem] leading-relaxed text-mist">If you send a booking enquiry, it opens WhatsApp or your email app with a pre-filled message - you choose to send it. We then use those details only to answer your enquiry.</p>
         </div>
 
         <div class="border-t border-ivory/10 pt-12" data-reveal>

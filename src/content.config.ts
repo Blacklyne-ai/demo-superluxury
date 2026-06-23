@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// Super Luxury Car Rental — fleet snapshot of the real Odoo catalogue (97 vehicles,
+// Super Luxury Car Rental - fleet snapshot of the real Odoo catalogue (97 vehicles,
 // one JSON per car). priceDaily is the real published AED daily rate. Weekly/monthly
 // are intentionally absent (not published on the source) → shown as "on request".
 // Production: couple to the Odoo product feed (see JUDGEMENT_CALLS.md).

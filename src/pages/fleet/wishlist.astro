@@ -8,7 +8,7 @@ import { contact } from '../../data/site';
 const fleet = await getFleet();
 const heroImg = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] ?? '/film/showcase-poster.webp';
 ---
-<Layout title="Saved cars — Super Luxury Car Rental">
+<Layout title="Saved cars - Super Luxury Car Rental">
   <!-- Parallax header -->
   <ParallaxBand image={heroImg} alt="A car from the Super Luxury collection"
     height="h-[64vh] min-h-[440px]" eyebrow="Your shortlist" title="Saved cars."
@@ -26,7 +26,7 @@ const heroImg = fleet.find((c) => c.brand === 'Rolls-Royce')?.images[0] ?? '/fil
       <div class="mx-auto grid h-20 w-20 place-items-center rounded-full border border-gold/25 bg-gold/8 text-gold-deep">
         <Heart class="h-8 w-8" stroke-width={1.3} />
       </div>
-      <h2 class="mt-8 font-display text-[clamp(1.8rem,3vw,2.6rem)] font-normal leading-tight text-ivory">No saved cars — yet.</h2>
+      <h2 class="mt-8 font-display text-[clamp(1.8rem,3vw,2.6rem)] font-normal leading-tight text-ivory">No saved cars - yet.</h2>
       <p class="mx-auto mt-4 max-w-md text-[1rem] leading-relaxed text-mist">Tap the heart on any car as you browse the collection, and it will be waiting for you here when you're ready to decide.</p>
       <a href="/fleet" class="btn-gold mt-9 px-7 py-3.5">Browse the fleet
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>

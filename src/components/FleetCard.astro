@@ -36,11 +36,11 @@ const specLine = [car.specs.seats && `${car.specs.seats} seats`, car.specs.trans
     {imgs.length > 1 && (
       <>
         <button data-img-prev aria-label="Previous photo"
-          class="absolute left-2.5 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-ink opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-white group-hover/img:opacity-100 max-md:opacity-90"
-          style="background:rgb(255 255 255 / 0.78)"><ChevronLeft class="h-4 w-4" /></button>
+          class="absolute left-2.5 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center text-white opacity-0 transition-all duration-300 hover:text-gold-lite group-hover/img:opacity-100 max-md:opacity-95"
+          style="filter:drop-shadow(0 1px 4px rgb(0 0 0 / 0.7))"><ChevronLeft class="h-6 w-6" stroke-width={2.4} /></button>
         <button data-img-next aria-label="Next photo"
-          class="absolute right-2.5 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-ink opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-white group-hover/img:opacity-100 max-md:opacity-90"
-          style="background:rgb(255 255 255 / 0.78)"><ChevronRight class="h-4 w-4" /></button>
+          class="absolute right-2.5 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center text-white opacity-0 transition-all duration-300 hover:text-gold-lite group-hover/img:opacity-100 max-md:opacity-95"
+          style="filter:drop-shadow(0 1px 4px rgb(0 0 0 / 0.7))"><ChevronRight class="h-6 w-6" stroke-width={2.4} /></button>
         <div data-img-dots class="pointer-events-none absolute bottom-2.5 left-1/2 flex -translate-x-1/2 gap-1.5">
           {imgs.map((_, i) => (
             <span class:list={['h-1.5 w-1.5 rounded-full transition-colors', i === 0 ? 'bg-white' : 'bg-white/45']}></span>

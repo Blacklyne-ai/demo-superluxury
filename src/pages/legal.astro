@@ -6,11 +6,11 @@ import { getFleet } from '../lib/fleet';
 const fleet = await getFleet();
 const header = fleet.find((c) => c.brand === 'Range Rover')?.images[0] || '/film/poster.webp';
 ---
-<Layout title="Legal notice — Super Luxury Car Rental">
+<Layout title="Legal notice - Super Luxury Car Rental">
   <!-- Parallax header -->
   <ParallaxBand image={header} alt="Range Rover in Dubai" height="h-[60vh] min-h-[420px]"
     eyebrow="Legal" title="Legal notice."
-    text="The company behind the fleet — registered details and how to reach us." />
+    text="The company behind the fleet - registered details and how to reach us." />
 
   <!-- Body -->
   <section class="bg-coal py-16 lg:py-24">

@@ -12,17 +12,17 @@ const presentBrands = activeBrands(fleet);
 const priceBands = [
   { v: '', label: 'Any price' },
   { v: '0-500', label: 'Under AED 500' },
-  { v: '500-1000', label: 'AED 500 – 1,000' },
-  { v: '1000-2000', label: 'AED 1,000 – 2,000' },
-  { v: '2000-4000', label: 'AED 2,000 – 4,000' },
+  { v: '500-1000', label: 'AED 500 - 1,000' },
+  { v: '1000-2000', label: 'AED 1,000 - 2,000' },
+  { v: '2000-4000', label: 'AED 2,000 - 4,000' },
   { v: '4000-99999', label: 'AED 4,000+' },
 ];
 ---
-<Layout title="Fleet — Super Luxury Car Rental Dubai">
+<Layout title="Fleet - Super Luxury Car Rental Dubai">
   <!-- Parallax header -->
   <ParallaxBand image="/film/showcase-poster.webp" alt="Lamborghini Urus with the Dubai skyline"
     height="h-[64vh] min-h-[440px]" eyebrow="The collection" title="The fleet."
-    text={`${fleet.length} handpicked cars, ready to drive in Dubai — daily rates in AED, free delivery across the city.`} />
+    text={`${fleet.length} handpicked cars, ready to drive in Dubai - daily rates in AED, free delivery across the city.`} />
 
   <!-- Filter toolbar -->
   <div class="sticky top-[var(--nav-h)] z-40 border-b border-ivory/8 bg-ink/92 backdrop-blur-xl">
@@ -50,7 +50,7 @@ const priceBands = [
         <select data-sort class="rounded-pill border border-ivory/12 bg-graphite px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none">
           <option value="price-desc">Price: high to low</option>
           <option value="price-asc">Price: low to high</option>
-          <option value="name-asc">Name: A–Z</option>
+          <option value="name-asc">Name: A-Z</option>
         </select>
         <button data-reset class="hidden items-center gap-1.5 rounded-pill border border-ivory/12 px-4 py-2.5 text-sm text-mist hover:text-gold"><X class="h-3.5 w-3.5" /> Reset</button>
         <span class="ml-auto text-sm text-mist"><span data-count>{fleet.length}</span> cars</span>

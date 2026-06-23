@@ -6,7 +6,7 @@ export type Car = CollectionEntry<'fleet'>['data'];
 export const fmtAED = (n: number) =>
   'AED ' + new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(n);
 
-// Whole fleet, sorted by daily price (desc — flagship first).
+// Whole fleet, sorted by daily price (desc - flagship first).
 export async function getFleet(): Promise<Car[]> {
   const entries = await getCollection('fleet');
   return entries
@@ -14,7 +14,7 @@ export async function getFleet(): Promise<Car[]> {
     .sort((a, b) => b.priceDaily - a.priceDaily);
 }
 
-// Counts per category (membership) and per brand — for filter chips.
+// Counts per category (membership) and per brand - for filter chips.
 export function catCounts(cars: Car[]) {
   const m = new Map<string, number>();
   for (const c of cars) for (const cat of c.categories) m.set(cat, (m.get(cat) || 0) + 1);

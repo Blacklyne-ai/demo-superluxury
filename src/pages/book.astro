@@ -8,15 +8,15 @@ const fleet = await getFleet();
 const header = fleet.find((c) => c.id === '129')?.images[1] ?? fleet[0].images[0];
 const assurances = [
   { icon: ShieldCheck, t: 'No payment now', d: 'This sends an enquiry. We confirm the car, rate and deposit before anything is charged.' },
-  { icon: MapPin, t: 'Free Dubai delivery', d: 'We bring the car to your hotel, home or the airport — anywhere in Dubai.' },
+  { icon: MapPin, t: 'Free Dubai delivery', d: 'We bring the car to your hotel, home or the airport - anywhere in Dubai.' },
   { icon: Clock, t: '24/7 reply', d: 'Message any time. A real person comes back to you fast.' },
 ];
 ---
-<Layout title="Book a car — Super Luxury Car Rental Dubai">
+<Layout title="Book a car - Super Luxury Car Rental Dubai">
   <!-- Parallax header -->
   <ParallaxBand image={header} alt="Lamborghini Urus in Dubai" height="h-[60vh] min-h-[420px]"
     eyebrow="Book now" title="Reserve your car."
-    text="A few details and we confirm availability, the daily rate and delivery — no payment taken here." />
+    text="A few details and we confirm availability, the daily rate and delivery - no payment taken here." />
 
   <section class="lux-container grid gap-12 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
     <!-- form -->
@@ -26,8 +26,8 @@ const assurances = [
         <label class="block"><span class="mb-2 block text-sm text-mist">Phone / WhatsApp</span><input name="phone" required class="field" placeholder="+971 …" /></label>
         <label class="block sm:col-span-2"><span class="mb-2 block text-sm text-mist">Car</span>
           <select name="car" class="field">
-            <option value="">Any — help me choose</option>
-            {fleet.map((c) => <option value={`${c.name} (${fmtAED(c.priceDaily)}/day)`}>{c.name} — {fmtAED(c.priceDaily)}/day</option>)}
+            <option value="">Any - help me choose</option>
+            {fleet.map((c) => <option value={`${c.name} (${fmtAED(c.priceDaily)}/day)`}>{c.name} - {fmtAED(c.priceDaily)}/day</option>)}
           </select></label>
         <label class="block"><span class="mb-2 block text-sm text-mist">Pickup date</span><input name="pickup" type="date" class="field" /></label>
         <label class="block"><span class="mb-2 block text-sm text-mist">Return date</span><input name="return" type="date" class="field" /></label>
@@ -38,7 +38,7 @@ const assurances = [
         <button type="submit" data-send="wa" class="btn-gold flex-1 py-3.5"><MessageCircle class="h-4 w-4" /> Send via WhatsApp</button>
         <button type="submit" data-send="mail" class="btn-primary flex-1 py-3.5">Send by email</button>
       </div>
-      <p class="mt-4 text-xs text-faint">By sending you agree to be contacted about your enquiry. Drivers must be 21+ with a valid licence — see <a href="/terms" class="text-gold-deep underline underline-offset-2">terms</a>.</p>
+      <p class="mt-4 text-xs text-faint">By sending you agree to be contacted about your enquiry. Drivers must be 21+ with a valid licence - see <a href="/terms" class="text-gold-deep underline underline-offset-2">terms</a>.</p>
     </form>
 
     <!-- assurances -->
@@ -78,7 +78,7 @@ const assurances = [
   function compose(): string {
     const d = new FormData(form!);
     const L = (k: string, label: string) => { const v = (d.get(k) || '').toString().trim(); return v ? `${label}: ${v}` : ''; };
-    return ['New booking enquiry — Super Luxury Car Rental', L('name', 'Name'), L('phone', 'Phone'), L('car', 'Car'), L('pickup', 'Pickup'), L('return', 'Return'), L('location', 'Delivery'), L('notes', 'Notes')].filter(Boolean).join('\n');
+    return ['New booking enquiry - Super Luxury Car Rental', L('name', 'Name'), L('phone', 'Phone'), L('car', 'Car'), L('pickup', 'Pickup'), L('return', 'Return'), L('location', 'Delivery'), L('notes', 'Notes')].filter(Boolean).join('\n');
   }
   let mode = 'wa';
   form?.querySelectorAll('[data-send]').forEach((b) => b.addEventListener('click', () => { mode = (b as HTMLElement).dataset.send || 'wa'; }));

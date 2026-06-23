@@ -1,5 +1,5 @@
 ---
-// ── CINEMATIC DUBAI HERO — real drone film ────────────────────────────
+// ── CINEMATIC DUBAI HERO - real drone film ────────────────────────────
 // hero-dubai.mp4: drone dives down the Burj Khalifa facade into Downtown,
 // then the green Lamborghini Urus drives, orbit + follow. (Blacklyne-generated.)
 // Autoplay loop, muted, playsinline; played via JS only when motion is allowed.
@@ -7,7 +7,7 @@
 import { ChevronDown } from '@lucide/astro';
 const HAS_VIDEO = true;
 ---
-<section class="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-ink">
+<section class="sticky top-0 z-0 flex h-[100svh] flex-col justify-end overflow-hidden bg-ink">
   <div class="absolute inset-0 z-0">
     <img src="/film/poster.webp" alt="Drone view of the Burj Khalifa and Downtown Dubai at golden hour"
       class="absolute inset-0 h-full w-full object-cover" fetchpriority="high" decoding="async" />
@@ -28,10 +28,10 @@ const HAS_VIDEO = true;
       Drive the extraordinary.
     </h1>
     <p class="mt-7 max-w-md text-[1.05rem] leading-relaxed text-white/80" data-reveal data-delay="140">
-      Dubai's finest cars — handpicked and delivered anywhere in the city.
+      Dubai's finest cars - handpicked and delivered anywhere in the city.
     </p>
     <div class="mt-10 flex flex-wrap items-center gap-x-9 gap-y-4" data-reveal data-delay="220">
-      <a href="#fleet" class="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-ink transition hover:bg-gold hover:text-white">Browse the cars</a>
+      <a href="#fleet" class="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-ivory transition hover:bg-gold hover:text-white">Browse the cars</a>
       <a href="/book" class="inline-flex items-center gap-2 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-white/90 transition-colors hover:text-gold-lite">Book now
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>

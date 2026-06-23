@@ -26,7 +26,7 @@ const specRows = [
   car.specs.freePickup && { icon: CheckCircle2, label: 'Delivery', value: 'Free in Dubai' },
 ].filter(Boolean) as { icon: any; label: string; value: string }[];
 ---
-<Layout title={`${car.name} — Rent in Dubai | Super Luxury Car Rental`} description={car.description?.slice(0, 155) || `Rent the ${car.name} in Dubai from ${fmtAED(car.priceDaily)}/day.`} image={car.images[0]} navVariant="solid">
+<Layout title={`${car.name} - Rent in Dubai | Super Luxury Car Rental`} description={car.description?.slice(0, 155) || `Rent the ${car.name} in Dubai from ${fmtAED(car.priceDaily)}/day.`} image={car.images[0]} navVariant="solid">
   <div class="pt-[calc(var(--nav-h)+1.5rem)]">
     <!-- breadcrumb -->
     <div class="lux-container">
