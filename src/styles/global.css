@@ -103,11 +103,14 @@
 
   /* Scroll reveal - gated on html.js (visible without JS) */
   /* Scroll FX — hidden by default only when JS is on; revealed via IntersectionObserver. Visible if JS off. */
-  .js [data-reveal], .js [data-slide] { opacity: 0; will-change: opacity, transform; }
+  /* Reveals & slide-ins are driven by a reliable IntersectionObserver (Layout) that
+     adds .fx-in. Content is NEVER dependent on GSAP, so it can't get stuck hidden. */
+  .js [data-reveal], .js [data-slide] { opacity: 0; will-change: opacity, transform; transition: opacity .9s ease, transform 1.05s cubic-bezier(.22,1,.36,1); }
   .js [data-reveal] { transform: translateY(30px); }
   .js [data-slide="left"] { transform: translateX(-48px); }
   .js [data-slide="right"] { transform: translateX(48px); }
-  @media (prefers-reduced-motion: reduce) { .js [data-reveal], .js [data-slide] { opacity: 1 !important; transform: none !important; } }
+  .js [data-reveal].fx-in, .js [data-slide].fx-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .js [data-reveal], .js [data-slide] { opacity: 1 !important; transform: none !important; transition: none !important; } }
 
   .price-aed { font-variant-numeric: tabular-nums; letter-spacing: 0; }
   [data-wish].is-saved { color: rgb(var(--rgb-gold)); }
