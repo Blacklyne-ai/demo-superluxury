@@ -59,7 +59,7 @@ const specLine = [car.specs.seats && `${car.specs.seats} seats`, car.specs.trans
   <div class="pt-4">
     <!-- mobile: only the model, one line (uniform card heights). desktop: brand · category above. -->
     <p class="hidden truncate text-[0.66rem] uppercase tracking-[0.2em] text-faint sm:block">{car.brand} · {cat?.label ?? car.category}</p>
-    <a href={href}><h3 class="truncate font-display text-[0.92rem] font-medium leading-tight text-ivory transition-colors group-hover:text-gold sm:mt-1.5 sm:text-[1.45rem] sm:font-normal">{shortName(car.id, car.name)}</h3></a>
+    <a href={href}><h3 class="truncate font-display text-[1.25rem] leading-tight text-ivory transition-colors group-hover:text-gold sm:mt-1.5 sm:text-[1.45rem]">{shortName(car.id, car.name)}</h3></a>
     <div class="mt-2.5 flex items-end justify-between border-t border-ivory/8 pt-2.5 sm:mt-3 sm:pt-3">
       <p class="price-aed text-[0.9rem] text-gold sm:text-[0.95rem]">{fmtAED(car.priceDaily)} <span class="text-faint">/ day</span></p>
       {specLine && <p class="hidden text-[0.72rem] text-mist sm:block">{specLine}</p>}

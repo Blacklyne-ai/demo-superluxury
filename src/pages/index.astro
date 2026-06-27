@@ -44,7 +44,7 @@ const perks = [
     </div>
 
     <div class="lux-wide py-12">
-      <div data-grid class="grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
+      <div data-grid class="grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 lg:grid-cols-4">
         {fleet.map((car, i) => <FleetCard car={car} eager={i < 8} />)}
       </div>
       <div class="mt-14 flex flex-col items-center gap-5">
