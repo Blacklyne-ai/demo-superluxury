@@ -67,14 +67,13 @@ const ldJson = {
 
     <script is:inline>
       document.documentElement.classList.add('js');
-      // Failsafe: if the bundled animation script never runs, never leave content hidden.
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          document.querySelectorAll('[data-reveal],[data-slide]').forEach(function (el) {
-            if (parseFloat(getComputedStyle(el).opacity) < 0.1) { el.style.transition = 'opacity .7s ease'; el.style.opacity = '1'; el.style.transform = 'none'; }
-          });
-        }, 2200);
-      });
+      // Failsafe: never leave reveal content hidden, even if the bundled module or the
+      // window 'load' event never fire. Plain timer from parse time (not load-gated).
+      setTimeout(function () {
+        document.querySelectorAll('[data-reveal],[data-slide]').forEach(function (el) {
+          if (parseFloat(getComputedStyle(el).opacity) < 0.1) { el.style.transition = 'opacity .7s ease'; el.style.opacity = '1'; el.style.transform = 'none'; }
+        });
+      }, 2600);
     </script>
     <script type="application/ld+json" set:html={JSON.stringify(ldJson)} is:inline />
   </head>
