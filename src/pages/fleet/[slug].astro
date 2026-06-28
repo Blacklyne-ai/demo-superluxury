@@ -68,12 +68,12 @@ const specRows = [
 
         <!-- price card -->
         <div class="mt-6 rounded-2xl border border-ivory/10 bg-graphite p-6">
-          <div class="flex items-end justify-between">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p class="text-xs uppercase tracking-wide2 text-faint">Daily rate</p>
-              <p class="price-aed font-display text-4xl font-semibold text-gold">{fmtAED(car.priceDaily)}</p>
+              <p class="price-aed whitespace-nowrap font-display text-4xl font-semibold text-gold">{fmtAED(car.priceDaily)}</p>
             </div>
-            <p class="text-right text-xs text-faint">incl. 250 km/day<br />free Dubai delivery</p>
+            <p class="text-xs text-faint sm:text-right">incl. 250 km/day · free Dubai delivery</p>
           </div>
           <div class="mt-5 grid grid-cols-2 gap-3 border-t border-ivory/8 pt-5 text-sm">
             <div><p class="text-faint">Weekly</p><p class="text-ivory/80">On request</p></div>
