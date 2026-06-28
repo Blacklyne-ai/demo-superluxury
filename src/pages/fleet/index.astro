@@ -34,26 +34,28 @@ const priceBands = [
           <button data-cat-pill data-cat={c.slug} class="cat-pill">{c.label} <span class="opacity-60">{counts.get(c.slug) ?? 0}</span></button>
         ))}
       </div>
-      <!-- controls -->
-      <div class="mt-3 flex flex-wrap items-center gap-3">
-        <label class="relative flex-1 min-w-[200px]">
+      <!-- controls: clean 2-col grid on mobile, flex row on desktop -->
+      <div class="mt-3 grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
+        <label class="relative col-span-2 sm:flex-1 sm:min-w-[220px]">
           <Search class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-faint" />
-          <input data-search type="search" placeholder="Search a model or brand…" class="w-full rounded-pill border border-ivory/12 bg-graphite py-2.5 pl-10 pr-4 text-sm text-ivory placeholder:text-faint focus:border-gold/50 focus:outline-none" />
+          <input data-search type="search" placeholder="Search a model or brand…" class="h-11 w-full rounded-full border border-ivory/15 bg-graphite pl-10 pr-4 text-sm text-ivory placeholder:text-faint focus:border-gold/50 focus:outline-none" />
         </label>
-        <select data-brand-filter class="rounded-pill border border-ivory/12 bg-graphite px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none">
+        <select data-brand-filter class="h-11 w-full appearance-none rounded-full border border-ivory/15 bg-graphite px-4 text-sm text-ivory focus:border-gold/50 focus:outline-none sm:w-auto">
           <option value="">All brands</option>
           {presentBrands.map((b) => <option value={b}>{b}</option>)}
         </select>
-        <select data-price-filter class="rounded-pill border border-ivory/12 bg-graphite px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none">
+        <select data-price-filter class="h-11 w-full appearance-none rounded-full border border-ivory/15 bg-graphite px-4 text-sm text-ivory focus:border-gold/50 focus:outline-none sm:w-auto">
           {priceBands.map((p) => <option value={p.v}>{p.label}</option>)}
         </select>
-        <select data-sort class="rounded-pill border border-ivory/12 bg-graphite px-4 py-2.5 text-sm text-ivory focus:border-gold/50 focus:outline-none">
+        <select data-sort class="col-span-2 h-11 w-full appearance-none rounded-full border border-ivory/15 bg-graphite px-4 text-sm text-ivory focus:border-gold/50 focus:outline-none sm:col-span-1 sm:w-auto">
           <option value="price-desc">Price: high to low</option>
           <option value="price-asc">Price: low to high</option>
           <option value="name-asc">Name: A-Z</option>
         </select>
-        <button data-reset class="hidden items-center gap-1.5 rounded-pill border border-ivory/12 px-4 py-2.5 text-sm text-mist hover:text-gold"><X class="h-3.5 w-3.5" /> Reset</button>
-        <span class="ml-auto text-sm text-mist"><span data-count>{fleet.length}</span> cars</span>
+        <div class="col-span-2 flex items-center justify-between sm:contents">
+          <span class="text-sm text-mist sm:ml-auto"><span data-count>{fleet.length}</span> cars</span>
+          <button data-reset class="hidden inline-flex items-center gap-1.5 rounded-full border border-ivory/15 px-4 py-2 text-sm text-mist hover:border-gold/50 hover:text-gold-deep"><X class="h-3.5 w-3.5" /> Reset</button>
+        </div>
       </div>
     </div>
   </div>
@@ -75,6 +77,14 @@ const priceBands = [
   .cat-pill { @apply shrink-0 whitespace-nowrap rounded-pill border border-ivory/12 px-4 py-2 text-sm font-medium text-mist transition-colors; }
   .cat-pill.is-on { @apply border-gold/60 bg-gold/10 text-gold; }
   .cat-pill:hover { @apply text-ivory; }
+  /* custom dropdown chevron (we use appearance-none for a consistent pill look) */
+  select {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237C786F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.95rem center;
+    background-size: 0.85rem;
+    padding-right: 2.4rem;
+  }
 </style>
 
 <script>
